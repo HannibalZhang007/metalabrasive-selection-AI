@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金属磨料智能选型计算器 / Smart Abrasive Media Selector</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --panel:#ffffff; --ink:#1f2937; --muted:#6b7280;
+    --line:#e5e7eb; --accent:#2563eb; --accent2:#1d4ed8; --ok:#059669;
+    --warn:#d97706; --soft:#eef2ff; --soft2:#f0f9ff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;padding:28px;}
+  .wrap{max-width:980px;margin:0 auto;}
+  h1{font-size:24px;margin:0 0 4px;color:var(--ink);}
+  .sub{color:var(--muted);margin:0 0 20px;font-size:14px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:680px){.grid{grid-template-columns:1fr;}}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{font-size:13px;font-weight:600;color:var(--ink);}
+  .field .hint{font-size:11px;color:var(--muted);}
+  select,input{font-size:14px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;
+    background:#fff;color:var(--ink);width:100%;}
+  select:focus,input:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+  .full{grid-column:1/-1;}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:10px;
+    padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer;transition:.15s;}
+  .btn:hover{background:var(--accent2);}
+  .btn.ghost{background:#fff;color:var(--accent);border:1px solid var(--accent);margin-left:10px;}
+  .result{display:none;}
+  .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px;}
+  .res-item{background:var(--soft2);border:1px solid #dbeafe;border-radius:10px;padding:14px;}
+  .res-item .k{font-size:12px;color:var(--muted);}
+  .res-item .v{font-size:16px;font-weight:700;color:var(--ink);margin-top:2px;}
+  .res-head{display:flex;align-items:center;gap:10px;margin:6px 0 14px;}
+  .badge{background:var(--ok);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px;}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;}
+  th{background:var(--soft);font-weight:600;}
+  tr:nth-child(even) td{background:#fafafa;}
+  .note{font-size:12px;color:var(--muted);margin-top:10px;border-left:3px solid var(--accent);
+    padding:8px 12px;background:var(--soft);border-radius:0 8px 8px 0;}
+  .warn-box{background:#fffbeb;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:10px;margin-top:12px;font-size:13px;}
+  .warn-box .w{display:block;margin:2px 0;}
+  .footer{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;}
+  .two-lang{font-size:13px;color:var(--muted);}
+  details{margin-top:12px;}
+  details>summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:14px;padding:6px 0;}
+  .sec-title{font-size:15px;font-weight:700;margin:0 0 8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>金属磨料智能选型计算器 <span class="two-lang">/ Smart Abrasive Media Selector (v3 网页版)</span></h1>
+  <p class="sub">基于 Excel「金属磨料智能选型计算器 v3」的选型公式移植 · 选择行业后自动带入典型工况，右侧给出推荐磨料、规格、年耗量与工况优化建议。带 <span style="color:var(--accent)">●</span> 的字段选定行业后可一键带入。</p>
+
+  <div class="card">
+    <div class="grid">
+      <div class="field">
+        <label>① 行业类型 / Industry Type <span style="color:var(--accent)">●</span></label>
+        <select id="industry">
+          <option value="">— 请选择 / Select —</option>
+          <option value="cast_steel">铸钢/铸铁 (Cast Steel / Cast Iron)</option>
+          <option value="shipbuilding">船舶与海洋工程 (Shipbuilding &amp; Offshore)</option>
+          <option value="automotive">汽车零部件 (Automotive Parts)</option>
+          <option value="bearing">轴承行业 (Bearing Industry)</option>
+          <option value="steel_struct">钢结构与桥梁 (Steel Structure &amp; Bridges)</option>
+          <option value="container">集装箱制造 (Container Manufacturing)</option>
+          <option value="oil_gas">石油管道与压力容器 (Oil &amp; Gas Pipe / Pressure Vessel)</option>
+          <option value="wind_nuclear">风电与核电设备 (Wind &amp; Nuclear Equipment)</option>
+          <option value="precision_cast">精密铸造与熔模铸造 (Precision / Investment Casting)</option>
+          <option value="aluminum">铝合金压铸 (Aluminum Die Casting)</option>
+          <option value="railway">铁路车辆与轨道 (Railway Vehicles &amp; Track)</option>
+          <option value="steel_mill">钢铁企业·除鳞线 (Steel Mill · Descaling Line)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>② 基材材质 / Base Material <span style="color:var(--accent)">●</span></label>
+        <select id="base">
+          <option value="">— 请选择 / Select —</option>
+          <option value="黑色金属(碳钢/铸铁)">黑色金属 / 碳钢·铸铁 (Ferrous)</option>
+          <option value="不锈钢">不锈钢 (Stainless Steel)</option>
+          <option value="有色金属(铝/铜/锌)">有色金属 / 铝·铜·锌 (Non-ferrous)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>③ 表面处理要求 / Surface Treatment <span style="color:var(--accent)">●</span></label>
+        <select id="surface">
+          <option value="">— 请选择 / Select —</option>
+          <option value="清理/除锈">清理 / 除锈 (Cleaning / Rust Removal)</option>
+          <option value="除鳞/粗化/打砂">除鳞 / 粗化 / 打砂 (Descaling / Roughening)</option>
+          <option value="喷丸强化">喷丸强化 (Shot Peening)</option>
+          <option value="精密清理/抛光">精密清理 / 抛光 (Precision Cleaning)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>④ 目标粗糙度 Rz (μm) / Target Roughness <span style="color:var(--accent)">●</span></label>
+        <select id="rough">
+          <option value="">— 请选择 / Select —</option>
+          <option value="&lt;50">&lt; 50</option>
+          <option value="40-80">40 - 80</option>
+          <option value="50-80">50 - 80</option>
+          <option value="50-100">50 - 100</option>
+          <option value="80-120">80 - 120</option>
+          <option value="&gt;120">&gt; 120</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>⑤ 设备类型 / Equipment Type <span style="color:var(--accent)">●</span></label>
+        <select id="equip">
+          <option value="">— 请选择 / Select —</option>
+          <option value="抛丸机(叶轮式)">抛丸机 / 叶轮式 (Wheel Blasting)</option>
+          <option value="喷砂机(压入式)">喷砂机 / 压入式 (Pressure Blasting)</option>
+          <option value="喷砂机(吸入式)">喷砂机 / 吸入式 (Suction Blasting)</option>
+          <option value="其他/手工">其他 / 手工 (Other / Manual)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>⑥ 叶轮/气源功率 / Impeller·Air Power <span style="color:var(--accent)">●</span></label>
+        <select id="power">
+          <option value="">— 请选择 / Select —</option>
+          <option value="低(&lt;15kW)">低 / &lt;15kW (Low)</option>
+          <option value="中(15-30kW)">中 / 15-30kW (Medium)</option>
+          <option value="高(&gt;30kW)">高 / &gt;30kW (High)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>⑦ 设备使用年限 / Service Life <span style="color:var(--accent)">●</span></label>
+        <select id="life">
+          <option value="">— 请选择 / Select —</option>
+          <option value="&lt;3年">&lt; 3 years</option>
+          <option value="3-8年">3 - 8 years</option>
+          <option value="&gt;8年">&gt; 8 years</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>⑧ 回收/分选系统 / Recovery System <span style="color:var(--accent)">●</span></label>
+        <select id="recover">
+          <option value="">— 请选择 / Select —</option>
+          <option value="有">有 (Yes)</option>
+          <option value="无">无 (No)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>⑨ 环保/粉尘要求 / Dust Requirement <span style="color:var(--accent)">●</span></label>
+        <select id="env">
+          <option value="">— 请选择 / Select —</option>
+          <option value="严格(&lt;5mg/m³)">严格 / &lt;5mg/m³ (Strict)</option>
+          <option value="一般">一般 (General)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>⑩ 年处理量 (吨) / Annual Throughput (tons)</label>
+        <input id="throughput" type="number" min="0" step="any" placeholder="如 5000 (fill from research)">
+      </div>
+    </div>
+
+    <div style="margin-top:18px;">
+      <button class="btn" id="gen">生成选型方案 / Generate Recommendation</button>
+      <button class="btn ghost" id="reset">重置 / Reset</button>
+    </div>
+    <p class="note">提示：选择「行业类型」后，上方 ①②③④⑤⑥⑦⑧⑨ 会按行业模板自动带入典型工况，您可再微调黄色字段；⑩ 年处理量请按背调产能填写。年耗量公式 = 年处理量 × 行业消耗率(kg/吨) ÷ 1000 × 回收系数（有回收=1，无回收=1.6）。示例：钢结构厂年处理 10 万吨、消耗率 0.3–0.6 kg/吨、有回收 → 约 30–60 吨/年；钢厂除鳞线 50 万吨、消耗率 2–3 kg/吨 → 约 1000–1500 吨/年。</p>
+  </div>
+
+  <div class="card result" id="result">
+    <div class="res-head">
+      <span class="badge">推荐方案 / Recommendation</span>
+      <span class="two-lang" id="res-industry"></span>
+    </div>
+    <div class="res-grid" id="res-grid"></div>
+
+    <h3 style="margin:18px 0 4px;">推荐磨料明细 / Abrasive Detail</h3>
+    <table id="res-table"><thead><tr><th>项目 / Item</th><th>内容 / Detail</th></tr></thead><tbody></tbody></table>
+
+    <div class="warn-box" id="res-warn" style="display:none;"></div>
+
+    <div class="note" id="res-note"></div>
+
+
+    <div class="note" id="res-more"></div>
+  </div>
+
+  <!-- ===== 参考查找表 / Reference Lookup Tables（按需求隐藏，不在网页版显示） ===== -->
+  <div class="card" style="display:none">
+    <div class="sec-title">附录 · 内置查找表（与 Excel 一致） / Appendix · Embedded Lookup Tables</div>
+
+    <details>
+      <summary>磨料数据库 / Abrasive Database (A–P)</summary>
+      <table id="tbl-abr"><thead><tr><th>编码</th><th>名称 / Name</th><th>材质</th><th>硬度 HRC</th><th>形状</th><th>特点 / Feature</th><th>循环次数</th><th>规格 Spec</th></tr></thead><tbody></tbody></table>
+    </details>
+
+    <details>
+      <summary>选型矩阵 / Selection Matrix (设备→主/副料)</summary>
+      <table id="tbl-matrix"><thead><tr><th>行业 / Industry</th><th>抛丸机 主料</th><th>抛丸机 副料</th><th>抛丸 混合比</th><th>喷砂机 主料</th><th>喷砂机 副料</th><th>喷砂 混合比</th></tr></thead><tbody></tbody></table>
+    </details>
+
+    <details>
+      <summary>行业模板 / Industry Templates (消耗率 & 默认混合)</summary>
+      <table id="tbl-ind"><thead><tr><th>行业 / Industry</th><th>消耗率下限 kg/t</th><th>消耗率上限 kg/t</th><th>主料</th><th>副料</th><th>默认混合比</th><th>选购切入点 / Entry</th></tr></thead><tbody></tbody></table>
+    </details>
+
+    <details>
+      <summary>粗糙度→粒径规格 / Roughness → Particle Size</summary>
+      <table><thead><tr><th>粗糙度 Rz</th><th>球形(S代码)</th><th>棱角(G代码)</th><th>其他(φ直径)</th><th>适用 / Use</th></tr></thead><tbody>
+        <tr><td>&lt;50 μm</td><td>S170</td><td>G80</td><td>φ0.4</td><td>薄板/精密件 / Thin plate &amp; precision</td></tr>
+        <tr><td>40-80 μm</td><td>S170</td><td>G80</td><td>φ0.4</td><td>表面调理 / Surface conditioning</td></tr>
+        <tr><td>50-80 μm</td><td>S230</td><td>G40</td><td>φ0.6</td><td>一般钢板预处理 / General plate pretreatment</td></tr>
+        <tr><td>50-100 μm</td><td>S280</td><td>G25</td><td>φ0.8</td><td>造船/集装箱面板 / Ship &amp; container panel</td></tr>
+        <tr><td>80-120 μm</td><td>S330/S390</td><td>G16/G18</td><td>φ1.0</td><td>重型除鳞/铸锻件 / Heavy descaling &amp; casting</td></tr>
+        <tr><td>&gt;120 μm</td><td>S330/S390</td><td>G16/G18</td><td>φ1.2-1.4</td><td>特重工况 / Extra-heavy duty</td></tr>
+      </tbody></table>
+    </details>
+  </div>
+
+  <p class="note">注：① 钢丸（A/B，高碳/低碳）一律按 <b>S 代码</b> 分级（S170/S230/S280/S330，依据见「出厂价格表 8.24」）；② 钢砂（C/D，高碳/轴承钢砂）一律按 <b>G 代码</b> 分级（G80/G40/G25/G16，此 G 为网目）；③ 研丸（F/G/H/N）规格也以 <b>G 打头，但 G 代表钢号</b>（G45/G70/G82B/G3），粒径用 φ 表示，与钢砂的网目 G 含义不同；④ 不锈钢丸/切丸（J/K/L/M/O/P）、铜切丸(I)、再生切丸(E) 按 <b>直径 φ</b> 分级，不使用 S 代码；⑤ 硬度仅对钢丸(A/B)、钢砂(C/D)按 <b>GP(42-52)/GL(52-61)/GH(&gt;61)HRC</b> 体现（默认 GP；喷丸强化推荐 GL，特殊要求可选 GH）；不锈钢/铜/切丸/研丸等不体现硬度。</p>
+
+  <div class="footer">数据基准：行业模板与磨料数据库（2026-8-24 版）。选型计算公式移植自《金属磨料智能选型计算器 v3 加密版》。本页为选型量级依据，正式报价以合同为准。</div>
+</div>
+
+<script>
+/* ============ 磨料数据库 / Abrasive Database ============ */
+const ABR = {
+  A:{cn:'高碳钢丸',en:'High-carbon Steel Shot',mat:'黑色金属 Ferrous',hard:'GP 42-52 HRC',shape:'球形 Spherical',shapeKey:'spherical',cyc:'1500-2000',surface:'清理/除锈',spec:'S110/S130/S170/S230/S280+',feat:'清理均匀，钢板预处理主力'},
+  B:{cn:'低碳钢丸',en:'Low-carbon Steel Shot',mat:'黑色金属 Ferrous',hard:'GP 42-52 HRC',shape:'球形 Spherical',shapeKey:'spherical',cyc:'2000-3000',surface:'薄板清理',spec:'S110/S130/S170/S230/S280+',feat:'韧性好，不易碎，适合薄板'},
+  C:{cn:'高碳钢砂',en:'High-carbon Steel Grit',mat:'黑色金属 Ferrous',hard:'GP 42-52 HRC',shape:'棱角 Angular',shapeKey:'angular',cyc:'1500-2000',surface:'除鳞/粗化',spec:'G14-G18 / G25-G40 / G50-G80',feat:'切削力强，分段喷砂主力'},
+  D:{cn:'轴承钢砂',en:'Bearing Steel Grit',mat:'黑色金属 Ferrous',hard:'GP 42-52 HRC',shape:'棱角(锻造) Forged Angular',shapeKey:'angular',cyc:'2000-3000',surface:'除鳞/强化',spec:'G14-G18 / G25-G40 / G50-G80',feat:'高端，寿命长，CI 7.1ppm 远低于 ISO8502 15ppm'},
+  E:{cn:'再生切丸',en:'Recycled Cut Wire',mat:'黑色金属 Ferrous',hard:'—',shape:'切丸 Cut Wire',shapeKey:'other',cyc:'1500-2000',surface:'通用',spec:'φ1.0 / φ1.2 / φ1.4 / φ1.8-2.0',feat:'经济型，性价比高'},
+  F:{cn:'研丸G45',en:'Grinding Steel Shot G45',mat:'黑色金属 Ferrous',hard:'—',shape:'研磨强化 Grinding',shapeKey:'grinding',grade:'G45',cyc:'2500-3500',surface:'通用/长寿命',spec:'G45级 φ0.6/0.8/1.0/1.2-1.4',feat:'入门级，破碎率仅普通钢丸1/3'},
+  G:{cn:'强化研丸G70',en:'Reinforcement Grinding Steel Shot G70',mat:'黑色金属 Ferrous',hard:'—',shape:'研磨强化 Grinding',shapeKey:'grinding',grade:'G70',cyc:'3000-4000',surface:'喷丸强化',spec:'G70级 φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'强化用，超高韧性，诱导残余压应力、提升疲劳寿命'},
+  H:{cn:'强化研丸G82B',en:'Grinding Steel Shot G82B',mat:'黑色金属 Ferrous',hard:'—',shape:'研磨强化 Grinding',shapeKey:'grinding',grade:'G82B',cyc:'3500-4500',surface:'顶级强化',spec:'G82B级 φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'顶级强化，最高韧性'},
+  I:{cn:'铜切丸',en:'Copper Cut Wire',mat:'有色金属 Non-ferrous',hard:'—',shape:'切丸 Cut Wire',shapeKey:'other',cyc:'1500-2000',surface:'铝铜清理',spec:'φ1.5-3.0',feat:'无火花，无铁污染，适合铝铜'},
+  J:{cn:'不锈钢丸304',en:'Stainless Steel Shot 304',mat:'不锈钢 Stainless',hard:'—',shape:'球形 Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'不锈钢清理',spec:'φ0.4/0.6/0.8/1.0/1.2-2.0',feat:'无碳污染，食品/航空级'},
+  K:{cn:'不锈钢丸410',en:'Stainless Steel Shot 410',mat:'不锈钢 Stainless',hard:'—',shape:'球形 Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'不锈钢',spec:'φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'磁性不锈钢'},
+  L:{cn:'不锈钢丸430',en:'Stainless Steel Shot 430',mat:'不锈钢 Stainless',hard:'—',shape:'球形 Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'不锈钢',spec:'φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'耐腐蚀'},
+  M:{cn:'不锈钢丸201',en:'Stainless Steel Shot 201',mat:'不锈钢 Stainless',hard:'—',shape:'球形 Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'不锈钢',spec:'φ0.4/0.6/0.8/1.0/1.2-2.0',feat:'经济型不锈钢'},
+  N:{cn:'普通研丸G3',en:'General Grinding Steel Shot G3',mat:'黑色金属 Ferrous',hard:'—',shape:'研磨强化 Grinding',shapeKey:'grinding',grade:'G3',cyc:'2000-3000',surface:'通用/长寿命',spec:'G3级 φ1.4 / φ1.8-2.0',feat:'经济型研丸，性价比高'},
+  O:{cn:'304切丸',en:'304 Cut Wire',mat:'不锈钢 Stainless',hard:'—',shape:'切丸 Cut Wire',shapeKey:'other',cyc:'1500-2500',surface:'不锈钢清理/粗化',spec:'φ0.4/0.6/0.8/1.0/1.2-2.0',feat:'比304研丸经济、更具棱角'},
+  P:{cn:'410切丸',en:'410 Cut Wire',mat:'不锈钢 Stainless',hard:'—',shape:'切丸 Cut Wire',shapeKey:'other',cyc:'1500-2500',surface:'不锈钢清理/粗化',spec:'φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'比410研丸经济、更具棱角'}
+};
+
+/* 硬度等级推荐：仅高碳/低碳钢丸(A/B)、钢砂(C/D)按 GP/GL/GH 体现；其余(不锈钢/铜/切丸/研丸)不体现 */
+function recHard(mainCode, subCode, surface){
+  const ferrous = ['A','B','C','D'];
+  if(!ferrous.includes(mainCode) && !(subCode && ferrous.includes(subCode))) return '—（不适用 / N.A.）';
+  const grade = (surface==='喷丸强化' || surface==='精密清理/抛光') ? 'GL 52-61 HRC' : 'GP 42-52 HRC';
+  const parts = [];
+  if(ferrous.includes(mainCode)) parts.push(grade);
+  if(subCode && ferrous.includes(subCode)) parts.push(grade + '（副料）');
+  return parts.join(' / ');
+}
+
+/* ============ 行业模板 / Industry Templates ============ */
+const IND = {
+  cast_steel:{zh:'铸钢/铸铁',en:'Cast Steel / Cast Iron',preset:{base:'黑色金属(碳钢/铸铁)',surface:'清理/除锈',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.8,consHigh:1.5,main:'A',sub:'C',mix:'70:30',note:'年产能/铸件材质/壁厚(薄壁用低硬丸)'},
+  shipbuilding:{zh:'船舶与海洋工程',en:'Shipbuilding & Offshore',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'80-120',equip:'抛丸机(叶轮式)',power:'高(>30kW)',life:'3-8年',recover:'有',env:'严格(<5mg/m³)'},consLow:0.3,consHigh:0.6,main:'A',sub:'C',mix:'70:30',note:'船级社认证/钢板材质(碳/不锈/铝)/涂层标准'},
+  automotive:{zh:'汽车零部件',en:'Automotive Parts',preset:{base:'黑色金属(碳钢/铸铁)',surface:'喷丸强化',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.6,consHigh:1.2,main:'B',sub:'C',mix:'60:40',note:'强化or清理/零件材质/疲劳寿命'},
+  bearing:{zh:'轴承行业',en:'Bearing Industry',preset:{base:'黑色金属(碳钢/铸铁)',surface:'喷丸强化',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'<3年',recover:'有',env:'一般'},consLow:0.5,consHigh:1.0,main:'A',sub:'-',mix:'100:0',note:'轴承型号/强化覆盖率/当前破碎率痛点'},
+  steel_struct:{zh:'钢结构与桥梁',en:'Steel Structure & Bridges',preset:{base:'黑色金属(碳钢/铸铁)',surface:'清理/除锈',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.3,consHigh:0.6,main:'A',sub:'-',mix:'100:0',note:'预处理线产能/板厚/涂装标准 ISO8501'},
+  container:{zh:'集装箱制造',en:'Container Manufacturing',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'50-80',equip:'抛丸机(叶轮式)',power:'高(>30kW)',life:'3-8年',recover:'有',env:'严格(<5mg/m³)'},consLow:0.4,consHigh:0.8,main:'A',sub:'C',mix:'70:30',note:'日产量/预处理线配置/粉尘排放'},
+  oil_gas:{zh:'石油管道与压力容器',en:'Oil & Gas Pipe / Pressure Vessel',preset:{base:'黑色金属(碳钢/铸铁)',surface:'清理/除锈',rough:'50-80',equip:'喷砂机(压入式)',power:'中(15-30kW)',life:'3-8年',recover:'无',env:'一般'},consLow:0.5,consHigh:1.0,main:'C',sub:'-',mix:'100:0',note:'管道材质(碳/合金)/压力等级/内壁处理'},
+  wind_nuclear:{zh:'风电与核电设备',en:'Wind & Nuclear Equipment',preset:{base:'黑色金属(碳钢/铸铁)',surface:'喷丸强化',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'<3年',recover:'有',env:'严格(<5mg/m³)'},consLow:0.5,consHigh:1.0,main:'B',sub:'C',mix:'60:40',note:'设备认证(核电资质)/特殊材质/清洁度'},
+  precision_cast:{zh:'精密铸造与熔模铸造',en:'Precision / Investment Casting',preset:{base:'黑色金属(碳钢/铸铁)',surface:'精密清理/抛光',rough:'<50',equip:'抛丸机(叶轮式)',power:'低(<15kW)',life:'3-8年',recover:'有',env:'一般'},consLow:1.0,consHigh:2.0,main:'B',sub:'-',mix:'100:0',note:'铸件材质(不锈/高温合金)/粗糙度要求'},
+  aluminum:{zh:'铝合金压铸',en:'Aluminum Die Casting',preset:{base:'有色金属(铝/铜/锌)',surface:'清理/除锈',rough:'<50',equip:'抛丸机(叶轮式)',power:'低(<15kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.3,consHigh:0.8,main:'J',sub:'-',mix:'100:0',note:'是否出口(铁残留要求)/表面质量问题'},
+  railway:{zh:'铁路车辆与轨道',en:'Railway Vehicles & Track',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.4,consHigh:0.8,main:'A',sub:'C',mix:'70:30',note:'车型(碳钢/不锈钢/铝合金车体)'},
+  steel_mill:{zh:'钢铁企业·除鳞线',en:'Steel Mill · Descaling Line',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'50-80',equip:'抛丸机(叶轮式)',power:'高(>30kW)',life:'3-8年',recover:'有',env:'严格(<5mg/m³)'},consLow:2.0,consHigh:3.0,main:'A',sub:'C',mix:'60:40',note:'产线类型(除鳞线2-3kg/t vs 轧线0.02-0.05kg/t)/钢种'}
+};
+
+/* ============ 选型矩阵 / Selection Matrix ============ */
+const MATRIX = {
+  cast_steel:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
+  shipbuilding:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
+  automotive:{wheel:['B','C','60:40'],blast:['C','-','100:0']},
+  bearing:{wheel:['A','-','100:0'],blast:['C','-','100:0']},
+  steel_struct:{wheel:['A','-','100:0'],blast:['C','-','100:0']},
+  container:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
+  oil_gas:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
+  wind_nuclear:{wheel:['B','C','60:40'],blast:['D','-','100:0']},
+  precision_cast:{wheel:['B','-','100:0'],blast:['C','-','100:0']},
+  aluminum:{wheel:['J','-','100:0'],blast:['I','-','100:0']},
+  railway:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
+  steel_mill:{wheel:['A','C','60:40'],blast:['D','-','100:0']}
+};
+
+const $ = id => document.getElementById(id);
+
+/* 行业选择 → 自动带入典型工况 (Excel: 选型计算器 B3 触发预设) */
+function fillPreset(){
+  const v = $('industry').value;
+  if(!v || !IND[v]) return;
+  const p = IND[v].preset;
+  $('base').value = p.base;
+  $('surface').value = p.surface;
+  $('rough').value = p.rough;
+  $('equip').value = p.equip;
+  $('power').value = p.power;
+  $('life').value = p.life;
+  $('recover').value = p.recover;
+  $('env').value = p.env;
+}
+$('industry').addEventListener('change', fillPreset);
+
+/* 粗糙度 + 形状 → 粒径规格 (Excel: B37)
+   规则：钢丸(A/B)→S代码；钢砂(C/D)→G代码(网目)；
+        不锈钢丸(J/K/L/M)与切丸(E/I/O/P)→φ直径；研丸(F/G/H/N)→G钢号+φ直径 */
+function specByShape(m, rough){
+  const sk = m.shapeKey;
+  const phi = (rough==='<50' || rough==='40-80') ? 'φ0.4'
+            : (rough==='50-80') ? 'φ0.6'
+            : (rough==='50-100') ? 'φ0.8'
+            : (rough==='80-120') ? 'φ1.0' : 'φ1.2-1.4';
+  if(sk === 'sshot'){ return phi; }                 // 不锈钢丸：φ 直径，不使用 S 代码
+  if(sk === 'spherical'){                           // 碳钢丸(A/B)：S 代码
+    if(rough==='<50' || rough==='40-80') return 'S170';
+    if(rough==='50-80') return 'S230';
+    if(rough==='50-100') return 'S280';
+    return 'S330/S390';
+  }
+  if(sk === 'angular'){                             // 钢砂(C/D)：G 代码（网目）
+    if(rough==='<50' || rough==='40-80') return 'G80';
+    if(rough==='50-80') return 'G40';
+    if(rough==='50-100') return 'G25';
+    return 'G16/G18';
+  }
+  if(sk === 'grinding'){                            // 研丸(F/G/H/N)：G=钢号 + φ 直径
+    return (m.grade || '') + ' ' + phi;
+  }
+  return phi;                                       // 切丸(E/I/O/P)：φ 直径
+}
+
+/* 解析 "3842-4836" 或 "≈10749-15043" → [lo, hi] */
+function parseRange(s){
+  if(!s) return null;
+  let t = s.replace(/[≈]/g,'').trim();
+  let m = t.match(/(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)/);
+  if(m) return [parseFloat(m[1]), parseFloat(m[2])];
+  m = t.match(/(\d+(?:\.\d+)?)/);
+  if(m) return [parseFloat(m[1]), parseFloat(m[1])];
+  return null;
+}
+
+/* 主料/副料选择 (Excel: B32/B33/B34)
+   规则：① 基材决定磨料家族——不锈钢/有色金属必须用不锈钢丸或切丸，否则铁污染；
+        ② 不锈钢清理/除锈/除鳞：同功用下切丸(O/P)比丸便宜且更具棱角→主推切丸O；
+           喷丸强化/精密清理须用球形不锈钢丸(J)；
+        ③ 黑色金属喷丸强化：铸钢丸(A)应用最广泛、钢丝切丸(E)长寿命、研丸(G/H)为重工况强化首选，
+           喷砂机只能用钢砂/轴承钢砂(C/D)，不得出现丸类（研丸知识库：G70为强化级） */
+function pickMainSub(indKey, equip, surface, rough){
+  const eq = equip || '';
+  const base = $('base').value;
+  // 不锈钢 / 有色金属：磨料家族必须匹配基材（避免碳钢污染）
+  if(base === '不锈钢' || base === '有色金属(铝/铜/锌)'){
+    // 喷丸强化 / 精密清理：需球形不锈钢丸诱导残余压应力或得光洁面
+    if(surface === '喷丸强化' || surface === '精密清理/抛光'){
+      return {main:'J', sub:'-', mix:'100:0'};
+    }
+    // 清理/除锈/除鳞：切丸(O)更便宜且更具棱角 → 按价格优势主推
+    return {main:'O', sub:'-', mix:'100:0'};
+  }
+  // 黑色金属喷丸强化：铸钢丸(A)最广泛、钢丝切丸(E)长寿命、研丸(G/H)重工况强化、轴承钢砂(D)为喷砂机专用
+  if(surface === '喷丸强化'){
+    const heavy = (rough === '80-120' || rough === '>120');
+    // 喷砂机只能使用钢砂/轴承钢砂一类的棱角料，严禁出现研丸/切丸等丸类
+    if(eq.indexOf('喷砂') >= 0){
+      return {main: heavy ? 'D' : 'C', sub:'-', mix:'100:0'};
+    }
+    // 抛丸机：一般工况以铸钢丸(A)为主（齿轮/曲轴/连杆等汽车件最广泛用），重工况(高粗糙度)用研丸(G/H)获更佳疲劳提升
+    return {main: heavy ? 'G' : 'A', sub:'-', mix:'100:0'};
+  }
+  const m = MATRIX[indKey];
+  if(eq.indexOf('抛丸') >= 0) return {main:m.wheel[0], sub:m.wheel[1], mix:m.wheel[2]};
+  if(eq.indexOf('喷砂') >= 0) return {main:m.blast[0], sub:m.blast[1], mix:m.blast[2]};
+  const ind = IND[indKey];
+  return {main:ind.main, sub:ind.sub, mix:ind.mix};
+}
+
+function gen(){
+  const v = $('industry').value;
+  if(!v || !IND[v]){ alert('请先选择行业类型 / Please select an industry first.'); return; }
+  const ind = IND[v];
+  const base = $('base').value;
+  const surface = $('surface').value;
+  const rough = $('rough').value;
+  const equip = $('equip').value;
+  const power = $('power').value;
+  const life = $('life').value;
+  const recover = $('recover').value;
+  const env = $('env').value;
+  const thr = parseFloat($('throughput').value) || 0;
+
+  const sel = pickMainSub(v, equip, surface, rough);
+  const mainCode = sel.main;
+  const subCode = (sel.sub && sel.sub!=='-') ? sel.sub : null;
+  const main = ABR[mainCode];
+  const sub = subCode ? ABR[subCode] : null;
+
+  $('res-industry').textContent = '行业 / Industry: ' + ind.zh + ' · ' + ind.en;
+
+  /* ---- 结果卡片 (Excel: B15-B20) ---- */
+  const grid = $('res-grid'); grid.innerHTML='';
+  const code = mainCode + (subCode ? (' + '+subCode) : '');
+  const name = main.en + (sub ? (' + '+sub.en) : '');
+  const mix = (subCode===mainCode || !subCode) ? ('单一磨料100% '+mainCode) : (mainCode+':'+subCode+'（按实测微调）');
+  const hard = recHard(mainCode, subCode, surface);
+  const cyc = main.cyc + (sub ? (' / '+sub.cyc) : '');
+  const items = [
+    ['推荐磨料编码 / Code', code],
+    ['推荐磨料 / Abrasive', name],
+    ['规格(粒径) / Spec', specByShape(main, rough) + (sub ? (' ＋ 副料 '+specByShape(sub, rough)) : '')],
+    ['硬度 / Hardness', hard],
+    ['建议混合比 / Mix', mix],
+    ['预估循环次数 / Cycles', cyc]
+  ];
+  items.forEach(([k,val])=>{
+    const d=document.createElement('div'); d.className='res-item';
+    d.innerHTML='<div class="k">'+k+'</div><div class="v">'+val+'</div>';
+    grid.appendChild(d);
+  });
+
+  /* ---- 明细表 (Excel: B16/B17/B18/B19/B20 + 工况) ---- */
+  const tb = $('res-table').querySelector('tbody'); tb.innerHTML='';
+  const rows = [
+    ['基材材质 / Base', base||'—'],
+    ['表面处理 / Surface', surface||'—'],
+    ['目标粗糙度 / Roughness', rough? (rough+' μm') : '—'],
+    ['设备类型 / Equipment', equip||'—'],
+    ['叶轮/气源功率 / Power', power||'—'],
+    ['设备年限 / Service Life', life||'—'],
+    ['回收系统 / Recovery', recover||'—'],
+    ['环保要求 / Dust', env||'—'],
+    ['主料特性 / Main feature', main.feat],
+    ['副料 / Sub material', sub ? (sub.cn+' / '+sub.en+' ('+subCode+')') : '—（单一磨料 Single）'],
+    ['副料规格(粒径) / Sub spec', sub ? specByShape(sub, rough) : '—（单一磨料 Single）'],
+    ['副料特性 / Sub feature', sub ? sub.feat : '单一磨料，无需搭配副料'],
+    ['选购切入点 / Entry', ind.note]
+  ];
+  rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML='<td>'+r[0]+'</td><td>'+r[1]+'</td>'; tb.appendChild(tr); });
+
+  /* ---- 年耗量 (Excel: B24/B25/B26) ---- */
+  const factor = (recover === '有') ? 1 : 1.6;
+  if(thr > 0){
+    const lo = (thr * ind.consLow  / 1000 * factor).toFixed(1);
+    const mid= (thr * (ind.consLow+ind.consHigh)/2 / 1000 * factor).toFixed(1);
+    const hi = (thr * ind.consHigh / 1000 * factor).toFixed(1);
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>预估年耗量 / Annual Use (吨)</td><td><b>'+(recover==='有'?'含回收补充':'无回收 ×1.6')+' → '+lo+' ~ '+hi+' 吨 (中值 '+mid+')</b></td>';
+    tb.appendChild(tr);
+  } else {
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>预估年耗量 / Annual Use</td><td>未填年处理量 → 消耗率 '+ind.consLow+'~'+ind.consHigh+' kg/吨（'+(recover==='有'?'有回收':'无回收×1.6')+'）</td>';
+    tb.appendChild(tr);
+  }
+
+  /* ---- 工况优化告警 (Excel: B22) ---- */
+  const warn = $('res-warn'); warn.innerHTML=''; const ws=[];
+  if(life==='>8年') ws.push('⚠ 老旧设备：粒径降一档并校核叶片/分丸轮磨损；');
+  if(power==='低(<15kW)') ws.push('⚠ 低功率：避免大粒径堵料，建议≤S280/G40；');
+  if(env==='严格(<5mg/m³)') ws.push('🌿 环保严格：优先GL级+密闭，粉尘<5mg/m³；');
+  if(recover==='无') ws.push('🔧 无回收：加装磁选+风选可回收降吨耗30%+；');
+  if(ws.length){ warn.style.display='block'; ws.forEach(x=>{const s=document.createElement('span');s.className='w';s.textContent=x;warn.appendChild(s);}); }
+  else warn.style.display='none';
+
+  /* ---- 选型理由 (Excel: B21) + 战略判定 (B27) ---- */
+  let rationale = '基于：'+base+' ｜ '+surface+' ｜ 粗糙度Rz '+rough+'μm ｜ '+equip+'；';
+  rationale += (recover==='有') ? '已配回收→按行业主流混合/长寿命料('+code+')；' : '无回收→标准品+建议加装回收；';
+  if(thr>0) rationale += '年处理约'+thr+'吨。';
+  $('res-note').textContent = '选型理由 / Rationale: ' + rationale + ( (thr>0 && (thr*(ind.consLow+ind.consHigh)/2/1000*factor)>=300) ? ' ｜ ≥300吨 → 战略客户：可享丰尔达现场拜访+定制级配方案。' : (thr>0 ? ' ｜ <300吨 → 远程视频诊断+数据报告。' : ''));
+
+
+  /* ---- 更多选择 (Excel: B29) ---- */
+  let more='';
+  if(base === '不锈钢' || base === '有色金属(铝/铜/锌)'){
+    if(mainCode === 'O'){
+      more='价格优势推荐：304切丸(O)比同规格304不锈钢丸经济、更具棱角，适合清理/粗化；若需球形光洁面或喷丸强化请用304不锈钢丸(J)，带磁性工况可选410切丸(P)。';
+    } else { // J：强化/光洁
+      more='喷丸强化须用球形不锈钢丸(J)诱导残余压应力；高要求弹簧/传动齿轮亦可用不锈钢丝切丸(O)——寿命更长、尺寸更均匀且兼具棱角，避免铁污染；带磁性工况可选410切丸(P)。';
+    }
+  } else if(surface === '喷丸强化'){
+    if(equip.indexOf('喷砂') >= 0){
+      more='喷砂机喷丸强化须用钢砂/轴承钢砂(C/D)一类棱角料，不得选用研丸/切丸等丸类；若改用抛丸机可选用铸钢丸(A)或研丸(G/H)以获得更佳疲劳寿命提升。';
+    } else {
+      more='喷丸强化最广泛采用铸钢丸(A)——球形好、韧性高、经久耐用，是齿轮/曲轴/连杆等汽车关键零件的主流磨料；钢丝切丸(E)寿命更长、尺寸均匀，常用于高要求弹簧/传动齿轮；研丸(G/H)韧性极致、诱导残余压应力最显著，为重工况强化首选；不锈钢/有色金属件请选不锈钢丸(J)或不锈钢丝切丸(O/P)避免铁污染。';
+    }
+  } else if(['F','N'].indexOf(mainCode)>=0) more='更多选择：普通研丸G3(N)经济替代——成本更优，适合预算敏感场景。';
+  else if(base==='黑色金属(碳钢/铸铁)') more='经济替代：再生切丸(E)/普通研丸G3(N)可选；若需更强切削，主料已按行业混合。';
+  else more='详见磨料数据库各材质「规格」列。';
+  $('res-more').textContent = '更多选择 / More options: ' + more;
+
+  $('result').style.display='block';
+  $('result').scrollIntoView({behavior:'smooth'});
+}
+$('gen').addEventListener('click', gen);
+$('reset').addEventListener('click', ()=>{ document.querySelectorAll('select,input').forEach(e=>e.value=''); $('result').style.display='none'; });
+
+/* ---- 渲染参考查找表 ---- */
+(function renderTables(){
+  const ta=$('tbl-abr').querySelector('tbody');
+  Object.keys(ABR).forEach(k=>{const a=ABR[k];const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+k+'</td><td>'+a.cn+' / '+a.en+'</td><td>'+a.mat+'</td><td>'+a.hard+'</td><td>'+a.shape+'</td><td>'+a.feat+'</td><td>'+a.cyc+'</td><td>'+a.spec+'</td>';
+    ta.appendChild(tr);});
+  const tm=$('tbl-matrix').querySelector('tbody');
+  Object.keys(MATRIX).forEach(k=>{const m=MATRIX[k];const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+IND[k].zh+'</td><td>'+m.wheel[0]+'</td><td>'+m.wheel[1]+'</td><td>'+m.wheel[2]+'</td><td>'+m.blast[0]+'</td><td>'+m.blast[1]+'</td><td>'+m.blast[2]+'</td>';
+    tm.appendChild(tr);});
+  const ti=$('tbl-ind').querySelector('tbody');
+  Object.keys(IND).forEach(k=>{const i=IND[k];const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+i.zh+' / '+i.en+'</td><td>'+i.consLow+'</td><td>'+i.consHigh+'</td><td>'+i.main+'</td><td>'+i.sub+'</td><td>'+i.mix+'</td><td>'+i.note+'</td>';
+    ti.appendChild(tr);});
+})();
+</script>
+</body>
+</html>
