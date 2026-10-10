@@ -920,21 +920,69 @@
             </details>
           </div>
         </article>
-
-        <article class="kn-item">
+<article class="kn-item">
           <span class="num">04</span>
           <div>
-            <span class="badge badge-soon" style="margin-bottom:8px;">Draft</span>
+            <span class="badge badge-live" style="margin-bottom:8px;">Published</span>
             <h3>Recyclable vs. single-use media: the real consumption math</h3>
             <p>Comparing steel shot, steel grit and expendable media across real recycling rates.</p>
-            <div class="kn-add-note">
-              <strong>To add a new article:</strong> copy this <code>&lt;article class="kn-item"&gt;</code> block, change the number, badge to <code>badge-live</code>, wrap the body in <code>&lt;details&gt;&lt;summary&gt;Read full article&lt;/summary&gt;&lt;div class="kn-article"&gt;...&lt;/div&gt;&lt;/details&gt;</code>, and paste after the last article in the <code>.kn-list</code> grid.
-            </div>
+            <details>
+              <summary>Read full article</summary>
+              <div class="kn-article">
+                <p>The two media families are bought on completely different models, and comparing them on price per kg is the fastest route to a wrong answer.</p>
+
+                <h4>1. Two different purchase models</h4>
+                <ul>
+                  <li><strong>Recyclable metallic media</strong> &mdash; steel shot (A/B), steel grit (C/D), cut wire (E), grinding shot (F/G/H) and stainless media (J/K/L/M, O/P). You buy a working inventory once, then top it up. With a separator in place, consumption runs at roughly 5% per cycle, so recovery rates above 95% are normal.</li>
+                  <li><strong>Single-use expendable media</strong> &mdash; garnet, aluminium oxide, copper slag and similar. Nothing is recovered: whatever you blast is what you buy, every time.</li>
+                </ul>
+                <p>So the real question is never &ldquo;what does it cost per kg?&rdquo; but &ldquo;how many kg do I have to buy to process one ton of workpiece?&rdquo;</p>
+
+                <h4>2. The formula that makes them comparable</h4>
+                <p><strong>Annual consumption (t) = throughput (t/yr) &times; industry rate (kg/ton) &divide; 1000 &times; recovery factor</strong></p>
+                <p>The recovery factor is where most comparisons go wrong. With a working magnetic and air separation system, use <strong>1.0</strong>. Without one, use <strong>1.6</strong> &mdash; you consume about 60% more media, because broken fines and perfectly usable media both leave the machine together.</p>
+                <p>This is also the cheapest upgrade available on most lines. Adding magnetic plus air separation typically cuts consumption by 30% or more, and pays for itself within the first year on any operation above a few hundred tons annually.</p>
+
+                <h4>3. What &ldquo;recyclable&rdquo; actually depends on</h4>
+                <ul>
+                  <li><strong>Hardness class and consistency</strong> &mdash; for steel shot and grit the scale is GP (42-52 HRC, general purpose), GL (52-61 HRC, shot peening) and GH (&gt;61 HRC, special high-wear). Select by duty, not by &ldquo;harder must be better&rdquo;.</li>
+                  <li><strong>Batch-to-batch tolerance</strong> &mdash; media whose hardness swings widely between deliveries breaks unpredictably. A band of &plusmn;3-5 HRC is the practical norm across established producers. Treat anything wider as a risk, and always ask for the batch certificate rather than a single nominal figure.</li>
+                  <li><strong>Internal soundness</strong> &mdash; hollow, porous or cracked particles shatter early and are lost as dust. High-density integrity above 95% is the benchmark worth writing into a specification.</li>
+                  <li><strong>The machine side</strong> &mdash; separator setting, dust extraction and blade wear decide whether good media actually gets recycled. Equipment older than roughly eight years usually needs one particle size grade dropped and an impeller wear check.</li>
+                </ul>
+
+                <h4>4. Where single-use media still makes sense</h4>
+                <p>Being straight about this makes the rest of the argument land harder. Expendable media remains the right call when:</p>
+                <ul>
+                  <li>Recovery is physically impossible &mdash; remote field work, one-off outdoor blasting, awkward geometry.</li>
+                  <li>The campaign is too short to justify charging the machine with a working inventory.</li>
+                  <li>Metallic media is ruled out on contamination grounds &mdash; for stainless bases use stainless media (J/K/L/M) or stainless cut wire (O/P); for non-ferrous use copper cut wire (I). Carbon steel media causes iron smut and galvanic corrosion and should never be used there.</li>
+                </ul>
+                <p>Outside those cases, single-use media is usually a cost decision that was never actually calculated.</p>
+
+                <h4>5. Worked example</h4>
+                <p>Shipyard panel line, 5,000 t/yr throughput, wheel blasting, separator installed.</p>
+                <ul>
+                  <li><strong>Scenario A &mdash; recyclable steel shot, GP (42-52 HRC), $0.90/kg</strong><br>Industry rate 0.5 kg/ton &times; 5,000 t = <strong>2.5 t/yr</strong> &rarr; media cost <strong>$2,250</strong>, plus scrap value recovered on the fines.</li>
+                  <li><strong>Scenario B &mdash; single-use expendable, $0.35/kg</strong><br>Nothing recovered, consumption 8 kg/ton &times; 5,000 t = <strong>40 t/yr</strong> &rarr; media cost <strong>$14,000</strong>, before disposal and dust control.</li>
+                </ul>
+                <p>The expendable media is <strong>61% cheaper per kg</strong> and roughly <strong>6&times; more expensive per year</strong>. Now take the separator away from Scenario A: the recovery factor rises to 1.6, consumption goes to 4.0 t/yr and the cost to <strong>$3,600</strong> &mdash; still close to four times cheaper than the one-pass option, and repairing the separator brings it straight back to $2,250.</p>
+                <p style="font-size:13px;color:var(--muted);">Assumptions above are illustrative. Substitute your own unit prices, industry rate and throughput &mdash; the ranking is what matters, not the absolute figures.</p>
+
+                <h4>6. How to verify a recyclability claim</h4>
+                <p>Ask any supplier for these four items. One who cannot produce them is guessing.</p>
+                <ul>
+                  <li><strong>Sieve analysis</strong> before and after a known number of cycles &mdash; particle size distribution is the direct evidence of breakdown.</li>
+                  <li><strong>A hardness certificate</strong> stating the batch range in HRC rather than one nominal value.</li>
+                  <li><strong>A density or microstructure statement</strong> &mdash; this is what separates sound media from media that shatters.</li>
+                  <li><strong>A trial protocol</strong> &mdash; run a defined tonnage, weigh the makeup media added, and divide. That gives your true consumption rate in kg/ton, measured on your own machine.</li>
+                </ul>
+
+                <p style="margin-top:12px;"><strong>Bottom line:</strong> Convert every quote into kg per ton of workpiece before comparing anything. Run your numbers through the A/B Cost Comparison tool above, then request the full report &mdash; we will size both the media grade and the recovery setup to your actual throughput.</p>
+              </div>
+            </details>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ LEAD FORM ============ -->
   <section class="lead" id="contact" aria-labelledby="contact-title">
