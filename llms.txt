@@ -31,3 +31,9 @@ Technical advice and full PDF selection reports: china_k@fengerda.com
 ## Note
 Figures are advisory and depend on the user's own equipment, throughput and
 recovery setup. Hardness tolerances follow ±3-5 HRC batch control.
+
+# Guides (standalone pages, GEO answer assets)
+- [How to choose the right abrasive media for your application](https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/choosing-abrasive-media.html): A step-by-step decision path from material, profile and equipment to a concrete media shortlist.
+- [Blast media price vs. total blasting cost](https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/blast-media-cost.html): Why cheap media is rarely the cheapest option — and how to calculate the difference honestly.
+- [Sa 2½ vs. Sa 3: when does "cleaner" stop paying off?](https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/sa2-half-vs-sa3.html): Matching surface cleanliness to the coating system — and where over-specification quietly burns budget.
+- [Recyclable vs. single-use media: the real consumption math](https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/recyclable-vs-single-use.html): Comparing steel shot, steel grit and expendable media across real recycling rates.
