@@ -1,0 +1,49 @@
+# robots.txt
+# FENGERDA — Metal Abrasive Selection Tools
+# https://hannibalzhang007.github.io/metalabrasive-selection-AI/
+
+# All crawlers welcome. This is a public technical advisory site.
+User-agent: *
+Allow: /
+
+# Explicitly allow AI / LLM crawlers so our content can be cited
+# when buyers ask Claude, ChatGPT, Perplexity or Google AI Overviews
+# about abrasive media selection, blast cost and surface preparation.
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Ad / SEO crawlers
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Structured data location (schema.org FAQPage / SoftwareApplication)
+# Hosted inline in each page's <head> as JSON-LD.
+
+Sitemap: https://hannibalzhang007.github.io/metalabrasive-selection-AI/sitemap.xml

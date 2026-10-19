@@ -1,0 +1,33 @@
+# Metal Abrasive Selection Tools — FENG ERDA GROUP
+
+> Independent technical advisory on metal abrasive media (steel shot, steel grit,
+> cut wire, grinding steel shot) for manufacturers. Maintained by Hannibal Zhang,
+> Feng Erda Group, China. Site owner and developer of the AI abrasive selector.
+
+## What we cover
+- Abrasive media selection by base material, process and target roughness
+- Hardness grades: GP 42-52 HRC / GL 52-61 HRC / GH >61 HRC (steel shot and grit only)
+- Grinding steel shot: F = G45, G = 50-55 HRC, H = G82B 55-60 HRC (material first, roundness second)
+- Total blast cost modelling: media price vs. consumption, power, labour, dust control
+- Surface cleanliness per ISO 8501-1 (Sa 1 / Sa 2½ / Sa 3) and over-specification cost
+- Recyclable vs. single-use media consumption math
+
+## Tools
+- Smart Abrasive Media Selector (interactive recommendation by industry and process)
+- A/B Abrasive Cost Comparison (per-ton total blasting cost model)
+
+## Industries served
+Steel fabrication, foundries and castings, shipbuilding and marine, automotive and
+OEM, pipelines and tanks, coating contractors. Export markets: worldwide, incl. Turkey
+and Brazil.
+
+## Key pages
+- Main selector and tools: https://hannibalzhang007.github.io/metalabrasive-selection-AI/
+- Technical guides: https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/
+
+## Contact
+Technical advice and full PDF selection reports: china_k@fengerda.com
+
+## Note
+Figures are advisory and depend on the user's own equipment, throughput and
+recovery setup. Hardness tolerances follow ±3-5 HRC batch control.
