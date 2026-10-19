@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISO 8501 &amp; SSPC blast-cleaning grades: which abrasive each one requires</title>
+<meta name="description" content="Which steel shot or steel grit to specify for Sa2, Sa2.5, Sa3, SSPC-SP6, SP10 and ISO 8501-3 weld areas: the grade-to-abrasive selection matrix, roughness requirements, particle size and blend ratios, with the logic behind each recommendation.">
+<link rel="canonical" href="https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/iso8501-sspc-abrasive-matrix.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ISO 8501 &amp; SSPC blast-cleaning grades: which abrasive each one requires">
+<meta property="og:description" content="Which steel shot or steel grit to specify for Sa2, Sa2.5, Sa3, SSPC-SP6, SP10 and ISO 8501-3 weld areas: the grade-to-abrasive selection matrix, roughness requirements, particle size and blend ratios, with the logic behind each recommendation.">
+<meta property="og:url" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/iso8501-sspc-abrasive-matrix.html">
+<meta property="og:image" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/og-cover.png">
+<meta property="og:image:alt" content="FENGERDA metal abrasive selection tools">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ISO 8501 &amp; SSPC blast-cleaning grades: which abrasive each one requires">
+<meta name="twitter:description" content="Which steel shot or steel grit to specify for Sa2, Sa2.5, Sa3, SSPC-SP6, SP10 and ISO 8501-3 weld areas: the grade-to-abrasive selection matrix, roughness requirements, particle size and blend ratios, with the logic behind each recommendation.">
+<meta name="twitter:image" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/og-cover.png">
+<meta name="theme-color" content="#0e2a47">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "ISO 8501 &amp; SSPC blast-cleaning grades: which abrasive each one requires",
+      "description": "Which steel shot or steel grit to specify for Sa2, Sa2.5, Sa3, SSPC-SP6, SP10 and ISO 8501-3 weld areas: the grade-to-abrasive selection matrix, roughness requirements, particle size and blend ratios, with the logic behind each recommendation.",
+      "url": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/iso8501-sspc-abrasive-matrix.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/iso8501-sspc-abrasive-matrix.html"
+      },
+      "inLanguage": "en",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "author": {
+        "@type": "Person",
+        "name": "Hannibal Zhang",
+        "email": "mailto:china_k@fengerda.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FENGERDA",
+        "email": "mailto:china_k@fengerda.com"
+      },
+      "about": "ISO 8501 and SSPC blast-cleaning grades and the metallic abrasives each grade requires"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Center",
+          "item": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/#knowledge"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ISO 8501 &amp; SSPC blast-cleaning grades: which abrasive each one requires",
+          "item": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/iso8501-sspc-abrasive-matrix.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What abrasives are needed for ISO 8501-3 and SSPC-SP10?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For Sa 2.5 / SSPC-SP10 ballast and cargo tank work, the standard specification is a predominantly angular steel grit at HRC 55-65, G40 or G25 (0.6-1.0 mm), blended with 20-30% steel shot at HRC 50-55 (S330) to keep the anchor pattern uniform. For Sa 2 / SSPC-SP6 use medium-hardness steel shot at HRC 40-50, S330 or S390, optionally with 30-40% G40 grit added for stubborn scale. Weld areas under ISO 8501-3 need finer grit than the surrounding plate, typically G80 at HRC 55-60."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between ISO 8501-1 and ISO 8501-3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ISO 8501-1 covers blast-cleaning and pretreatment grades for the flat plate area. ISO 8501-3 is a supplementary standard for welds, cut edges and other defective areas, because weld slag, undercut and spatter are fundamentally different from plate defects. It defines its own levels: P Sa1, P Sa2 and P Sa2.5. A specification that quotes only ISO 8501-1 has not specified weld treatment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SSPC-SP10 the same as Sa2.5?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes in practice. SSPC-SP10 (Near-White) corresponds to ISO Sa 2.5 and requires at least 95% of the surface per square inch to be free of visible residue, with only trace colour difference in the remaining 5%. SSPC-SP6 corresponds to Sa 2, SP7 to Sa 1, and SP5 to Sa 3."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need abrasive hardness above 60 HRC for Sa2.5?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and high hardness is not free. A predominantly high-hardness medium such as HRC 60-66 raises the breakage rate and shortens life. Sa 2.5 is normally reached with G40 or G25 grit at HRC 55-65. Hardness above 60 HRC belongs to Sa 3 work, where cutting efficiency matters more than cost, or to special applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which abrasive should be used for stainless steel or before a stainless lining?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non-metallic abrasive. Steel grit or shot leaves embedded iron ions in the substrate, which can initiate corrosion under the stainless lining. Use white fused alumina (46#-60#) or garnet grit for stainless steel substrates and for carbon steel being prepared ahead of a stainless lining."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much abrasive does one tonne of steel shot cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For Sa 2 work with medium-hardness S330 or S390 shot, one tonne treats roughly 30-40 square metres. Coverage falls sharply as hardness and breakage rise, and for Sa 2.5 with grit the consumption rate is materially higher. This is the number that actually drives cost, and it is covered in Abrasive procurement: unit price vs. total cost."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+<style>:root{--navy:#0e2a47;--navy-2:#14395e;--orange:#e8631a;--orange-dark:#c95310;--ink:#1a2430;--muted:#5a6b7a;--line:#e2e8ee;--bg:#ffffff;--bg-soft:#f5f7f9;--bg-deep:#0b2239;--radius:10px;--shadow:0 1px 2px rgba(14,42,71,.06),0 8px 24px rgba(14,42,71,.07)}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:72px}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}a{color:var(--navy);text-decoration:none}a:hover{color:var(--orange)}.wrap{max-width:1120px;margin:0 auto;padding:0 24px}header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}.nav{display:flex;align-items:center;justify-content:space-between;height:64px}.brand{font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--navy);white-space:nowrap}.brand span{color:var(--orange)}.brand .sub{display:block;font-size:10px;color:var(--muted);font-weight:500;line-height:1.2;white-space:normal}nav.links{display:flex;gap:28px;align-items:center}nav.links a{font-size:14px;color:var(--navy);font-weight:600;white-space:nowrap}nav.links a:hover{color:var(--orange)}nav.links .btn-cta{background:var(--orange);color:#fff;padding:9px 16px;border-radius:8px;font-weight:600}nav.links .btn-cta:hover{background:var(--orange-dark);color:#fff}.hero{min-height:calc(100vh - 64px);display:flex;align-items:center;background:radial-gradient(1100px 500px at 85% -10%,rgba(232,99,26,.08),transparent 60%),linear-gradient(180deg,#fff 0,var(--bg-soft) 100%);padding:72px 0}.hero .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}.hero h1{font-size:clamp(34px, 5.4vw, 60px);line-height:1.12;letter-spacing:-.02em;color:var(--navy);max-width:18ch;font-weight:800}.hero p.sub{margin-top:22px;font-size:clamp(16px, 1.6vw, 19px);color:var(--muted);max-width:52ch}.hero .actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:9px;font-weight:600;font-size:15px;border:1.5px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}.btn svg{width:17px;height:17px}.btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange-dark);color:#fff}.btn-ghost{background:0 0;color:var(--navy);border-color:#b9c6d3}.btn-ghost:hover{border-color:var(--navy);color:var(--navy)}.hero .scroll-hint{margin-top:56px;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:600}@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}.scroll-hint svg{width:16px;height:16px;animation:hop 1.6s ease-in-out infinite}section{padding:84px 0}section.soft{background:var(--bg-soft)}.sec-head{max-width:640px;margin-bottom:44px}.sec-head h2{font-size:clamp(26px, 3vw, 34px);color:var(--navy);letter-spacing:-.01em;line-height:1.2}.sec-head p{margin-top:12px;color:var(--muted);font-size:16px}.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.tool-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.tool-card:hover{transform:translateY(-3px);border-color:#c9d4df}.tool-card .ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:var(--bg-soft);color:var(--orange);border:1px solid var(--line)}.tool-card .ic svg{width:21px;height:21px}.tool-card h3{font-size:16.5px;color:var(--navy);line-height:1.35}.tool-card p{font-size:13.5px;color:var(--muted);flex:1}.tool-card a.go{font-size:13.5px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:5px}.tool-card a.go:hover{color:var(--orange)}.tool-card a.go svg{width:14px;height:14px}.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:5px}.badge-live{background:#e7f3ea;color:#176b34}.badge-here{background:#eef1f6;color:var(--navy)}.badge-soon{background:#fdf1e8;color:var(--orange-dark)}.sa-table{width:100%;border-collapse:collapse;font-size:14px}.sa-table td,.sa-table th{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}.sa-table th{background:var(--bg-soft);color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.sa-table td:first-child{font-weight:700;color:var(--navy);white-space:nowrap}.sa-source{font-size:12px;color:var(--muted);margin-top:12px}.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.ind-item{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:18px 18px}.ind-item .ic{width:36px;height:36px;flex:none;border-radius:8px;background:var(--bg-soft);color:var(--navy);display:grid;place-items:center}.ind-item .ic svg{width:18px;height:18px}.ind-item h4{font-size:15px;color:var(--navy)}.ind-item p{font-size:13px;color:var(--muted);margin-top:2px}.kn-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.kn-item{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)}.kn-item .num{font-size:13px;font-weight:800;color:var(--orange);min-width:34px}.kn-item h3{font-size:15.5px;color:var(--navy);line-height:1.4}.kn-item p{font-size:13px;color:var(--muted);margin-top:4px}.kn-item details{margin-top:10px}.kn-item details summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:13.5px;padding:6px 0}.kn-item details summary:hover{color:var(--orange)}.kn-item details[open] summary{color:var(--orange)}.kn-article{font-size:14px;color:var(--ink);line-height:1.7;margin-top:10px}.kn-article h4{font-size:14.5px;color:var(--navy);margin:14px 0 4px}.kn-article ul{margin:6px 0 6px 20px}.kn-article li{margin:3px 0}.kn-add-note{font-size:12.5px;color:var(--muted);margin-top:14px;padding:12px 14px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:8px}.kn-add-note code{background:var(--bg);padding:2px 6px;border-radius:4px;font-size:12px;border:1px solid var(--line)}.lead{background:var(--bg-deep);color:#eaf0f6}.lead .sec-head h2{color:#fff}.lead .sec-head p{color:#a9bccd}.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.lead .panel{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14);box-shadow:none}.lead .panel h3{color:#fff}.lead .field label{color:#dce6ef}.lead .field input,.lead .field select,.lead .field textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);color:#fff}.lead .field input::placeholder,.lead .field textarea::placeholder{color:#7f93a5}.lead .field input:focus,.lead .field textarea:focus{border-color:var(--orange);outline:2px solid rgba(232,99,26,.45)}textarea{width:100%;padding:10px 12px;font-size:15px;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font-family:inherit;resize:vertical}.form-status{margin-top:14px;font-size:14px;color:#9fd3a8;min-height:22px}.form-status.err{color:#f2b8a0}.alt-channels{margin-top:22px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}.alt-channels .lbl{font-size:12.5px;color:#a9bccd;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}.chn{display:flex;flex-direction:column;gap:10px}.chn a{display:inline-flex;align-items:center;gap:9px;color:#eaf0f6;font-weight:600;font-size:14.5px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:9px}.chn a:hover{border-color:var(--orange);color:var(--orange)}.chn a svg{width:17px;height:17px}.chn .mail{color:var(--muted);font-size:12.5px;font-weight:400;margin-top:8px}.direct{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.direct .dcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:16px}.direct .dcard .t{font-size:13px;color:#a9bccd;font-weight:600}.direct .dcard .v{font-size:15px;color:#fff;font-weight:700;margin-top:4px;word-break:break-all}.direct .dcard a{color:#fff}.direct .dcard a:hover{color:var(--orange)}footer{background:#081a2c;color:#8fa3b5;padding:44px 0 34px;font-size:13.5px}footer .frow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer .brand{color:#fff;font-size:14px}footer .brand .sub{color:#8fa3b5}footer nav{display:flex;gap:22px;flex-wrap:wrap}footer nav a{color:#c6d4e0}footer nav a:hover{color:var(--orange)}footer .f-social{display:flex;gap:14px;margin-top:14px}footer .f-social a{display:inline-flex;align-items:center;gap:7px;color:#c6d4e0;font-size:13px;font-weight:600;padding:8px 14px;border:1px solid rgba(255,255,255,.18);border-radius:8px}footer .f-social a:hover{border-color:var(--orange);color:var(--orange)}footer .f-social a svg{width:16px;height:16px}footer .legal{margin-top:26px;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:12.5px;color:#6d8296}@media (max-width:960px){.tools-grid{grid-template-columns:repeat(2,1fr)}.lead-grid{grid-template-columns:1fr}.ind-grid{grid-template-columns:repeat(2,1fr)}.sel-cost-grid,.sel-grid{grid-template-columns:1fr!important}}@media (max-width:640px){section{padding:60px 0}nav.links{gap:10px}nav.links a:not(.btn-cta){display:none}nav.links .btn-cta{padding:8px 12px;font-size:13px}.brand{font-size:14px}.ind-grid,.kn-list,.tools-grid{grid-template-columns:1fr}.direct{grid-template-columns:1fr}.hero{padding:48px 0}.hero .scroll-hint{margin-top:40px}.sel-cost-grid,.sel-grid{grid-template-columns:1fr!important}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-hint svg{animation:none}.tool-card{transition:none}}.sel-section{padding:84px 0;background:var(--bg-soft)}.sel-section .sel-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-bottom:22px}.sel-section .sel-card h3{font-size:17px;color:var(--navy);margin-bottom:16px}.sel-section .sel-sub{color:var(--muted);font-size:14px;margin:0 0 16px}.sel-section .sel-two-lang{font-size:13px;color:var(--muted)}.sel-section .sel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sel-section .sel-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}.sel-section .sel-field>label{font-size:13.5px;font-weight:600;color:var(--ink)}.sel-section .sel-field .sel-hint{font-size:11px;color:var(--muted)}.sel-section .sel-field .sel-unit{color:var(--muted);font-weight:400}.sel-section input,.sel-section select{width:100%;padding:10px 12px;font-size:15px;color:var(--ink);border:1.5px solid #c9d4df;border-radius:8px;background:#fff;font-family:inherit}.sel-section input:focus,.sel-section select:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}.sel-section .sel-full{grid-column:1/-1}.sel-section .sel-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;border:none;border-radius:9px;padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer;transition:background .15s}.sel-section .sel-btn:hover{background:var(--orange-dark)}.sel-section .sel-btn.ghost{background:#fff;color:var(--orange);border:1.5px solid var(--orange);margin-left:10px}.sel-section .sel-result{display:none}.sel-section .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}.sel-section .res-item{background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:14px}.sel-section .res-item .k{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}.sel-section .res-item .v{font-size:16px;font-weight:700;color:var(--navy);margin-top:2px}.sel-section .res-head{display:flex;align-items:center;gap:10px;margin:6px 0 14px}.sel-section .sel-badge{background:var(--orange);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px;font-weight:700}.sel-section table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}.sel-section td,.sel-section th{border:1px solid var(--line);padding:8px 10px;text-align:left}.sel-section th{background:var(--bg-soft);font-weight:600;color:var(--navy)}.sel-section tr:nth-child(2n) td{background:var(--bg-soft)}.sel-section .sel-note{font-size:12.5px;color:var(--muted);margin-top:10px;border-left:3px solid var(--orange);padding:8px 12px;background:var(--bg-soft);border-radius:0 8px 8px 0;line-height:1.7}.sel-section .sel-warn-box{background:#fdf1e8;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:8px;margin-top:12px;font-size:13px}.sel-section .sel-warn-box .w{display:block;margin:2px 0}.sel-section details{margin-top:12px}.sel-section details>summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:14px;padding:6px 0}.sel-section details>summary:hover{color:var(--orange)}.sel-section .sel-formula-box{background:#f0f9ff;border:1px solid #dbeafe;border-radius:8px;padding:12px 14px;font-size:13px;color:var(--ink);margin:10px 0 16px;line-height:1.8}.sel-section .sel-cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sel-section .sel-scen{border:1px solid var(--line);border-radius:10px;padding:14px 14px 6px}.sel-section .sel-scen-a{border-color:#bfdbfe;background:#fbfdff}.sel-section .sel-scen-b{border-color:#bbf7d0;background:#fbfefb}.sel-section .sel-scen-head{font-size:14px;font-weight:700;margin:0 0 10px;display:flex;align-items:center;gap:8px;color:var(--navy)}.sel-section .sel-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.sel-section .sel-dot.a{background:var(--navy)}.sel-section .sel-dot.b{background:#176b34}.sel-section .sel-cmp-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.sel-section .sel-cmp-item{flex:1 1 180px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px}.sel-section .sel-cmp-item .k{font-size:11px;color:var(--muted)}.sel-section .sel-cmp-item .v{font-size:15px;font-weight:700;color:var(--navy)}.sel-section .v.win{color:#176b34}.sel-section .v.lose{color:#dc2626}.sel-section .sel-verdict{background:#f0fdf4;border:1px solid #86efac;color:#14532d;padding:12px 16px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}.sel-section .sel-verdict.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}.sel-lead-capture{background:var(--bg-deep);color:#eaf0f6;border-radius:var(--radius);padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}.sel-lead-capture h3{color:#fff;font-size:18px;margin-bottom:8px}.sel-lead-capture p{color:#a9bccd;font-size:14px;margin-bottom:16px}.sel-lead-capture .sel-lc-form{display:flex;gap:10px;flex-wrap:wrap}.sel-lead-capture input[type=email]{flex:1 1 280px;padding:12px 14px;font-size:15px;color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);font-family:inherit}.sel-lead-capture input[type=email]::placeholder{color:#7f93a5}.sel-lead-capture input[type=email]:focus{border-color:var(--orange);outline:2px solid rgba(232,99,26,.45)}.sel-lead-capture button{padding:12px 22px;font-size:15px;font-weight:600;background:var(--orange);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .15s}.sel-lead-capture button:hover{background:var(--orange-dark)}.sel-lead-capture .sel-lc-status{margin-top:12px;font-size:14px;color:#9fd3a8;min-height:22px}.sel-lead-capture .sel-lc-status.err{color:#f2b8a0}.hero .wrap{width:100%;max-width:1280px;text-align:center}.hero h1{max-width:none;font-size:clamp(34px,6.1vw,72px);margin-left:auto;margin-right:auto}.hero p.sub{max-width:780px;margin-left:auto;margin-right:auto}.hero .actions{justify-content:center}#contact .sec-head{max-width:none;text-align:center}#contact .sec-head p{max-width:780px;margin-left:auto;margin-right:auto}@media (max-width:640px){.hero h1{font-size:clamp(30px,9vw,40px)}.hero p.sub{max-width:none}}.kn-item:has(details[open]){grid-column:1/-1}.kn-standalone{margin-top:10px;font-size:13.5px;font-weight:700}.kn-standalone a{color:var(--navy);display:inline-flex;align-items:center;gap:5px}.kn-standalone a:hover{color:var(--orange)}.sec-head{max-width:none;text-align:center}.sec-head h2{max-width:none}.sec-head p{max-width:860px;margin-left:auto;margin-right:auto}@media (min-width:961px){.sel-cost-grid .sel-field>label{min-height:44px}}.lead-grid{align-items:stretch}#contact .panel{display:grid;grid-template-rows:auto 1fr;padding:22px 26px}#contact .panel h3{margin:0 0 23px}#contact .panel ol{gap:26px!important}#contact .panel .alt-channels{margin-top:32px;padding-top:20px}#contact .panel .direct .dcard{padding:21px 16px}#contact .est-note{margin-top:25px!important}#lead-form{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:23px;align-content:space-between}#form-status:empty{display:none}#contact .field{display:flex;flex-direction:column;gap:6px}#contact .field label{font-size:13.5px;font-weight:600}#contact .field input,#contact .field textarea{width:100%;padding:10px 12px;font-size:15px;font-family:inherit;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff}#lead-form .field:nth-of-type(5),#lead-form .field:nth-of-type(6){grid-column:1/-1}#lead-form .btn{grid-column:1/-1;margin-top:4px}@media (max-width:700px){#lead-form{grid-template-columns:1fr}#lead-form .field:nth-of-type(5),#lead-form .field:nth-of-type(6){grid-column:auto}}
+.gd-hero{background:var(--bg-soft);padding:56px 0 40px;border-bottom:1px solid var(--line)}
+.gd-hero .crumb{font-size:13px;color:var(--muted);margin-bottom:14px}
+.gd-hero .crumb a{color:var(--navy);font-weight:600}
+.gd-hero h1{font-size:clamp(25px,3.4vw,38px);line-height:1.18;letter-spacing:-.02em;color:var(--navy);font-weight:800;max-width:24ch}
+.gd-hero .gd-lead{margin-top:16px;font-size:17px;color:var(--muted);max-width:64ch}
+.gd-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;font-size:13px;color:var(--muted)}
+.gd-body{padding:52px 0}
+.gd-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:44px;align-items:start}
+.gd-article{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;box-shadow:var(--shadow);font-size:15px;line-height:1.75}
+.gd-article h2{font-size:21px;color:var(--navy);margin:34px 0 8px;letter-spacing:-.01em;padding-top:6px}
+.gd-article h2:first-child{margin-top:0}
+.gd-article h3{font-size:16px;color:var(--navy);margin:22px 0 8px}
+.gd-article ul,.gd-article ol{margin:8px 0 8px 22px}
+.gd-article li{margin:7px 0}
+.gd-article p{margin:10px 0}
+.gd-article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+.gd-article th,.gd-article td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+.gd-article th{background:var(--bg-soft);color:var(--navy);font-weight:700;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase}
+.gd-article tr:nth-child(2n) td{background:var(--bg-soft)}
+.gd-article td.gd-grp{font-weight:700;color:var(--navy)}
+.gd-callout{background:var(--bg-soft);border-left:3px solid var(--orange);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+.gd-notation{background:#f0f9ff;border:1px solid #dbeafe;border-radius:9px;padding:14px 18px;margin:16px 0}
+.gd-notation p{margin:0 0 6px}
+.gd-evidence{background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:13px 18px;margin:16px 0;font-size:13.5px;color:#78350f}
+.gd-grade{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:9px;padding:14px 18px;margin:16px 0}
+.gd-grade p{margin:0 0 6px}
+.gd-myth{background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:0 18px;margin:16px 0}
+.gd-myth .q{font-weight:700;color:#92400e;margin-top:14px}
+.gd-myth .a{color:#78350f;font-size:14px;margin-top:4px}
+.gd-steps{counter-reset:gs;list-style:none;margin:14px 0 8px 0;padding:0}
+.gd-steps li{counter-increment:gs;position:relative;padding-left:38px;margin:11px 0}
+.gd-steps li:before{content:counter(gs);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:50%;background:var(--orange);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.gd-matrix td.gd-ctr{text-align:center}
+.gd-matrix td.gd-c{text-align:center;background:#fff}
+.gd-faq{margin-top:38px}
+.gd-faq h2{font-size:21px;color:var(--navy);margin-bottom:6px}
+.gd-faq > p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.gd-faq details{border:1px solid var(--line);border-radius:9px;padding:0 16px;background:var(--bg);margin-bottom:9px}
+.gd-faq details[open]{border-color:#c9d4df}
+.gd-faq summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:15px;padding:14px 0;list-style:none}
+.gd-faq summary::-webkit-details-marker{display:none}
+.gd-faq summary:after{content:"+";float:right;color:var(--orange);font-weight:700}
+.gd-faq details[open] summary:after{content:"\2212"}
+.gd-faq .ans{padding:0 0 16px;font-size:14.5px;line-height:1.75}
+.gd-side{position:sticky;top:84px;display:flex;flex-direction:column;gap:16px}
+.gd-side .card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)}
+.gd-side .card h3{font-size:15px;color:var(--navy);margin-bottom:8px}
+.gd-side .card p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.gd-side .toc h3{margin-bottom:10px}
+.gd-side .toc ol{margin:0 0 0 18px;font-size:13.5px}
+.gd-side .toc li{margin:5px 0}
+.gd-side .toc a{color:var(--navy);font-weight:600}
+.gd-side .cta{background:var(--bg-deep);border:none;color:#eaf0f6}
+.gd-side .cta h3{color:#fff}
+.gd-side .cta p{color:#a9bccd}
+.gd-other{background:var(--bg-soft);border-top:1px solid var(--line);padding:48px 0}
+.gd-other h2{font-size:20px;color:var(--navy);margin-bottom:18px}
+.gd-other ol{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.gd-other li{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:14px 18px;font-size:14.5px}
+.gd-other a{color:var(--navy);font-weight:700}
+.gd-other a:hover{color:var(--orange)}
+.gd-cite{font-size:12.5px;color:var(--muted);margin-top:26px;padding-top:16px;border-top:1px dashed var(--line)}
+@media (max-width:900px){.gd-layout{grid-template-columns:1fr}.gd-side{position:static}.gd-article{padding:22px 18px}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">FENGERDA <span>Abrasive Selection</span><span class="sub">Steel shot, grit &amp; grinding steel shot</span></a>
+    <nav class="links">
+      <a href="../index.html#selector">Selector</a>
+      <a href="../index.html#knowledge">Guides</a>
+      <a class="btn-cta" href="../index.html#contact">Request advice</a>
+    </nav>
+  </div>
+</header>
+
+<section class="gd-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#knowledge">Knowledge Center</a> &rsaquo; this guide</div>
+    <h1>ISO 8501 &amp; SSPC blast-cleaning grades: which abrasive each one requires</h1>
+    <p class="gd-lead">Six blast-cleaning grades, six different abrasive answers. This is the matrix that turns a paint specification into a media purchase order &mdash; with the reasoning, the particle sizes and the blend ratios behind each line.</p>
+    <div class="gd-meta">
+      <span>By Hannibal Zhang, FENGERDA</span>
+      <span>Updated 19 Oct 2026</span>
+      <span id="gd-src">Source: detecting...</span>
+    </div>
+  </div>
+</section>
+
+<section class="gd-body">
+  <div class="wrap gd-layout">
+    <main class="gd-article">
+      <h2 id="why">I. The cost line nobody watches</h2>
+      <p>Surface preparation is a crucial yet often overlooked process across the
+      whole shipbuilding and repair lifecycle. The total steel plate area of a
+      300,000-tonne VLCC can exceed 200,000 m&sup2;. Secondary surface treatment
+      alone &mdash; treating welds and damaged areas after shop primer &mdash;
+      consumes tens or even hundreds of tonnes of abrasive.</p>
+      <p>Yet in most shipyards' procurement lists, metallic abrasives are filed as
+      <em>auxiliary materials</em>: low unit price, apparently simple technical
+      parameters, easily swapped between suppliers. That framing hides the fact
+      that abrasive selection decides whether the surface treatment passes the
+      standard, and that it drives total shipbuilding cost through hidden paths
+      &mdash; rework rate, paint consumption and the abrasive's own lifespan.</p>
+
+      <div class="gd-evidence">
+        <strong>Where the rework figures come from.</strong> The statistics on
+        this page &mdash; rework attributable to unsuitable abrasive selection
+        accounting for a large share of hull-painting rework cost, and a
+        meaningful reduction in abrasive cost per ship after switching to a
+        suitable product &mdash; are drawn from a third-party shipbuilding
+        research survey, not from Fengerda project records. Treat them as
+        industry-level benchmarks. The grade-to-abrasive recommendations and
+        process parameters below reflect standard requirements and documented
+        shop practice.
+      </div>
+
+      <h2 id="iso">II. ISO 8501: visual assessment grades</h2>
+      <p><strong>ISO 8501-1</strong> is the internationally recognised and most
+      widely used visual assessment standard for rust and pretreatment grades of
+      steel surfaces, originally derived from the Swedish standard SIS 05 5900.
+      Its structure is:</p>
+
+      <h3>2.1 Original rust grade of the substrate</h3>
+      <p>Every Sa grade is judged against the condition the steel arrived in.
+      A surface assessed to Sa 2&frac12; will not look the same on Grade A steel
+      and on Grade D steel.</p>
+      <table>
+        <thead><tr><th>Original rust grade</th><th>Definition</th><th>Typical scenario</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="gd-grp">Grade A</td>
+            <td>Brand new steel surface covered with a complete oxide scale,
+            rust-free</td>
+            <td>Steel mill condition</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Grade B</td>
+            <td>Rusting has begun, oxide scale partially peeling off</td>
+            <td>Stored outdoors for several weeks</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Grade C</td>
+            <td>Oxide scale completely peeled off due to rust, widespread pitting
+            corrosion visible</td>
+            <td>Long-term exposure</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Grade D</td>
+            <td>Severe pitting corrosion, visible porous rust pits</td>
+            <td>Long-term exposure to marine environments</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2.2 Pretreatment grades after blasting</h3>
+      <table>
+        <thead><tr><th>Grade</th><th>Definition and typical use</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="gd-grp">Sa1<br>Light blast cleaning</td>
+            <td>Removes only loose scale, rust and coating; a significant amount
+            of residue remains on the surface. Suitable for general corrosion
+            protection requirements.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Sa2<br>Thorough blast cleaning</td>
+            <td>Removes almost all mill scale, rust and coatings; may leave spot or
+            streak-like shadows on the surface. Suitable for pretreatment of
+            conventional marine coating systems.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Sa2.5<br>Very thorough blast cleaning</td>
+            <td>No visible oil, mill scale, rust or coating residue; only trace
+            amounts of spot or streak-like colour differences are permitted.
+            <strong>This is the most commonly used grade for marine coatings</strong>
+            &mdash; almost all mainstream systems (epoxy zinc-rich, polyurethane,
+            epoxy micaceous iron oxide) require Sa 2.5 as the minimum
+            pretreatment.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Sa3<br>Blast cleaning to visually clean steel</td>
+            <td>Surface has a uniform metallic sheen with no visible residue.
+            Extremely expensive; used only in special applications such as
+            stainless steel linings and thermal spray pretreatment.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="gd-callout">
+        <strong>Weld areas are governed separately.</strong>
+        <strong>ISO 8501-3</strong> is a supplementary standard to ISO 8501-1,
+        written specifically for the surface treatment assessment of welds, cut
+        edges and other defective areas. It recognises that oxide scale, weld slag
+        and undercut in the weld zone are fundamentally different from defects in
+        the flat plate zone, and defines three separate treatment levels &mdash;
+        <strong>P Sa1 / P Sa2 / P Sa2.5</strong> &mdash; for the weld area. In
+        secondary surface treatment the weld region has the highest abrasive
+        consumption of any area on the ship.
+      </div>
+
+      <h2 id="sspc">III. SSPC: the North American equivalent</h2>
+      <p>The SSPC standard system (now SSPC: The Society for Protective Coatings,
+        merged with NACE to form AMPP) is widely used in North America and among
+        shipowners applying US standards. Its blast-cleaning standards correspond
+        to ISO grades as follows:</p>
+      <table>
+        <thead><tr><th>SSPC standard</th><th>Name</th><th>Approximate ISO level</th><th>Typical application</th></tr></thead>
+        <tbody>
+          <tr><td class="gd-grp">SSPC-SP7</td><td>Brush-off Blast Cleaning</td><td class="gd-c">Sa1</td><td>Minor treatment of existing intact coatings</td></tr>
+          <tr><td class="gd-grp">SSPC-SP6</td><td>Commercial Blast Cleaning</td><td class="gd-c">Sa2</td><td>Conventional industrial corrosion protection</td></tr>
+          <tr><td class="gd-grp">SSPC-SP10</td><td>Near-White Blast Cleaning</td><td class="gd-c">Sa2.5</td><td>Marine ballast tanks, cargo oil tanks, seawater tanks</td></tr>
+          <tr><td class="gd-grp">SSPC-SP5</td><td>White Metal Blast Cleaning</td><td class="gd-c">Sa3</td><td>Thermal spraying, special linings</td></tr>
+        </tbody>
+      </table>
+      <p><strong>SSPC-SP10 (Near-White)</strong> is the most critical grade in
+      marine coating. It requires that at least95% of the surface area per square
+      inch be free of visible residue, with the remaining 5% allowing only trace
+      amounts of colour difference or shading. This standard is directly
+      referenced by the IMO PSPC (Performance Standard for Protective Coatings)
+      and has become a mandatory requirement for pretreatment before coating all
+      seawater ballast tanks.</p>
+
+      <h2 id="roughness">IV. Cleanliness is only half of the specification</h2>
+      <p>Surface treatment is not only about being clean, but about achieving the
+      specified surface roughness (profile / anchor pattern), which directly
+      affects coating adhesion.</p>
+      <ul>
+        <li><strong>ISO 8503</strong> &mdash; surface roughness of steel surfaces
+        after shot blasting is assessed using comparative samples, categorised
+        into Fine, Medium and Coarse grades.</li>
+        <li><strong>ASTM D4417</strong> &mdash; peak-to-valley height is measured
+        with a surface profilometer (expressed as Hpy or Rz).</li>
+      </ul>
+      <p>Typical roughness requirements for marine epoxy coatings are medium
+      roughness, <strong>Rz 50&ndash;85 &micro;m</strong>. Excessive coarseness
+      increases paint consumption and risks failure to cover peaks; excessive
+      fineness leaves insufficient anchor pattern engagement.</p>
+
+      <h2 id="matrix">V. Grade-to-abrasive correspondence</h2>
+      <p>Based on ISO 8501 and SSPC requirements, mainstream marine coating
+      technical data sheets and documented shop practice, the selection matrix
+      below is the part most often missing from a procurement specification.</p>
+
+      <h3>Sa2 / SSPC-SP6 &mdash; thorough blast cleaning</h3>
+      <p>This grade allows slight colour differences and suits general industrial
+      corrosion protection and medium-grade systems for hull plates.</p>
+      <p><strong>Recommended abrasive:</strong> medium-hardness steel shot
+      (HRC 40&ndash;50), grit size S330 or S390 (1.0&ndash;1.2 mm).</p>
+      <p><strong>Technical logic:</strong> the impact of spherical steel shot
+      effectively removes oxide scale and loose rust while forming a uniform
+      indentation-type anchor pattern. Medium-hardness shot does not break easily
+      after impact and can be recycled 200&ndash;300 times, with one tonne
+      treating 30&ndash;40 m&sup2;. For stubborn oxide scale, add 30&ndash;40%
+      steel grit (HRC 55&ndash;60, G40) to improve cutting efficiency.</p>
+      <p><strong>Cost characteristic:</strong> long abrasive life and low breakage
+      rate (3&ndash;5% replenishment per cycle) make this the most cost-effective
+      option.</p>
+
+      <h3>Sa2.5 / SSPC-SP10 &mdash; very thorough blast cleaning</h3>
+      <p>This is the core grade for marine coatings, requiring near-complete
+      cleanliness. Suitable for pretreatment in harsh corrosive environments such as
+      ballast tanks, cargo oil tanks, freshwater tanks and seawater cooling pipe
+      systems.</p>
+      <p><strong>Recommended abrasive:</strong> primarily steel grit
+      (HRC 55&ndash;65, G40/G25, 0.6&ndash;1.0 mm), mixed with 20&ndash;30% steel
+      shot (HRC 50&ndash;55, S330).</p>
+      <p><strong>Technical logic:</strong> the angular cutting action of steel grit
+      is what achieves Sa 2.5 cleanliness &mdash; spherical shot relies on impact
+      peeling, which is insufficient for stubborn deposits in weld undercuts and
+      pitting pits. Grit penetrates deep into microscopic uneven areas and
+      removes rust products at the bottom of pits. The shot is added to maintain
+      anchor pattern uniformity, because pure grit produces overly sharp peaks
+      and valleys with insufficient coating coverage.</p>
+      <p>Particle size must match the roughness requirement: Rz 50&ndash;85 &micro;m
+      is stably achieved with G40 grit (0.6&ndash;0.8 mm) at 0.6&ndash;0.7 MPa
+      blasting pressure. For higher requirements such as thick-film coatings at
+      Rz 75&ndash;100 &micro;m, choose G25 (0.8&ndash;1.0 mm).</p>
+      <p><strong>Cost characteristic:</strong> grit has a shorter life than shot
+      (higher hardness means higher breakage, requiring 5&ndash;8% replenishment
+      per cycle) but offers high cleaning efficiency and low rework rate. Abrasive
+      cost typically accounts for no more than 15% of total surface treatment
+      cost; rework cost is the real drain. Choosing the right abrasive saves far
+      more on rework than the price difference it costs.</p>
+
+      <h3>Sa3 / SSPC-SP5 &mdash; blast cleaning to visually clean steel</h3>
+      <p>This grade requires a uniform metallic lustre with no visible residue. It
+      is used only in special applications such as thermal spraying and stainless
+      steel linings, and rarely on a large scale in shipyards.</p>
+      <p><strong>Recommended abrasive:</strong> high-hardness steel grit
+      (HRC 60&ndash;66, G50/G40), or white fused alumina (46#&ndash;60#).</p>
+      <p><strong>Technical logic:</strong> Sa 3 demands extremely high cutting
+      efficiency, and high-hardness grit removes all adhering substances quickly.
+      However, for stainless steel substrates, or scenarios sensitive to iron-ion
+      contamination such as treating carbon steel before a stainless steel lining,
+      non-metallic abrasives (white fused alumina or garnet grit) must be used to
+      avoid iron ions embedding in the substrate and causing subsequent corrosion.
+      </p>
+      <p><strong>Cost characteristic:</strong> consumption is high (grit breakage
+      can exceed 10%) and labour cost is high, so it is applied locally only.</p>
+
+      <div class="gd-grade">
+        <p><strong>How to read the hardness figures above.</strong> They are the
+        descriptive working ranges for each process step, not product grade codes.
+        Fengerda's commercial steel shot and grit grading follows the standard
+        letter codes: <strong>GP 42&ndash;52 HRC</strong>,
+        <strong>GL 52&ndash;61 HRC</strong>, <strong>GH &gt;61 HRC</strong>.
+        When a specification states a range such as HRC 55&ndash;60, map it to the
+        code band that contains it rather than treating the range as a grade name.
+        </p>
+      </div>
+
+      <h2 id="key">Key takeaways</h2>
+      <ul>
+        <li><strong>Sa 2.5 / SSPC-SP10 is the working grade of marine
+        coating.</strong> Specifying a lower grade and hoping is the most common
+        cause of coating failure.</li>
+        <li><strong>Cleanliness and roughness are separate specifications.</strong>
+        Quote ISO 8503 or ASTM D4417 alongside the Sa grade, not instead of it.</li>
+        <li><strong>Grade determines abrasive type, not just abrasive
+        price.</strong> Sa 2 wants shot; Sa 2.5 wants grit with shot blended in;
+        Sa 3 needs high-hardness grit or non-metallic media.</li>
+        <li><strong>Weld areas have their own standard.</strong> ISO 8501-3 governs
+        them, and they consume more abrasive than the plate around them.</li>
+      </ul>
+
+      <p>For the two-line Sa standard guide, see
+      <a href="sa2-vs-sa2-5-acceptance.html">Sa 2 vs Sa 2&frac12;: on-site acceptance
+      standards</a>. For whether Sa 3 is worth paying for, see
+      <a href="sa2-half-vs-sa3.html">Sa 2&frac12; vs. Sa 3: when does &quot;cleaner&quot;
+      stop paying off?</a>. For weld areas and shop-primer lines in detail, see
+      <a href="weld-and-shop-primer-blasting.html">Weld areas and shop-primer
+      lines</a>.</p>
+
+      <h2 id="evidence-note">How the recommendations are built</h2>
+      <p>Three levels of evidence appear on this page and should not be read as
+      equivalent: (1) <strong>standard definitions</strong> quoted from ISO 8501-1,
+      ISO 8501-3, ISO 8503, ASTM D4417 and the SSPC catalogue; (2)
+      <strong>industry survey figures</strong> on rework share and cost reduction,
+      which are third-party and directional; (3) <strong>process recommendations</strong>
+      derived from standard requirements, coating data sheets and documented shop
+      practice &mdash; these are engineering guidance, not a substitute for
+      trial on your own substrate.</p>
+
+      <div class="gd-faq">
+        <h2>Frequently asked questions</h2>
+        <p>Short answers drawn from the technical content above.</p>
+        <details>
+          <summary>What abrasives are needed for ISO 8501-3 and SSPC-SP10?</summary>
+          <div class="ans">For Sa 2.5 / SSPC-SP10 ballast and cargo tank work, the standard specification is a predominantly angular steel grit at HRC 55-65, G40 or G25 (0.6-1.0 mm), blended with 20-30% steel shot at HRC 50-55 (S330) to keep the anchor pattern uniform. For Sa 2 / SSPC-SP6 use medium-hardness steel shot at HRC 40-50, S330 or S390, optionally with 30-40% G40 grit added for stubborn scale. Weld areas under ISO 8501-3 need finer grit than the surrounding plate, typically G80 at HRC 55-60.</div>
+        </details>
+        <details>
+          <summary>What is the difference between ISO 8501-1 and ISO 8501-3?</summary>
+          <div class="ans">ISO 8501-1 covers blast-cleaning and pretreatment grades for the flat plate area. ISO 8501-3 is a supplementary standard for welds, cut edges and other defective areas, because weld slag, undercut and spatter are fundamentally different from plate defects. It defines its own levels: P Sa1, P Sa2 and P Sa2.5. A specification that quotes only ISO 8501-1 has not specified weld treatment.</div>
+        </details>
+        <details>
+          <summary>Is SSPC-SP10 the same as Sa2.5?</summary>
+          <div class="ans">Yes in practice. SSPC-SP10 (Near-White) corresponds to ISO Sa 2.5 and requires at least 95% of the surface per square inch to be free of visible residue, with only trace colour difference in the remaining 5%. SSPC-SP6 corresponds to Sa 2, SP7 to Sa 1, and SP5 to Sa 3.</div>
+        </details>
+        <details>
+          <summary>Do I need abrasive hardness above 60 HRC for Sa2.5?</summary>
+          <div class="ans">No, and high hardness is not free. A predominantly high-hardness medium such as HRC 60-66 raises the breakage rate and shortens life. Sa 2.5 is normally reached with G40 or G25 grit at HRC 55-65. Hardness above 60 HRC belongs to Sa 3 work, where cutting efficiency matters more than cost, or to special applications.</div>
+        </details>
+        <details>
+          <summary>Which abrasive should be used for stainless steel or before a stainless lining?</summary>
+          <div class="ans">Non-metallic abrasive. Steel grit or shot leaves embedded iron ions in the substrate, which can initiate corrosion under the stainless lining. Use white fused alumina (46#-60#) or garnet grit for stainless steel substrates and for carbon steel being prepared ahead of a stainless lining.</div>
+        </details>
+        <details>
+          <summary>How much abrasive does one tonne of steel shot cover?</summary>
+          <div class="ans">For Sa 2 work with medium-hardness S330 or S390 shot, one tonne treats roughly 30-40 square metres. Coverage falls sharply as hardness and breakage rise, and for Sa 2.5 with grit the consumption rate is materially higher. This is the number that actually drives cost, and it is covered in Abrasive procurement: unit price vs. total cost.</div>
+        </details>
+      </div>
+      <p class="gd-cite">Grades and roughness requirements as defined in ISO 8501-1, ISO 8501-3 and ISO 8503, and in the SSPC blast-cleaning catalogue. Hardness figures in the matrix are descriptive process ranges; Fengerda commercial grading uses GP 42-52 HRC, GL 52-61 HRC and GH above 61 HRC. Always confirm the substrate and coating data sheet before fixing a media type.</p>
+
+    </main>
+
+    <aside class="gd-side">
+      <div class="card cta">
+        <h3>Confirm the media for your target grade</h3>
+        <p>The selector returns the abrasive grade and mix for your process and throughput.</p>
+        <a class="btn btn-primary" href="../index.html#selector">Open the selector</a>
+      </div>
+      <div class="card toc">
+        <h3>On this page</h3>
+        <ol>
+          <li><a href="#why">I. The cost line nobody watches</a></li>
+          <li><a href="#iso">II. ISO 8501 visual assessment grades</a></li>
+          <li><a href="#sspc">III. The SSPC equivalents</a></li>
+          <li><a href="#roughness">IV. Cleanliness and roughness</a></li>
+          <li><a href="#matrix">V. Grade-to-abrasive correspondence</a></li>
+          <li><a href="#key">Key takeaways</a></li>
+          <li><a href="#evidence-note">How the recommendations are built</a></li>
+        </ol>
+      </div>
+      <div class="card toc">
+        <h3>More guides</h3>
+        <ol>
+      <li><a href="choosing-abrasive-media.html">How to choose the right abrasive media for your application</a></li>
+      <li><a href="blast-media-cost.html">Blast media price vs. total blasting cost</a></li>
+      <li><a href="recyclable-vs-single-use.html">Recyclable vs. single-use media: the real consumption math</a></li>
+      <li><a href="fg-fmr-case-studies.html">FG &amp; FMR premium steel shot: three documented case studies</a></li>
+      <li><a href="grinding-steel-shot-applications.html">Grinding steel shot: applications and specifications by industry</a></li>
+      <li><a href="weld-and-shop-primer-blasting.html">Weld areas and shop-primer lines: abrasive selection notes</a></li>
+      <li><a href="abrasive-procurement-cost-model.html">Abrasive procurement: unit price vs. total cost, and how to check quality</a></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Need a quote?</h3>
+        <p>Send us your throughput, process and current media grade.</p>
+        <a class="btn btn-ghost" href="../index.html#contact">Request technical advice</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="gd-other">
+  <div class="wrap">
+    <h2>All Knowledge Center guides</h2>
+    <ol>
+      <li><a href="choosing-abrasive-media.html">How to choose the right abrasive media for your application</a></li>
+      <li><a href="blast-media-cost.html">Blast media price vs. total blasting cost</a></li>
+      <li><a href="recyclable-vs-single-use.html">Recyclable vs. single-use media: the real consumption math</a></li>
+      <li><a href="fg-fmr-case-studies.html">FG &amp; FMR premium steel shot: three documented case studies</a></li>
+      <li><a href="grinding-steel-shot-applications.html">Grinding steel shot: applications and specifications by industry</a></li>
+      <li><a href="weld-and-shop-primer-blasting.html">Weld areas and shop-primer lines: abrasive selection notes</a></li>
+      <li><a href="abrasive-procurement-cost-model.html">Abrasive procurement: unit price vs. total cost, and how to check quality</a></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div class="brand">FENGERDA<span style="color:#e8631a">.</span><span class="sub">Hannibal Zhang &middot; Metal abrasive media</span></div>
+      <nav>
+        <a href="../index.html#selector">Selector</a>
+        <a href="../index.html#knowledge">Knowledge Center</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="legal">(c) 2026 FENGERDA. Abrasive selection tools and guide content &mdash; all rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var SRC={claude:'Claude',chatgpt:'ChatGPT',perplexity:'Perplexity',
+           'perplexity.ai':'Perplexity',gemini:'Gemini',copilot:'Copilot',
+           you:'You.com','you.com':'You.com',bing:'Bing Copilot'};
+  function src(){
+    var r=document.referrer||'';
+    var keys=Object.keys(SRC);
+    for(var i=0;i<keys.length;i++){ if(r.indexOf(keys[i])>-1) return 'AI referral: '+SRC[keys[i]]; }
+    if(/^https?:\/\/(www\.)?(google|bing|duckduckgo|yahoo|baidu)\./i.test(r)) return 'Search engine';
+    return 'Direct / unknown';
+  }
+  window.__gdGuide={slug:'iso8501-sspc-abrasive-matrix',source:src()};
+  var box=document.getElementById('gd-src');
+  if(box) box.textContent='Source: '+window.__gdGuide.source;
+})();
+</script>
+
+
+<script>
+(function(){
+  var g=window.__gdGuide||{};
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a[href^="mailto:"]'):null;
+    if(!a) return;
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('iso8501-sspc-abrasive-matrix')>-1) return;
+    var note='\n\n--- CONTEXT ---\nGuide read: '+g.slug+'\nSource: '+g.source+'\nPage: '+location.href;
+    var next=href.replace(/&amp;/g,'&');
+    if(next.indexOf('body=')>-1){
+      next=next.replace(/body=/,'body='+encodeURIComponent(note.replace(/^\n+/,''))+'%0D%0A');
+    }
+    a.setAttribute('href',next);
+  },true);
+})();
+</script>
+
+</body>
+</html>

@@ -47,4 +47,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/iso8501-sspc-abrasive-matrix.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/weld-and-shop-primer-blasting.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/abrasive-procurement-cost-model.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

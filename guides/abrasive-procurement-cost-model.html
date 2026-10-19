@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abrasive procurement: unit price vs. total cost, and how to check quality</title>
+<meta name="description" content="Why price per ton is the wrong comparison for steel shot and grit, a worked two-supplier cost model covering breakage, cycle life and first-pass yield, five mandatory incoming inspection items, and the supplier scorecard that keeps batch hardness within about 3 HRC.">
+<link rel="canonical" href="https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/abrasive-procurement-cost-model.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Abrasive procurement: unit price vs. total cost, and how to check quality">
+<meta property="og:description" content="Why price per ton is the wrong comparison for steel shot and grit, a worked two-supplier cost model covering breakage, cycle life and first-pass yield, five mandatory incoming inspection items, and the supplier scorecard that keeps batch hardness within about 3 HRC.">
+<meta property="og:url" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/abrasive-procurement-cost-model.html">
+<meta property="og:image" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/og-cover.png">
+<meta property="og:image:alt" content="FENGERDA metal abrasive selection tools">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abrasive procurement: unit price vs. total cost, and how to check quality">
+<meta name="twitter:description" content="Why price per ton is the wrong comparison for steel shot and grit, a worked two-supplier cost model covering breakage, cycle life and first-pass yield, five mandatory incoming inspection items, and the supplier scorecard that keeps batch hardness within about 3 HRC.">
+<meta name="twitter:image" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/og-cover.png">
+<meta name="theme-color" content="#0e2a47">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Abrasive procurement: unit price vs. total cost, and how to check quality",
+      "description": "Why price per ton is the wrong comparison for steel shot and grit, a worked two-supplier cost model covering breakage, cycle life and first-pass yield, five mandatory incoming inspection items, and the supplier scorecard that keeps batch hardness within about 3 HRC.",
+      "url": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/abrasive-procurement-cost-model.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/abrasive-procurement-cost-model.html"
+      },
+      "inLanguage": "en",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "author": {
+        "@type": "Person",
+        "name": "Hannibal Zhang",
+        "email": "mailto:china_k@fengerda.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FENGERDA",
+        "email": "mailto:china_k@fengerda.com"
+      },
+      "about": "ISO 8501 and SSPC blast-cleaning grades and the metallic abrasives each grade requires"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Center",
+          "item": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/#knowledge"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Abrasive procurement: unit price vs. total cost, and how to check quality",
+          "item": "https://hannibalzhang007.github.io/metalabrasive-selection-AI/guides/abrasive-procurement-cost-model.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is the lowest price per ton of abrasive often the most expensive option?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because unit price ignores breakage rate, cycle life and first-pass yield. In the worked comparison above, the lower-priced grit at HRC 50-55 lasts about 120 cycles at 12% breakage, while the higher-priced grit at HRC 58-62 lasts about 250 cycles at 6% breakage &mdash; giving 2.07 RMB/m2 against 1.35 RMB/m2 and an 88% against 96% Sa 2.5 first-pass yield, with 15-20% overall cost increase from rework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should be checked when abrasive arrives at the factory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Five items: hardness by GB/T 230.1 or GB/T 4340.1 with a pass rate of at least 95%; particle size distribution to SAE J444/J441 with at least 85% on the main sieve and no more than 5% fines; chemical composition for carbon, silicon, manganese, sulfur and phosphorus; microscopic morphology including shot roundness with non-spherical particles at or below 10% and grit edge sharpness; and cleanliness with no visible oil and dust at or below 2%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you judge whether an abrasive supplier is reliable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Score them on five dimensions: batch stability, meaning the hardness fluctuation across three consecutive batches stays within about 3 HRC; supply guarantee through the March to October peak; technical support ability, meaning real mix and machine parameter advice rather than a price list; certifications such as ISO 9001 and classification society test reports; and per-batch traceability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What hardness variation across batches should be considered acceptable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An approximately plus or minus 3 HRC swing across three consecutive batches is a reasonable acceptance line for steel shot and grit, and it is the point at which automated blasting equipment starts producing visibly uneven coverage. It is also the same order as the tightest control offered by established European brands, so it is a fair rather than a lenient standard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is stainless steel or non-metallic media ever the right procurement choice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is a compliance decision rather than a cost one. For stainless steel substrates, and for carbon steel being prepared ahead of a stainless steel lining, non-metallic media such as white fused alumina or garnet grit must be used to avoid embedded iron ions causing subsequent corrosion."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+<style>:root{--navy:#0e2a47;--navy-2:#14395e;--orange:#e8631a;--orange-dark:#c95310;--ink:#1a2430;--muted:#5a6b7a;--line:#e2e8ee;--bg:#ffffff;--bg-soft:#f5f7f9;--bg-deep:#0b2239;--radius:10px;--shadow:0 1px 2px rgba(14,42,71,.06),0 8px 24px rgba(14,42,71,.07)}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:72px}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}a{color:var(--navy);text-decoration:none}a:hover{color:var(--orange)}.wrap{max-width:1120px;margin:0 auto;padding:0 24px}header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}.nav{display:flex;align-items:center;justify-content:space-between;height:64px}.brand{font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--navy);white-space:nowrap}.brand span{color:var(--orange)}.brand .sub{display:block;font-size:10px;color:var(--muted);font-weight:500;line-height:1.2;white-space:normal}nav.links{display:flex;gap:28px;align-items:center}nav.links a{font-size:14px;color:var(--navy);font-weight:600;white-space:nowrap}nav.links a:hover{color:var(--orange)}nav.links .btn-cta{background:var(--orange);color:#fff;padding:9px 16px;border-radius:8px;font-weight:600}nav.links .btn-cta:hover{background:var(--orange-dark);color:#fff}.hero{min-height:calc(100vh - 64px);display:flex;align-items:center;background:radial-gradient(1100px 500px at 85% -10%,rgba(232,99,26,.08),transparent 60%),linear-gradient(180deg,#fff 0,var(--bg-soft) 100%);padding:72px 0}.hero .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}.hero h1{font-size:clamp(34px, 5.4vw, 60px);line-height:1.12;letter-spacing:-.02em;color:var(--navy);max-width:18ch;font-weight:800}.hero p.sub{margin-top:22px;font-size:clamp(16px, 1.6vw, 19px);color:var(--muted);max-width:52ch}.hero .actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:9px;font-weight:600;font-size:15px;border:1.5px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}.btn svg{width:17px;height:17px}.btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange-dark);color:#fff}.btn-ghost{background:0 0;color:var(--navy);border-color:#b9c6d3}.btn-ghost:hover{border-color:var(--navy);color:var(--navy)}.hero .scroll-hint{margin-top:56px;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:600}@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}.scroll-hint svg{width:16px;height:16px;animation:hop 1.6s ease-in-out infinite}section{padding:84px 0}section.soft{background:var(--bg-soft)}.sec-head{max-width:640px;margin-bottom:44px}.sec-head h2{font-size:clamp(26px, 3vw, 34px);color:var(--navy);letter-spacing:-.01em;line-height:1.2}.sec-head p{margin-top:12px;color:var(--muted);font-size:16px}.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.tool-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.tool-card:hover{transform:translateY(-3px);border-color:#c9d4df}.tool-card .ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:var(--bg-soft);color:var(--orange);border:1px solid var(--line)}.tool-card .ic svg{width:21px;height:21px}.tool-card h3{font-size:16.5px;color:var(--navy);line-height:1.35}.tool-card p{font-size:13.5px;color:var(--muted);flex:1}.tool-card a.go{font-size:13.5px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:5px}.tool-card a.go:hover{color:var(--orange)}.tool-card a.go svg{width:14px;height:14px}.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:5px}.badge-live{background:#e7f3ea;color:#176b34}.badge-here{background:#eef1f6;color:var(--navy)}.badge-soon{background:#fdf1e8;color:var(--orange-dark)}.sa-table{width:100%;border-collapse:collapse;font-size:14px}.sa-table td,.sa-table th{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}.sa-table th{background:var(--bg-soft);color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.sa-table td:first-child{font-weight:700;color:var(--navy);white-space:nowrap}.sa-source{font-size:12px;color:var(--muted);margin-top:12px}.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.ind-item{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:18px 18px}.ind-item .ic{width:36px;height:36px;flex:none;border-radius:8px;background:var(--bg-soft);color:var(--navy);display:grid;place-items:center}.ind-item .ic svg{width:18px;height:18px}.ind-item h4{font-size:15px;color:var(--navy)}.ind-item p{font-size:13px;color:var(--muted);margin-top:2px}.kn-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.kn-item{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)}.kn-item .num{font-size:13px;font-weight:800;color:var(--orange);min-width:34px}.kn-item h3{font-size:15.5px;color:var(--navy);line-height:1.4}.kn-item p{font-size:13px;color:var(--muted);margin-top:4px}.kn-item details{margin-top:10px}.kn-item details summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:13.5px;padding:6px 0}.kn-item details summary:hover{color:var(--orange)}.kn-item details[open] summary{color:var(--orange)}.kn-article{font-size:14px;color:var(--ink);line-height:1.7;margin-top:10px}.kn-article h4{font-size:14.5px;color:var(--navy);margin:14px 0 4px}.kn-article ul{margin:6px 0 6px 20px}.kn-article li{margin:3px 0}.kn-add-note{font-size:12.5px;color:var(--muted);margin-top:14px;padding:12px 14px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:8px}.kn-add-note code{background:var(--bg);padding:2px 6px;border-radius:4px;font-size:12px;border:1px solid var(--line)}.lead{background:var(--bg-deep);color:#eaf0f6}.lead .sec-head h2{color:#fff}.lead .sec-head p{color:#a9bccd}.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.lead .panel{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14);box-shadow:none}.lead .panel h3{color:#fff}.lead .field label{color:#dce6ef}.lead .field input,.lead .field select,.lead .field textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);color:#fff}.lead .field input::placeholder,.lead .field textarea::placeholder{color:#7f93a5}.lead .field input:focus,.lead .field textarea:focus{border-color:var(--orange);outline:2px solid rgba(232,99,26,.45)}textarea{width:100%;padding:10px 12px;font-size:15px;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font-family:inherit;resize:vertical}.form-status{margin-top:14px;font-size:14px;color:#9fd3a8;min-height:22px}.form-status.err{color:#f2b8a0}.alt-channels{margin-top:22px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}.alt-channels .lbl{font-size:12.5px;color:#a9bccd;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}.chn{display:flex;flex-direction:column;gap:10px}.chn a{display:inline-flex;align-items:center;gap:9px;color:#eaf0f6;font-weight:600;font-size:14.5px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:9px}.chn a:hover{border-color:var(--orange);color:var(--orange)}.chn a svg{width:17px;height:17px}.chn .mail{color:var(--muted);font-size:12.5px;font-weight:400;margin-top:8px}.direct{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.direct .dcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:16px}.direct .dcard .t{font-size:13px;color:#a9bccd;font-weight:600}.direct .dcard .v{font-size:15px;color:#fff;font-weight:700;margin-top:4px;word-break:break-all}.direct .dcard a{color:#fff}.direct .dcard a:hover{color:var(--orange)}footer{background:#081a2c;color:#8fa3b5;padding:44px 0 34px;font-size:13.5px}footer .frow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer .brand{color:#fff;font-size:14px}footer .brand .sub{color:#8fa3b5}footer nav{display:flex;gap:22px;flex-wrap:wrap}footer nav a{color:#c6d4e0}footer nav a:hover{color:var(--orange)}footer .f-social{display:flex;gap:14px;margin-top:14px}footer .f-social a{display:inline-flex;align-items:center;gap:7px;color:#c6d4e0;font-size:13px;font-weight:600;padding:8px 14px;border:1px solid rgba(255,255,255,.18);border-radius:8px}footer .f-social a:hover{border-color:var(--orange);color:var(--orange)}footer .f-social a svg{width:16px;height:16px}footer .legal{margin-top:26px;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:12.5px;color:#6d8296}@media (max-width:960px){.tools-grid{grid-template-columns:repeat(2,1fr)}.lead-grid{grid-template-columns:1fr}.ind-grid{grid-template-columns:repeat(2,1fr)}.sel-cost-grid,.sel-grid{grid-template-columns:1fr!important}}@media (max-width:640px){section{padding:60px 0}nav.links{gap:10px}nav.links a:not(.btn-cta){display:none}nav.links .btn-cta{padding:8px 12px;font-size:13px}.brand{font-size:14px}.ind-grid,.kn-list,.tools-grid{grid-template-columns:1fr}.direct{grid-template-columns:1fr}.hero{padding:48px 0}.hero .scroll-hint{margin-top:40px}.sel-cost-grid,.sel-grid{grid-template-columns:1fr!important}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-hint svg{animation:none}.tool-card{transition:none}}.sel-section{padding:84px 0;background:var(--bg-soft)}.sel-section .sel-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-bottom:22px}.sel-section .sel-card h3{font-size:17px;color:var(--navy);margin-bottom:16px}.sel-section .sel-sub{color:var(--muted);font-size:14px;margin:0 0 16px}.sel-section .sel-two-lang{font-size:13px;color:var(--muted)}.sel-section .sel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sel-section .sel-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}.sel-section .sel-field>label{font-size:13.5px;font-weight:600;color:var(--ink)}.sel-section .sel-field .sel-hint{font-size:11px;color:var(--muted)}.sel-section .sel-field .sel-unit{color:var(--muted);font-weight:400}.sel-section input,.sel-section select{width:100%;padding:10px 12px;font-size:15px;color:var(--ink);border:1.5px solid #c9d4df;border-radius:8px;background:#fff;font-family:inherit}.sel-section input:focus,.sel-section select:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}.sel-section .sel-full{grid-column:1/-1}.sel-section .sel-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;border:none;border-radius:9px;padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer;transition:background .15s}.sel-section .sel-btn:hover{background:var(--orange-dark)}.sel-section .sel-btn.ghost{background:#fff;color:var(--orange);border:1.5px solid var(--orange);margin-left:10px}.sel-section .sel-result{display:none}.sel-section .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}.sel-section .res-item{background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:14px}.sel-section .res-item .k{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}.sel-section .res-item .v{font-size:16px;font-weight:700;color:var(--navy);margin-top:2px}.sel-section .res-head{display:flex;align-items:center;gap:10px;margin:6px 0 14px}.sel-section .sel-badge{background:var(--orange);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px;font-weight:700}.sel-section table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}.sel-section td,.sel-section th{border:1px solid var(--line);padding:8px 10px;text-align:left}.sel-section th{background:var(--bg-soft);font-weight:600;color:var(--navy)}.sel-section tr:nth-child(2n) td{background:var(--bg-soft)}.sel-section .sel-note{font-size:12.5px;color:var(--muted);margin-top:10px;border-left:3px solid var(--orange);padding:8px 12px;background:var(--bg-soft);border-radius:0 8px 8px 0;line-height:1.7}.sel-section .sel-warn-box{background:#fdf1e8;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:8px;margin-top:12px;font-size:13px}.sel-section .sel-warn-box .w{display:block;margin:2px 0}.sel-section details{margin-top:12px}.sel-section details>summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:14px;padding:6px 0}.sel-section details>summary:hover{color:var(--orange)}.sel-section .sel-formula-box{background:#f0f9ff;border:1px solid #dbeafe;border-radius:8px;padding:12px 14px;font-size:13px;color:var(--ink);margin:10px 0 16px;line-height:1.8}.sel-section .sel-cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sel-section .sel-scen{border:1px solid var(--line);border-radius:10px;padding:14px 14px 6px}.sel-section .sel-scen-a{border-color:#bfdbfe;background:#fbfdff}.sel-section .sel-scen-b{border-color:#bbf7d0;background:#fbfefb}.sel-section .sel-scen-head{font-size:14px;font-weight:700;margin:0 0 10px;display:flex;align-items:center;gap:8px;color:var(--navy)}.sel-section .sel-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.sel-section .sel-dot.a{background:var(--navy)}.sel-section .sel-dot.b{background:#176b34}.sel-section .sel-cmp-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.sel-section .sel-cmp-item{flex:1 1 180px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px}.sel-section .sel-cmp-item .k{font-size:11px;color:var(--muted)}.sel-section .sel-cmp-item .v{font-size:15px;font-weight:700;color:var(--navy)}.sel-section .v.win{color:#176b34}.sel-section .v.lose{color:#dc2626}.sel-section .sel-verdict{background:#f0fdf4;border:1px solid #86efac;color:#14532d;padding:12px 16px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}.sel-section .sel-verdict.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}.sel-lead-capture{background:var(--bg-deep);color:#eaf0f6;border-radius:var(--radius);padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}.sel-lead-capture h3{color:#fff;font-size:18px;margin-bottom:8px}.sel-lead-capture p{color:#a9bccd;font-size:14px;margin-bottom:16px}.sel-lead-capture .sel-lc-form{display:flex;gap:10px;flex-wrap:wrap}.sel-lead-capture input[type=email]{flex:1 1 280px;padding:12px 14px;font-size:15px;color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);font-family:inherit}.sel-lead-capture input[type=email]::placeholder{color:#7f93a5}.sel-lead-capture input[type=email]:focus{border-color:var(--orange);outline:2px solid rgba(232,99,26,.45)}.sel-lead-capture button{padding:12px 22px;font-size:15px;font-weight:600;background:var(--orange);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .15s}.sel-lead-capture button:hover{background:var(--orange-dark)}.sel-lead-capture .sel-lc-status{margin-top:12px;font-size:14px;color:#9fd3a8;min-height:22px}.sel-lead-capture .sel-lc-status.err{color:#f2b8a0}.hero .wrap{width:100%;max-width:1280px;text-align:center}.hero h1{max-width:none;font-size:clamp(34px,6.1vw,72px);margin-left:auto;margin-right:auto}.hero p.sub{max-width:780px;margin-left:auto;margin-right:auto}.hero .actions{justify-content:center}#contact .sec-head{max-width:none;text-align:center}#contact .sec-head p{max-width:780px;margin-left:auto;margin-right:auto}@media (max-width:640px){.hero h1{font-size:clamp(30px,9vw,40px)}.hero p.sub{max-width:none}}.kn-item:has(details[open]){grid-column:1/-1}.kn-standalone{margin-top:10px;font-size:13.5px;font-weight:700}.kn-standalone a{color:var(--navy);display:inline-flex;align-items:center;gap:5px}.kn-standalone a:hover{color:var(--orange)}.sec-head{max-width:none;text-align:center}.sec-head h2{max-width:none}.sec-head p{max-width:860px;margin-left:auto;margin-right:auto}@media (min-width:961px){.sel-cost-grid .sel-field>label{min-height:44px}}.lead-grid{align-items:stretch}#contact .panel{display:grid;grid-template-rows:auto 1fr;padding:22px 26px}#contact .panel h3{margin:0 0 23px}#contact .panel ol{gap:26px!important}#contact .panel .alt-channels{margin-top:32px;padding-top:20px}#contact .panel .direct .dcard{padding:21px 16px}#contact .est-note{margin-top:25px!important}#lead-form{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:23px;align-content:space-between}#form-status:empty{display:none}#contact .field{display:flex;flex-direction:column;gap:6px}#contact .field label{font-size:13.5px;font-weight:600}#contact .field input,#contact .field textarea{width:100%;padding:10px 12px;font-size:15px;font-family:inherit;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff}#lead-form .field:nth-of-type(5),#lead-form .field:nth-of-type(6){grid-column:1/-1}#lead-form .btn{grid-column:1/-1;margin-top:4px}@media (max-width:700px){#lead-form{grid-template-columns:1fr}#lead-form .field:nth-of-type(5),#lead-form .field:nth-of-type(6){grid-column:auto}}
+.gd-hero{background:var(--bg-soft);padding:56px 0 40px;border-bottom:1px solid var(--line)}
+.gd-hero .crumb{font-size:13px;color:var(--muted);margin-bottom:14px}
+.gd-hero .crumb a{color:var(--navy);font-weight:600}
+.gd-hero h1{font-size:clamp(25px,3.4vw,38px);line-height:1.18;letter-spacing:-.02em;color:var(--navy);font-weight:800;max-width:24ch}
+.gd-hero .gd-lead{margin-top:16px;font-size:17px;color:var(--muted);max-width:64ch}
+.gd-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;font-size:13px;color:var(--muted)}
+.gd-body{padding:52px 0}
+.gd-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:44px;align-items:start}
+.gd-article{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;box-shadow:var(--shadow);font-size:15px;line-height:1.75}
+.gd-article h2{font-size:21px;color:var(--navy);margin:34px 0 8px;letter-spacing:-.01em;padding-top:6px}
+.gd-article h2:first-child{margin-top:0}
+.gd-article h3{font-size:16px;color:var(--navy);margin:22px 0 8px}
+.gd-article ul,.gd-article ol{margin:8px 0 8px 22px}
+.gd-article li{margin:7px 0}
+.gd-article p{margin:10px 0}
+.gd-article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+.gd-article th,.gd-article td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+.gd-article th{background:var(--bg-soft);color:var(--navy);font-weight:700;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase}
+.gd-article tr:nth-child(2n) td{background:var(--bg-soft)}
+.gd-article td.gd-grp{font-weight:700;color:var(--navy)}
+.gd-callout{background:var(--bg-soft);border-left:3px solid var(--orange);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+.gd-notation{background:#f0f9ff;border:1px solid #dbeafe;border-radius:9px;padding:14px 18px;margin:16px 0}
+.gd-notation p{margin:0 0 6px}
+.gd-evidence{background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:13px 18px;margin:16px 0;font-size:13.5px;color:#78350f}
+.gd-grade{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:9px;padding:14px 18px;margin:16px 0}
+.gd-grade p{margin:0 0 6px}
+.gd-myth{background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:0 18px;margin:16px 0}
+.gd-myth .q{font-weight:700;color:#92400e;margin-top:14px}
+.gd-myth .a{color:#78350f;font-size:14px;margin-top:4px}
+.gd-steps{counter-reset:gs;list-style:none;margin:14px 0 8px 0;padding:0}
+.gd-steps li{counter-increment:gs;position:relative;padding-left:38px;margin:11px 0}
+.gd-steps li:before{content:counter(gs);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:50%;background:var(--orange);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.gd-matrix td.gd-ctr{text-align:center}
+.gd-matrix td.gd-c{text-align:center;background:#fff}
+.gd-faq{margin-top:38px}
+.gd-faq h2{font-size:21px;color:var(--navy);margin-bottom:6px}
+.gd-faq > p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.gd-faq details{border:1px solid var(--line);border-radius:9px;padding:0 16px;background:var(--bg);margin-bottom:9px}
+.gd-faq details[open]{border-color:#c9d4df}
+.gd-faq summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:15px;padding:14px 0;list-style:none}
+.gd-faq summary::-webkit-details-marker{display:none}
+.gd-faq summary:after{content:"+";float:right;color:var(--orange);font-weight:700}
+.gd-faq details[open] summary:after{content:"\2212"}
+.gd-faq .ans{padding:0 0 16px;font-size:14.5px;line-height:1.75}
+.gd-side{position:sticky;top:84px;display:flex;flex-direction:column;gap:16px}
+.gd-side .card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)}
+.gd-side .card h3{font-size:15px;color:var(--navy);margin-bottom:8px}
+.gd-side .card p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.gd-side .toc h3{margin-bottom:10px}
+.gd-side .toc ol{margin:0 0 0 18px;font-size:13.5px}
+.gd-side .toc li{margin:5px 0}
+.gd-side .toc a{color:var(--navy);font-weight:600}
+.gd-side .cta{background:var(--bg-deep);border:none;color:#eaf0f6}
+.gd-side .cta h3{color:#fff}
+.gd-side .cta p{color:#a9bccd}
+.gd-other{background:var(--bg-soft);border-top:1px solid var(--line);padding:48px 0}
+.gd-other h2{font-size:20px;color:var(--navy);margin-bottom:18px}
+.gd-other ol{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.gd-other li{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:14px 18px;font-size:14.5px}
+.gd-other a{color:var(--navy);font-weight:700}
+.gd-other a:hover{color:var(--orange)}
+.gd-cite{font-size:12.5px;color:var(--muted);margin-top:26px;padding-top:16px;border-top:1px dashed var(--line)}
+@media (max-width:900px){.gd-layout{grid-template-columns:1fr}.gd-side{position:static}.gd-article{padding:22px 18px}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">FENGERDA <span>Abrasive Selection</span><span class="sub">Steel shot, grit &amp; grinding steel shot</span></a>
+    <nav class="links">
+      <a href="../index.html#selector">Selector</a>
+      <a href="../index.html#knowledge">Guides</a>
+      <a class="btn-cta" href="../index.html#contact">Request advice</a>
+    </nav>
+  </div>
+</header>
+
+<section class="gd-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#knowledge">Knowledge Center</a> &rsaquo; this guide</div>
+    <h1>Abrasive procurement: unit price vs. total cost, and how to check quality</h1>
+    <p class="gd-lead">Two steel grit quotes, 12% apart in price and about 50% apart in reality. The gap is made of breakage rate, cycle life and first-pass yield &mdash; and every one of those can be checked on arrival.</p>
+    <div class="gd-meta">
+      <span>By Hannibal Zhang, FENGERDA</span>
+      <span>Updated 19 Oct 2026</span>
+      <span id="gd-src">Source: detecting...</span>
+    </div>
+  </div>
+</section>
+
+<section class="gd-body">
+  <div class="wrap gd-layout">
+    <main class="gd-article">
+      <h2 id="trap">I. The unit-price trap</h2>
+      <p>The most common misconception in shipyard abrasive procurement is using
+      delivered unit price as the core price comparison indicator. Two batches of
+      steel shot that look alike can differ by 10&ndash;15% in unit price while
+      differing far more than that in total cost.</p>
+      <p>The simplified comparison below models two steel grit offers on the same
+      job.</p>
+
+      <table class="gd-matrix">
+        <thead><tr><th>Parameter</th><th>Supplier A<br><span style="font-weight:400;text-transform:none">(low-priced)</span></th><th>Supplier B<br><span style="font-weight:400;text-transform:none">(medium-to-high-priced)</span></th></tr></thead>
+        <tbody>
+          <tr><td class="gd-grp">Price per ton delivered to the factory (RMB/ton)</td><td class="gd-c">5,800</td><td class="gd-c">6,500</td></tr>
+          <tr><td class="gd-grp">Hardness (HRC)</td><td class="gd-c">50&ndash;55</td><td class="gd-c">58&ndash;62</td></tr>
+          <tr><td class="gd-grp">Breakage rate per cycle</td><td class="gd-c">12%</td><td class="gd-c">6%</td></tr>
+          <tr><td class="gd-grp">Cycle life (times)</td><td class="gd-c">Approx. 120</td><td class="gd-c">Approx. 250</td></tr>
+          <tr><td class="gd-grp">Effective processing area per ton (m&sup2;)</td><td class="gd-c">Approx. 2,800</td><td class="gd-c">Approx. 4,800</td></tr>
+          <tr><td class="gd-grp">Abrasive cost per m&sup2; (RMB)</td><td class="gd-c">2.07</td><td class="gd-c">1.35</td></tr>
+          <tr><td class="gd-grp">Sa2.5 first-pass yield</td><td class="gd-c">Approx. 88%</td><td class="gd-c">Approx. 96%</td></tr>
+          <tr><td class="gd-grp">Overall cost increase due to rework</td><td class="gd-c">15&ndash;20%</td><td class="gd-c">Baseline (reference)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="gd-callout">
+        <strong>Read the bottom two rows, not the top one.</strong> Supplier A is
+        12% cheaper per ton and roughly 50% more expensive per square metre once
+        the shorter life, higher breakage and lower first-pass yield are counted.
+        This is the classic abrasive procurement trap: buying cheap and using
+        expensive.
+      </div>
+
+      <p>Note how the two columns differ in kind and not only in degree. Supplier A
+      sits in the low end of the hardness range where impact peels loose rust but
+      does not cut, so first-pass yield drops; Supplier B cuts harder and holds
+      its edge longer, so the same gun hours cover more surface. The rework line
+      is what converts that into money.</p>
+
+      <h2 id="incoming">II. Mandatory incoming inspection items</h2>
+      <p>Acceptance of abrasive material on arrival is a crucial step in procurement
+      quality control. The following parameters are recommended as mandatory
+      inspection items.</p>
+
+      <div class="gd-myth">
+        <p class="q">Hardness sampling inspection</p>
+        <p class="a">Randomly sample each batch and test according to GB/T 230.1
+        (Rockwell hardness) or GB/T 4340.1 (Vickers hardness). The pass rate should
+        be <strong>&ge;95%</strong>.</p>
+      </div>
+
+      <div class="gd-myth">
+        <p class="q">Particle size distribution</p>
+        <p class="a">Sieve according to SAE J444 / J441. Material remaining on the
+        main sieve should be <strong>&ge;85%</strong>; sieved fines (powder) should
+        be <strong>&le;5%</strong>. A high powder fraction is the visible symptom
+        of the breakage behaviour that drives the cost model above.</p>
+      </div>
+
+      <div class="gd-myth">
+        <p class="q">Chemical composition</p>
+        <p class="a">Focus on carbon, silicon, manganese, sulfur and phosphorus.
+        Excessive sulfur and phosphorus are the main causes of brittle fracture,
+        which is what turns a 6% breakage rate into a 12% one.</p>
+      </div>
+
+      <div class="gd-myth">
+        <p class="q">Microscopic morphology</p>
+        <p class="a">The roundness of steel shot &mdash; the proportion of
+        non-spherical particles should be <strong>&le;10%</strong>; and the
+        sharpness of steel grit edges. Passivated grit significantly reduces
+        cutting efficiency.</p>
+      </div>
+
+      <div class="gd-myth">
+        <p class="q">Cleanliness</p>
+        <p class="a">The abrasive surface must be free of obvious oil stains
+        (fluorescence reaction can be detected using a UV lamp), and dust content
+        should be <strong>&le;2%</strong>. Oil carried in on the abrasive defeats
+        the coating long before any mechanical property does.</p>
+      </div>
+
+      <h2 id="scorecard">III. Supplier evaluation dimensions</h2>
+      <p>Beyond price and quality, a supplier rating card built on the following
+      dimensions is recommended.</p>
+      <table>
+        <thead><tr><th>Dimension</th><th>What to check</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="gd-grp">Batch stability</td>
+            <td>Whether the hardness fluctuation range of three consecutive batches
+            is within <strong>&plusmn;3 HRC</strong>. This is the single most
+            predictive indicator of whether a delivered price will hold on site.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Supply guarantee</td>
+            <td>Whether the delivery cycle is stable during peak season &mdash;
+            March to October, the peak shipbuilding season. A supplier who is late
+            in August is late for the whole yard.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Technical support capability</td>
+            <td>Whether the supplier can provide abrasive ratio optimisation
+            suggestions and shot blasting machine parameter debugging support, or
+            only a price per ton.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Certifications</td>
+            <td>Whether the supplier holds ISO 9001 and has classification society
+            approved test reports.</td>
+          </tr>
+          <tr>
+            <td class="gd-grp">Traceability</td>
+            <td>Whether a material certificate and test report are provided for
+            <strong>each batch</strong>, not per order.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="outlook">IV. Where this is heading</h2>
+      <ul>
+        <li><strong>Green shipbuilding is driving an abrasive change.</strong> With
+        the IMO Energy Efficiency Design Index (EEXI) and Carbon Intensity Index
+        (CII) in force, shipyards face pressure to cut emissions. The
+        recyclability of metallic abrasives &mdash; 200 to 300 cycles &mdash;
+        makes their carbon footprint far lower than single-use non-metallic media
+        such as garnet or copper slag. Some EU shipyards have begun including
+        abrasive carbon footprint in supplier evaluation.</li>
+        <li><strong>Automated coating demands tighter consistency.</strong> As
+        sandblasting robots and intelligent shot blasting equipment spread, batch
+        consistency requirements for particle size and hardness will tighten.
+        Automated equipment is far more sensitive to media parameters than manual
+        operation; even small particle size fluctuations cause uneven spray
+        coverage.</li>
+        <li><strong>Ballast tank rules turn media selection into compliance.</strong>
+        As IMO PSPC standards tighten, the first-pass yield of Sa 2.5 directly
+        affects the 25-year target lifespan of the coating system. Abrasive
+        selection and quality control therefore move from a cost optimisation item
+        to a compliance risk management item.</li>
+      </ul>
+
+      <h2 id="key">Key takeaways</h2>
+      <ul>
+        <li><strong>Never compare abrasive suppliers on price per ton.</strong>
+        Cost per square metre and first-pass yield are the comparable numbers.</li>
+        <li><strong>Hardness stability across batches is worth more than any
+        single price concession.</strong> Ask for three-batch data before you
+        award, not after.</li>
+        <li><strong>Inspection is cheap, rework is not.</strong> Five incoming
+        checks &mdash; hardness, grading, chemistry, morphology, cleanliness
+        &mdash; cover most of what drives the rework line.</li>
+        <li><strong>Recyclability is becoming a scored criterion.</strong> 200-300
+        cycles changes the carbon comparison against single-use media entirely.</li>
+      </ul>
+
+      <p>For the consumption arithmetic behind the cycle-life figures above, see
+      <a href="recyclable-vs-single-use.html">Recyclable vs. single-use media: the
+      real consumption math</a>. For the grade definitions and the media each one
+      requires, see
+      <a href="iso8501-sspc-abrasive-matrix.html">ISO 8501 &amp; SSPC
+      blast-cleaning grades: which abrasive each one requires</a>.</p>
+
+      <h2 id="evidence-note">How to read the numbers</h2>
+      <p>The two-supplier comparison on this page is a worked model, not a
+      measured project record: it shows the shape of the effect and the mechanism
+      behind each line. Third-party survey figures elsewhere in this article series
+      on rework share are industry benchmarks. Your own consumption rate, cycle
+      life and first-pass yield should be measured on your own substrate and
+      equipment before a contract is signed.</p>
+
+      <div class="gd-faq">
+        <h2>Frequently asked questions</h2>
+        <p>Short answers drawn from the technical content above.</p>
+        <details>
+          <summary>Why is the lowest price per ton of abrasive often the most expensive option?</summary>
+          <div class="ans">Because unit price ignores breakage rate, cycle life and first-pass yield. In the worked comparison above, the lower-priced grit at HRC 50-55 lasts about 120 cycles at 12% breakage, while the higher-priced grit at HRC 58-62 lasts about 250 cycles at 6% breakage &mdash; giving 2.07 RMB/m2 against 1.35 RMB/m2 and an 88% against 96% Sa 2.5 first-pass yield, with 15-20% overall cost increase from rework.</div>
+        </details>
+        <details>
+          <summary>What should be checked when abrasive arrives at the factory?</summary>
+          <div class="ans">Five items: hardness by GB/T 230.1 or GB/T 4340.1 with a pass rate of at least 95%; particle size distribution to SAE J444/J441 with at least 85% on the main sieve and no more than 5% fines; chemical composition for carbon, silicon, manganese, sulfur and phosphorus; microscopic morphology including shot roundness with non-spherical particles at or below 10% and grit edge sharpness; and cleanliness with no visible oil and dust at or below 2%.</div>
+        </details>
+        <details>
+          <summary>How do you judge whether an abrasive supplier is reliable?</summary>
+          <div class="ans">Score them on five dimensions: batch stability, meaning the hardness fluctuation across three consecutive batches stays within about 3 HRC; supply guarantee through the March to October peak; technical support ability, meaning real mix and machine parameter advice rather than a price list; certifications such as ISO 9001 and classification society test reports; and per-batch traceability.</div>
+        </details>
+        <details>
+          <summary>What hardness variation across batches should be considered acceptable?</summary>
+          <div class="ans">An approximately plus or minus 3 HRC swing across three consecutive batches is a reasonable acceptance line for steel shot and grit, and it is the point at which automated blasting equipment starts producing visibly uneven coverage. It is also the same order as the tightest control offered by established European brands, so it is a fair rather than a lenient standard.</div>
+        </details>
+        <details>
+          <summary>Is stainless steel or non-metallic media ever the right procurement choice?</summary>
+          <div class="ans">Yes, and it is a compliance decision rather than a cost one. For stainless steel substrates, and for carbon steel being prepared ahead of a stainless steel lining, non-metallic media such as white fused alumina or garnet grit must be used to avoid embedded iron ions causing subsequent corrosion.</div>
+        </details>
+      </div>
+      <p class="gd-cite">Inspection methods per GB/T 230.1 and GB/T 4340.1 for hardness, SAE J444/J441 for grading, ISO 8503 for roughness comparison. The two-supplier comparison is a worked model illustrating the mechanism, not a measured project record. Regulatory references are IMO EEXI, CII and PSPC.</p>
+
+    </main>
+
+    <aside class="gd-side">
+      <div class="card cta">
+        <h3>Work out cost per square metre</h3>
+        <p>The selector returns the abrasive grade and mix for your process and throughput.</p>
+        <a class="btn btn-primary" href="../index.html#selector">Open the selector</a>
+      </div>
+      <div class="card toc">
+        <h3>On this page</h3>
+        <ol>
+          <li><a href="#trap">I. The unit-price trap</a></li>
+          <li><a href="#incoming">II. Mandatory incoming inspection</a></li>
+          <li><a href="#scorecard">III. Supplier evaluation dimensions</a></li>
+          <li><a href="#outlook">IV. Where this is heading</a></li>
+          <li><a href="#key">Key takeaways</a></li>
+          <li><a href="#evidence-note">How to read the numbers</a></li>
+        </ol>
+      </div>
+      <div class="card toc">
+        <h3>More guides</h3>
+        <ol>
+      <li><a href="choosing-abrasive-media.html">How to choose the right abrasive media for your application</a></li>
+      <li><a href="sa2-half-vs-sa3.html">Sa 2&frac12; vs. Sa 3: when does &quot;cleaner&quot; stop paying off?</a></li>
+      <li><a href="recyclable-vs-single-use.html">Recyclable vs. single-use media: the real consumption math</a></li>
+      <li><a href="fg-fmr-case-studies.html">FG &amp; FMR premium steel shot: three documented case studies</a></li>
+      <li><a href="grinding-steel-shot-applications.html">Grinding steel shot: applications and specifications by industry</a></li>
+      <li><a href="sa2-vs-sa2-5-acceptance.html">Sa 2 vs Sa 2&frac12;: on-site acceptance standards for rust removal</a></li>
+      <li><a href="iso8501-sspc-abrasive-matrix.html">ISO 8501 &amp; SSPC grades: which abrasive each one requires</a></li>
+      <li><a href="weld-and-shop-primer-blasting.html">Weld areas and shop-primer lines: abrasive selection notes</a></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Need a quote?</h3>
+        <p>Send us your throughput, process and current media grade.</p>
+        <a class="btn btn-ghost" href="../index.html#contact">Request technical advice</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="gd-other">
+  <div class="wrap">
+    <h2>All Knowledge Center guides</h2>
+    <ol>
+      <li><a href="choosing-abrasive-media.html">How to choose the right abrasive media for your application</a></li>
+      <li><a href="sa2-half-vs-sa3.html">Sa 2&frac12; vs. Sa 3: when does &quot;cleaner&quot; stop paying off?</a></li>
+      <li><a href="recyclable-vs-single-use.html">Recyclable vs. single-use media: the real consumption math</a></li>
+      <li><a href="fg-fmr-case-studies.html">FG &amp; FMR premium steel shot: three documented case studies</a></li>
+      <li><a href="grinding-steel-shot-applications.html">Grinding steel shot: applications and specifications by industry</a></li>
+      <li><a href="sa2-vs-sa2-5-acceptance.html">Sa 2 vs Sa 2&frac12;: on-site acceptance standards for rust removal</a></li>
+      <li><a href="iso8501-sspc-abrasive-matrix.html">ISO 8501 &amp; SSPC grades: which abrasive each one requires</a></li>
+      <li><a href="weld-and-shop-primer-blasting.html">Weld areas and shop-primer lines: abrasive selection notes</a></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div class="brand">FENGERDA<span style="color:#e8631a">.</span><span class="sub">Hannibal Zhang &middot; Metal abrasive media</span></div>
+      <nav>
+        <a href="../index.html#selector">Selector</a>
+        <a href="../index.html#knowledge">Knowledge Center</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="legal">(c) 2026 FENGERDA. Abrasive selection tools and guide content &mdash; all rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var SRC={claude:'Claude',chatgpt:'ChatGPT',perplexity:'Perplexity',
+           'perplexity.ai':'Perplexity',gemini:'Gemini',copilot:'Copilot',
+           you:'You.com','you.com':'You.com',bing:'Bing Copilot'};
+  function src(){
+    var r=document.referrer||'';
+    var keys=Object.keys(SRC);
+    for(var i=0;i<keys.length;i++){ if(r.indexOf(keys[i])>-1) return 'AI referral: '+SRC[keys[i]]; }
+    if(/^https?:\/\/(www\.)?(google|bing|duckduckgo|yahoo|baidu)\./i.test(r)) return 'Search engine';
+    return 'Direct / unknown';
+  }
+  window.__gdGuide={slug:'abrasive-procurement-cost-model',source:src()};
+  var box=document.getElementById('gd-src');
+  if(box) box.textContent='Source: '+window.__gdGuide.source;
+})();
+</script>
+
+
+<script>
+(function(){
+  var g=window.__gdGuide||{};
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a[href^="mailto:"]'):null;
+    if(!a) return;
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('abrasive-procurement-cost-model')>-1) return;
+    var note='\n\n--- CONTEXT ---\nGuide read: '+g.slug+'\nSource: '+g.source+'\nPage: '+location.href;
+    var next=href.replace(/&amp;/g,'&');
+    if(next.indexOf('body=')>-1){
+      next=next.replace(/body=/,'body='+encodeURIComponent(note.replace(/^\n+/,''))+'%0D%0A');
+    }
+    a.setAttribute('href',next);
+  },true);
+})();
+</script>
+
+</body>
+</html>
