@@ -1,0 +1,8 @@
+# 绝不要推送：内含未压缩开发版源码与完整数据表
+_protection_review/
+dist/
+*.log
+
+# 开发版备份（含全部明文数据）
+index_protected.html
+index_dev_backup_*.html

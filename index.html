@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--
+  ============================================================================
+  PROPRIETARY SOFTWARE - ALL RIGHTS RESERVED
+  (c) 2026 Hannibal Zhang / FENGERDA. Unauthorized copying, distribution,
+  modification, or commercial use of this file, its selection logic, or its
+  embedded data tables is strictly prohibited. See ../LICENSE
+  ============================================================================
+-->
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abrasive Selection Tools &amp; Technical Advice | Hannibal Zhang</title>
@@ -18,8 +27,7 @@
   <meta name="twitter:description" content="Free, interactive tools and direct technical advice on abrasive media selection, blast cost and surface preparation.">
   <meta name="twitter:image" content="https://hannibalzhang007.github.io/metalabrasive-selection-AI/og-cover.png">
 <meta name="theme-color" content="#0e2a47">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -39,433 +47,8 @@
       "url": "https://hannibalzhang007.github.io/"
     }
   ]
-}
-</script>
-<style>
-  :root {
-    --navy: #0e2a47;
-    --navy-2: #14395e;
-    --orange: #e8631a;
-    --orange-dark: #c95310;
-    --ink: #1a2430;
-    --muted: #5a6b7a;
-    --line: #e2e8ee;
-    --bg: #ffffff;
-    --bg-soft: #f5f7f9;
-    --bg-deep: #0b2239;
-    --radius: 10px;
-    --shadow: 0 1px 2px rgba(14,42,71,.06), 0 8px 24px rgba(14,42,71,.07);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--navy); text-decoration: none; }
-  a:hover { color: var(--orange); }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-
-  /* ---------- Header ---------- */
-  header.site {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,.96);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(6px);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { font-weight: 700; font-size: 15px; letter-spacing: .02em; color: var(--navy); white-space: nowrap; }
-  .brand span { color: var(--orange); }
-  .brand .sub { display: block; font-size: 10px; color: var(--muted); font-weight: 500; line-height: 1.2; white-space: normal; }
-  nav.links { display: flex; gap: 28px; align-items: center; }
-  nav.links a { font-size: 14px; color: var(--navy); font-weight: 600; white-space: nowrap; }
-  nav.links a:hover { color: var(--orange); }
-  nav.links .btn-cta { background: var(--orange); color: #fff; padding: 9px 16px; border-radius: 8px; font-weight: 600; }
-  nav.links .btn-cta:hover { background: var(--orange-dark); color: #fff; }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    min-height: calc(100vh - 64px);
-    display: flex; align-items: center;
-    background:
-      radial-gradient(1100px 500px at 85% -10%, rgba(232,99,26,.08), transparent 60%),
-      linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
-    padding: 72px 0;
-  }
-  .hero .eyebrow {
-    display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-size: clamp(34px, 5.4vw, 60px);
-    line-height: 1.12;
-    letter-spacing: -.02em;
-    color: var(--navy);
-    max-width: 18ch;
-    font-weight: 800;
-  }
-  .hero p.sub {
-    margin-top: 22px; font-size: clamp(16px, 1.6vw, 19px);
-    color: var(--muted); max-width: 52ch;
-  }
-  .hero .actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 13px 22px; border-radius: 9px; font-weight: 600; font-size: 15px;
-    border: 1.5px solid transparent; cursor: pointer; transition: background .15s, border-color .15s, transform .15s;
-  }
-  .btn svg { width: 17px; height: 17px; }
-  .btn-primary { background: var(--orange); color: #fff; }
-  .btn-primary:hover { background: var(--orange-dark); color: #fff; }
-  .btn-ghost { background: transparent; color: var(--navy); border-color: #b9c6d3; }
-  .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
-  .hero .scroll-hint {
-    margin-top: 56px; display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13px; color: var(--muted); font-weight: 600;
-  }
-  @keyframes hop { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
-  .scroll-hint svg { width: 16px; height: 16px; animation: hop 1.6s ease-in-out infinite; }
-
-  /* ---------- Sections ---------- */
-  section { padding: 84px 0; }
-  section.soft { background: var(--bg-soft); }
-  .sec-head { max-width: 640px; margin-bottom: 44px; }
-  .sec-head h2 { font-size: clamp(26px, 3vw, 34px); color: var(--navy); letter-spacing: -.01em; line-height: 1.2; }
-  .sec-head p { margin-top: 12px; color: var(--muted); font-size: 16px; }
-
-  /* ---------- Tools grid ---------- */
-  .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .tool-card {
-    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 26px 22px; display: flex; flex-direction: column; gap: 12px;
-    box-shadow: var(--shadow); transition: transform .18s, border-color .18s;
-  }
-  .tool-card:hover { transform: translateY(-3px); border-color: #c9d4df; }
-  .tool-card .ic {
-    width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center;
-    background: var(--bg-soft); color: var(--orange); border: 1px solid var(--line);
-  }
-  .tool-card .ic svg { width: 21px; height: 21px; }
-  .tool-card h3 { font-size: 16.5px; color: var(--navy); line-height: 1.35; }
-  .tool-card p { font-size: 13.5px; color: var(--muted); flex: 1; }
-  .tool-card a.go {
-    font-size: 13.5px; font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 5px;
-  }
-  .tool-card a.go:hover { color: var(--orange); }
-  .tool-card a.go svg { width: 14px; height: 14px; }
-  .badge {
-    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 5px;
-  }
-  .badge-live { background: #e7f3ea; color: #176b34; }
-  .badge-here { background: #eef1f6; color: var(--navy); }
-  .badge-soon { background: #fdf1e8; color: var(--orange-dark); }
-
-  /* ---------- Sa table ---------- */
-  .sa-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .sa-table th, .sa-table td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); }
-  .sa-table th { background: var(--bg-soft); color: var(--navy); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
-  .sa-table td:first-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
-  .sa-source { font-size: 12px; color: var(--muted); margin-top: 12px; }
-
-  /* ---------- Industries ---------- */
-  .ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .ind-item {
-    display: flex; gap: 12px; align-items: flex-start;
-    background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px;
-  }
-  .ind-item .ic { width: 36px; height: 36px; flex: none; border-radius: 8px; background: var(--bg-soft); color: var(--navy); display: grid; place-items: center; }
-  .ind-item .ic svg { width: 18px; height: 18px; }
-  .ind-item h4 { font-size: 15px; color: var(--navy); }
-  .ind-item p { font-size: 13px; color: var(--muted); margin-top: 2px; }
-
-  /* ---------- Knowledge ---------- */
-  .kn-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .kn-item {
-    background: var(--bg); border: 1px solid var(--line);
-    border-radius: 10px; padding: 20px; box-shadow: var(--shadow);
-  }
-  .kn-item .num { font-size: 13px; font-weight: 800; color: var(--orange); min-width: 34px; }
-  .kn-item h3 { font-size: 15.5px; color: var(--navy); line-height: 1.4; }
-  .kn-item p { font-size: 13px; color: var(--muted); margin-top: 4px; }
-  .kn-item details { margin-top: 10px; }
-  .kn-item details summary {
-    cursor: pointer; font-weight: 700; color: var(--navy); font-size: 13.5px; padding: 6px 0;
-  }
-  .kn-item details summary:hover { color: var(--orange); }
-  .kn-item details[open] summary { color: var(--orange); }
-  .kn-article { font-size: 14px; color: var(--ink); line-height: 1.7; margin-top: 10px; }
-  .kn-article h4 { font-size: 14.5px; color: var(--navy); margin: 14px 0 4px; }
-  .kn-article ul { margin: 6px 0 6px 20px; }
-  .kn-article li { margin: 3px 0; }
-  .kn-add-note {
-    font-size: 12.5px; color: var(--muted); margin-top: 14px; padding: 12px 14px;
-    background: var(--bg-soft); border: 1px dashed var(--line); border-radius: 8px;
-  }
-  .kn-add-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 12px; border: 1px solid var(--line); }
-
-  /* ---------- Lead ---------- */
-  .lead { background: var(--bg-deep); color: #eaf0f6; }
-  .lead .sec-head h2 { color: #fff; }
-  .lead .sec-head p { color: #a9bccd; }
-  .lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  .lead .panel { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.14); box-shadow: none; }
-  .lead .panel h3 { color: #fff; }
-  .lead .field label { color: #dce6ef; }
-  .lead .field input, .lead .field textarea, .lead .field select { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25); color: #fff; }
-  .lead .field input::placeholder, .lead .field textarea::placeholder { color: #7f93a5; }
-  .lead .field input:focus, .lead .field textarea:focus { border-color: var(--orange); outline: 2px solid rgba(232,99,26,.45); }
-  textarea { width: 100%; padding: 10px 12px; font-size: 15px; border: 1.5px solid rgba(255,255,255,.25); border-radius: 8px; background: rgba(255,255,255,.06); color: #fff; font-family: inherit; resize: vertical; }
-  .form-status { margin-top: 14px; font-size: 14px; color: #9fd3a8; min-height: 22px; }
-  .form-status.err { color: #f2b8a0; }
-  .alt-channels { margin-top: 22px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; }
-  .alt-channels .lbl { font-size: 12.5px; color: #a9bccd; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
-  .chn { display: flex; flex-direction: column; gap: 10px; }
-  .chn a {
-    display: inline-flex; align-items: center; gap: 9px; color: #eaf0f6; font-weight: 600; font-size: 14.5px;
-    padding: 11px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 9px;
-  }
-  .chn a:hover { border-color: var(--orange); color: var(--orange); }
-  .chn a svg { width: 17px; height: 17px; }
-  .chn .mail { color: var(--muted); font-size: 12.5px; font-weight: 400; margin-top: 8px; }
-  .direct { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .direct .dcard {
-    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16); border-radius: 10px; padding: 16px;
-  }
-  .direct .dcard .t { font-size: 13px; color: #a9bccd; font-weight: 600; }
-  .direct .dcard .v { font-size: 15px; color: #fff; font-weight: 700; margin-top: 4px; word-break: break-all; }
-  .direct .dcard a { color: #fff; }
-  .direct .dcard a:hover { color: var(--orange); }
-
-  /* ---------- Footer ---------- */
-  footer { background: #081a2c; color: #8fa3b5; padding: 44px 0 34px; font-size: 13.5px; }
-  footer .frow { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-  footer .brand { color: #fff; font-size: 14px; }
-  footer .brand .sub { color: #8fa3b5; }
-  footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
-  footer nav a { color: #c6d4e0; }
-  footer nav a:hover { color: var(--orange); }
-  footer .f-social { display: flex; gap: 14px; margin-top: 14px; }
-  footer .f-social a {
-    display: inline-flex; align-items: center; gap: 7px; color: #c6d4e0; font-size: 13px; font-weight: 600;
-    padding: 8px 14px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px;
-  }
-  footer .f-social a:hover { border-color: var(--orange); color: var(--orange); }
-  footer .f-social a svg { width: 16px; height: 16px; }
-  footer .legal { margin-top: 26px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 18px; font-size: 12.5px; color: #6d8296; }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 960px) {
-    .tools-grid { grid-template-columns: repeat(2, 1fr); }
-    .lead-grid { grid-template-columns: 1fr; }
-    .ind-grid { grid-template-columns: repeat(2, 1fr); }
-    .sel-grid, .sel-cost-grid { grid-template-columns: 1fr !important; }
-  }
-  @media (max-width: 640px) {
-    section { padding: 60px 0; }
-    nav.links { gap: 10px; }
-    nav.links a:not(.btn-cta) { display: none; }
-    nav.links .btn-cta { padding: 8px 12px; font-size: 13px; }
-    .brand { font-size: 14px; }
-    .tools-grid, .ind-grid, .kn-list { grid-template-columns: 1fr; }
-    .direct { grid-template-columns: 1fr; }
-    .hero { padding: 48px 0; }
-    .hero .scroll-hint { margin-top: 40px; }
-    .sel-grid, .sel-cost-grid { grid-template-columns: 1fr !important; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .scroll-hint svg { animation: none; }
-    .tool-card { transition: none; }
-  }
-
-  /* =========================================================
-     SELECTOR & COST COMPARISON — scoped under .sel-section
-     Uses website.html CSS variables; .sel- prefix avoids conflicts
-     ========================================================= */
-  .sel-section { padding: 84px 0; background: var(--bg-soft); }
-  .sel-section .sel-card {
-    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 26px; box-shadow: var(--shadow); margin-bottom: 22px;
-  }
-  .sel-section .sel-card h3 { font-size: 17px; color: var(--navy); margin-bottom: 16px; }
-  .sel-section .sel-sub { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
-  .sel-section .sel-two-lang { font-size: 13px; color: var(--muted); }
-  .sel-section .sel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .sel-section .sel-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-  .sel-section .sel-field > label { font-size: 13.5px; font-weight: 600; color: var(--ink); }
-  .sel-section .sel-field .sel-hint { font-size: 11px; color: var(--muted); }
-  .sel-section .sel-field .sel-unit { color: var(--muted); font-weight: 400; }
-  .sel-section select, .sel-section input {
-    width: 100%; padding: 10px 12px; font-size: 15px; color: var(--ink);
-    border: 1.5px solid #c9d4df; border-radius: 8px; background: #fff; font-family: inherit;
-  }
-  .sel-section select:focus, .sel-section input:focus { outline: 2px solid var(--orange); outline-offset: 1px; border-color: var(--orange); }
-  .sel-section .sel-full { grid-column: 1/-1; }
-  .sel-section .sel-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--orange); color: #fff; border: none; border-radius: 9px;
-    padding: 12px 22px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .15s;
-  }
-  .sel-section .sel-btn:hover { background: var(--orange-dark); }
-  .sel-section .sel-btn.ghost { background: #fff; color: var(--orange); border: 1.5px solid var(--orange); margin-left: 10px; }
-  .sel-section .sel-result { display: none; }
-  .sel-section .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 8px; }
-  .sel-section .res-item { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
-  .sel-section .res-item .k { font-size: 12.5px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
-  .sel-section .res-item .v { font-size: 16px; font-weight: 700; color: var(--navy); margin-top: 2px; }
-  .sel-section .res-head { display: flex; align-items: center; gap: 10px; margin: 6px 0 14px; }
-  .sel-section .sel-badge { background: var(--orange); color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 999px; font-weight: 700; }
-  .sel-section table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
-  .sel-section th, .sel-section td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; }
-  .sel-section th { background: var(--bg-soft); font-weight: 600; color: var(--navy); }
-  .sel-section tr:nth-child(even) td { background: var(--bg-soft); }
-  .sel-section .sel-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; border-left: 3px solid var(--orange); padding: 8px 12px; background: var(--bg-soft); border-radius: 0 8px 8px 0; line-height: 1.7; }
-  .sel-section .sel-warn-box { background: #fdf1e8; border: 1px solid #fde68a; color: #92400e; padding: 10px 14px; border-radius: 8px; margin-top: 12px; font-size: 13px; }
-  .sel-section .sel-warn-box .w { display: block; margin: 2px 0; }
-  .sel-section details { margin-top: 12px; }
-  .sel-section details > summary { cursor: pointer; font-weight: 700; color: var(--navy); font-size: 14px; padding: 6px 0; }
-  .sel-section details > summary:hover { color: var(--orange); }
-
-  /* ---- Cost comparison ---- */
-  .sel-section .sel-formula-box { background: #f0f9ff; border: 1px solid #dbeafe; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: var(--ink); margin: 10px 0 16px; line-height: 1.8; }
-  .sel-section .sel-cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .sel-section .sel-scen { border: 1px solid var(--line); border-radius: 10px; padding: 14px 14px 6px; }
-  .sel-section .sel-scen-a { border-color: #bfdbfe; background: #fbfdff; }
-  .sel-section .sel-scen-b { border-color: #bbf7d0; background: #fbfefb; }
-  .sel-section .sel-scen-head { font-size: 14px; font-weight: 700; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; color: var(--navy); }
-  .sel-section .sel-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-  .sel-section .sel-dot.a { background: var(--navy); } .sel-section .sel-dot.b { background: #176b34; }
-  .sel-section .sel-cmp-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
-  .sel-section .sel-cmp-item { flex: 1 1 180px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
-  .sel-section .sel-cmp-item .k { font-size: 11px; color: var(--muted); }
-  .sel-section .sel-cmp-item .v { font-size: 15px; font-weight: 700; color: var(--navy); }
-  .sel-section .v.win { color: #176b34; } .sel-section .v.lose { color: #dc2626; }
-  .sel-section .sel-verdict { background: #f0fdf4; border: 1px solid #86efac; color: #14532d; padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-size: 14px; line-height: 1.7; }
-  .sel-section .sel-verdict.warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
-
-  /* ---- Lead capture after selector result (deep blue) ---- */
-  .sel-lead-capture {
-    background: var(--bg-deep); color: #eaf0f6; border-radius: var(--radius);
-    padding: 28px 30px; margin-bottom: 22px; box-shadow: var(--shadow);
-  }
-  .sel-lead-capture h3 { color: #fff; font-size: 18px; margin-bottom: 8px; }
-  .sel-lead-capture p { color: #a9bccd; font-size: 14px; margin-bottom: 16px; }
-  .sel-lead-capture .sel-lc-form { display: flex; gap: 10px; flex-wrap: wrap; }
-  .sel-lead-capture input[type="email"] {
-    flex: 1 1 280px; padding: 12px 14px; font-size: 15px; color: #fff;
-    border: 1.5px solid rgba(255,255,255,.25); border-radius: 8px; background: rgba(255,255,255,.06);
-    font-family: inherit;
-  }
-  .sel-lead-capture input[type="email"]::placeholder { color: #7f93a5; }
-  .sel-lead-capture input[type="email"]:focus { border-color: var(--orange); outline: 2px solid rgba(232,99,26,.45); }
-  .sel-lead-capture button {
-    padding: 12px 22px; font-size: 15px; font-weight: 600; background: var(--orange); color: #fff;
-    border: none; border-radius: 8px; cursor: pointer; transition: background .15s;
-  }
-  .sel-lead-capture button:hover { background: var(--orange-dark); }
-  .sel-lead-capture .sel-lc-status { margin-top: 12px; font-size: 14px; color: #9fd3a8; min-height: 22px; }
-  .sel-lead-capture .sel-lc-status.err { color: #f2b8a0; }
-
-/* ============================================================
-   Hero / 底部 CTA 铺满改造 —— 方案 A：居中铺满（推荐）
-   插入位置：index.html 里样式区结束标签的前面（见操作文档第 2 步）
-   日期：2026-10-10
-   ============================================================ */
-
-/* ---- 1) 顶部 Hero：内容整体居中，标题放宽放大 ---- */
-.hero .wrap{
-  width:100%;              /* 让 Flex 子项撑满，不再缩成半宽 */
-  max-width:1280px;        /* 原 1120px，放宽，让文字更接近满屏 */
-  text-align:center;       /* 眉标 / 标题 / 副标题 一起居中 */
-}
-.hero h1{
-  max-width:none;          /* 解除原 max-width:18ch 的限制 */
-  font-size:clamp(34px,6.1vw,72px);
-  margin-left:auto;
-  margin-right:auto;
-}
-.hero p.sub{
-  max-width:780px;         /* 解除原 52ch，改成约 780px 保证一行读得舒服 */
-  margin-left:auto;
-  margin-right:auto;
-}
-.hero .actions{
-  justify-content:center;  /* 两个按钮居中 */
-}
-
-/* ---- 2) 底部 CTA：标题区居中铺满 ---- */
-#contact .sec-head{
-  max-width:none;          /* 解除原 max-width:640px 的限制 */
-  text-align:center;
-}
-#contact .sec-head p{
-  max-width:780px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* ---- 3) 小屏保护：手机上不要过大 ---- */
-@media (max-width:640px){
-  .hero h1{ font-size:clamp(30px,9vw,40px); }
-  .hero p.sub{ max-width:none; }
-}
-
-/* ---- 4) 知识区：文章展开时自动占满整行，长文不再挤在半宽卡片里 ---- */
-.kn-item:has(details[open]){ grid-column:1 / -1; }
-
-/* ---- 5) 内容区标题（Tools / Selector / Industries / Knowledge）铺满整行并居中 ---- */
-/* 原 .sec-head { max-width:640px } 把四处区块标题锁在容器 57% 宽，导致标题折行、右侧大片留白 */
-.sec-head { max-width:none; text-align:center; }
-.sec-head h2 { max-width:none; }
-.sec-head p { max-width:860px; margin-left:auto; margin-right:auto; }
-
-/* ================================================================
-   v4 追加：① A/B 对比区对齐修复  ② 底部咨询区左右两栏整体等高
-   日期：2026-10-10   基于 index-修复版v3.html
-   ================================================================ */
-
-/* ---- ① Scenario A / B：标签折行(22px/44px)导致同行输入框上下错位 ---- */
-/* 统一标签块高度为两行，同行的 select 与 input 顶部即完全对齐 */
-@media (min-width: 961px) {
-  .sel-cost-grid .sel-field > label { min-height: 44px; }
-}
-
-/* ---- ② 底部咨询区：两栏整体等高 + 行距放宽，不再拥挤 ---- */
-.lead-grid { align-items: stretch; }              /* 两栏卡片等高（原来 align-items:start） */
-#contact .panel { display: grid; grid-template-rows: auto 1fr; padding: 22px 26px; }
-#contact .panel h3 { margin: 0 0 23px; }
-#contact .panel ol { gap: 26px !important; }      /* 三步流程行距 14 → 26 */
-#contact .panel .alt-channels { margin-top: 32px; padding-top: 20px; }
-#contact .panel .direct .dcard { padding: 21px 16px; }
-#contact .est-note { margin-top: 25px !important; }
-
-/* 表单：字段改为纵向排列（原来 label 与 input 挤在同一行、输入框没有宽度样式），
-   短字段两列并排，长字段整行 —— 高度与右栏自然一致 */
-#lead-form { display: grid; grid-template-columns: 1fr 1fr;
-  column-gap: 16px; row-gap: 23px; align-content: space-between; }
-/* 空的状态提示块（margin-top:14px + min-height:22px = 36px）不占位，
-   避免左栏底部多出 36px 空隙；提交后出现文字时自动恢复显示 */
-#form-status:empty { display: none; }
-#contact .field { display: flex; flex-direction: column; gap: 6px; }
-#contact .field label { font-size: 13.5px; font-weight: 600; }
-#contact .field input, #contact .field textarea {
-  width: 100%; padding: 10px 12px; font-size: 15px; font-family: inherit;
-  border: 1.5px solid rgba(255,255,255,.25); border-radius: 8px;
-  background: rgba(255,255,255,.06); color: #fff;
-}
-#lead-form .field:nth-of-type(5), #lead-form .field:nth-of-type(6) { grid-column: 1 / -1; }  /* WhatsApp / 场景描述 整行 */
-#lead-form .btn { grid-column: 1 / -1; margin-top: 4px; }
-
-/* 窄屏回退：表单恢复单列 */
-@media (max-width: 700px) {
-  #lead-form { grid-template-columns: 1fr; }
-  #lead-form .field:nth-of-type(5), #lead-form .field:nth-of-type(6) { grid-column: auto; }
-}
-</style>
+}</script>
+<style>:root{--navy:#0e2a47;--navy-2:#14395e;--orange:#e8631a;--orange-dark:#c95310;--ink:#1a2430;--muted:#5a6b7a;--line:#e2e8ee;--bg:#ffffff;--bg-soft:#f5f7f9;--bg-deep:#0b2239;--radius:10px;--shadow:0 1px 2px rgba(14,42,71,.06),0 8px 24px rgba(14,42,71,.07)}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:72px}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}a{color:var(--navy);text-decoration:none}a:hover{color:var(--orange)}.wrap{max-width:1120px;margin:0 auto;padding:0 24px}header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}.nav{display:flex;align-items:center;justify-content:space-between;height:64px}.brand{font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--navy);white-space:nowrap}.brand span{color:var(--orange)}.brand .sub{display:block;font-size:10px;color:var(--muted);font-weight:500;line-height:1.2;white-space:normal}nav.links{display:flex;gap:28px;align-items:center}nav.links a{font-size:14px;color:var(--navy);font-weight:600;white-space:nowrap}nav.links a:hover{color:var(--orange)}nav.links .btn-cta{background:var(--orange);color:#fff;padding:9px 16px;border-radius:8px;font-weight:600}nav.links .btn-cta:hover{background:var(--orange-dark);color:#fff}.hero{min-height:calc(100vh - 64px);display:flex;align-items:center;background:radial-gradient(1100px 500px at 85% -10%,rgba(232,99,26,.08),transparent 60%),linear-gradient(180deg,#fff 0,var(--bg-soft) 100%);padding:72px 0}.hero .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}.hero h1{font-size:clamp(34px, 5.4vw, 60px);line-height:1.12;letter-spacing:-.02em;color:var(--navy);max-width:18ch;font-weight:800}.hero p.sub{margin-top:22px;font-size:clamp(16px, 1.6vw, 19px);color:var(--muted);max-width:52ch}.hero .actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:9px;font-weight:600;font-size:15px;border:1.5px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}.btn svg{width:17px;height:17px}.btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange-dark);color:#fff}.btn-ghost{background:0 0;color:var(--navy);border-color:#b9c6d3}.btn-ghost:hover{border-color:var(--navy);color:var(--navy)}.hero .scroll-hint{margin-top:56px;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:600}@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}.scroll-hint svg{width:16px;height:16px;animation:hop 1.6s ease-in-out infinite}section{padding:84px 0}section.soft{background:var(--bg-soft)}.sec-head{max-width:640px;margin-bottom:44px}.sec-head h2{font-size:clamp(26px, 3vw, 34px);color:var(--navy);letter-spacing:-.01em;line-height:1.2}.sec-head p{margin-top:12px;color:var(--muted);font-size:16px}.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.tool-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.tool-card:hover{transform:translateY(-3px);border-color:#c9d4df}.tool-card .ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:var(--bg-soft);color:var(--orange);border:1px solid var(--line)}.tool-card .ic svg{width:21px;height:21px}.tool-card h3{font-size:16.5px;color:var(--navy);line-height:1.35}.tool-card p{font-size:13.5px;color:var(--muted);flex:1}.tool-card a.go{font-size:13.5px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:5px}.tool-card a.go:hover{color:var(--orange)}.tool-card a.go svg{width:14px;height:14px}.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:5px}.badge-live{background:#e7f3ea;color:#176b34}.badge-here{background:#eef1f6;color:var(--navy)}.badge-soon{background:#fdf1e8;color:var(--orange-dark)}.sa-table{width:100%;border-collapse:collapse;font-size:14px}.sa-table td,.sa-table th{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}.sa-table th{background:var(--bg-soft);color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.sa-table td:first-child{font-weight:700;color:var(--navy);white-space:nowrap}.sa-source{font-size:12px;color:var(--muted);margin-top:12px}.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.ind-item{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:18px 18px}.ind-item .ic{width:36px;height:36px;flex:none;border-radius:8px;background:var(--bg-soft);color:var(--navy);display:grid;place-items:center}.ind-item .ic svg{width:18px;height:18px}.ind-item h4{font-size:15px;color:var(--navy)}.ind-item p{font-size:13px;color:var(--muted);margin-top:2px}.kn-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.kn-item{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)}.kn-item .num{font-size:13px;font-weight:800;color:var(--orange);min-width:34px}.kn-item h3{font-size:15.5px;color:var(--navy);line-height:1.4}.kn-item p{font-size:13px;color:var(--muted);margin-top:4px}.kn-item details{margin-top:10px}.kn-item details summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:13.5px;padding:6px 0}.kn-item details summary:hover{color:var(--orange)}.kn-item details[open] summary{color:var(--orange)}.kn-article{font-size:14px;color:var(--ink);line-height:1.7;margin-top:10px}.kn-article h4{font-size:14.5px;color:var(--navy);margin:14px 0 4px}.kn-article ul{margin:6px 0 6px 20px}.kn-article li{margin:3px 0}.kn-add-note{font-size:12.5px;color:var(--muted);margin-top:14px;padding:12px 14px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:8px}.kn-add-note code{background:var(--bg);padding:2px 6px;border-radius:4px;font-size:12px;border:1px solid var(--line)}.lead{background:var(--bg-deep);color:#eaf0f6}.lead .sec-head h2{color:#fff}.lead .sec-head p{color:#a9bccd}.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.lead .panel{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14);box-shadow:none}.lead .panel h3{color:#fff}.lead .field label{color:#dce6ef}.lead .field input,.lead .field select,.lead .field textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);color:#fff}.lead .field input::placeholder,.lead .field textarea::placeholder{color:#7f93a5}.lead .field input:focus,.lead .field textarea:focus{border-color:var(--orange);outline:2px solid rgba(232,99,26,.45)}textarea{width:100%;padding:10px 12px;font-size:15px;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font-family:inherit;resize:vertical}.form-status{margin-top:14px;font-size:14px;color:#9fd3a8;min-height:22px}.form-status.err{color:#f2b8a0}.alt-channels{margin-top:22px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}.alt-channels .lbl{font-size:12.5px;color:#a9bccd;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}.chn{display:flex;flex-direction:column;gap:10px}.chn a{display:inline-flex;align-items:center;gap:9px;color:#eaf0f6;font-weight:600;font-size:14.5px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:9px}.chn a:hover{border-color:var(--orange);color:var(--orange)}.chn a svg{width:17px;height:17px}.chn .mail{color:var(--muted);font-size:12.5px;font-weight:400;margin-top:8px}.direct{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.direct .dcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:16px}.direct .dcard .t{font-size:13px;color:#a9bccd;font-weight:600}.direct .dcard .v{font-size:15px;color:#fff;font-weight:700;margin-top:4px;word-break:break-all}.direct .dcard a{color:#fff}.direct .dcard a:hover{color:var(--orange)}footer{background:#081a2c;color:#8fa3b5;padding:44px 0 34px;font-size:13.5px}footer .frow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer .brand{color:#fff;font-size:14px}footer .brand .sub{color:#8fa3b5}footer nav{display:flex;gap:22px;flex-wrap:wrap}footer nav a{color:#c6d4e0}footer nav a:hover{color:var(--orange)}footer .f-social{display:flex;gap:14px;margin-top:14px}footer .f-social a{display:inline-flex;align-items:center;gap:7px;color:#c6d4e0;font-size:13px;font-weight:600;padding:8px 14px;border:1px solid rgba(255,255,255,.18);border-radius:8px}footer .f-social a:hover{border-color:var(--orange);color:var(--orange)}footer .f-social a svg{width:16px;height:16px}footer .legal{margin-top:26px;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:12.5px;color:#6d8296}@media (max-width:960px){.tools-grid{grid-template-columns:repeat(2,1fr)}.lead-grid{grid-template-columns:1fr}.ind-grid{grid-template-columns:repeat(2,1fr)}.sel-cost-grid,.sel-grid{grid-template-columns:1fr!important}}@media (max-width:640px){section{padding:60px 0}nav.links{gap:10px}nav.links a:not(.btn-cta){display:none}nav.links .btn-cta{padding:8px 12px;font-size:13px}.brand{font-size:14px}.ind-grid,.kn-list,.tools-grid{grid-template-columns:1fr}.direct{grid-template-columns:1fr}.hero{padding:48px 0}.hero .scroll-hint{margin-top:40px}.sel-cost-grid,.sel-grid{grid-template-columns:1fr!important}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-hint svg{animation:none}.tool-card{transition:none}}.sel-section{padding:84px 0;background:var(--bg-soft)}.sel-section .sel-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-bottom:22px}.sel-section .sel-card h3{font-size:17px;color:var(--navy);margin-bottom:16px}.sel-section .sel-sub{color:var(--muted);font-size:14px;margin:0 0 16px}.sel-section .sel-two-lang{font-size:13px;color:var(--muted)}.sel-section .sel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sel-section .sel-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}.sel-section .sel-field>label{font-size:13.5px;font-weight:600;color:var(--ink)}.sel-section .sel-field .sel-hint{font-size:11px;color:var(--muted)}.sel-section .sel-field .sel-unit{color:var(--muted);font-weight:400}.sel-section input,.sel-section select{width:100%;padding:10px 12px;font-size:15px;color:var(--ink);border:1.5px solid #c9d4df;border-radius:8px;background:#fff;font-family:inherit}.sel-section input:focus,.sel-section select:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}.sel-section .sel-full{grid-column:1/-1}.sel-section .sel-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;border:none;border-radius:9px;padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer;transition:background .15s}.sel-section .sel-btn:hover{background:var(--orange-dark)}.sel-section .sel-btn.ghost{background:#fff;color:var(--orange);border:1.5px solid var(--orange);margin-left:10px}.sel-section .sel-result{display:none}.sel-section .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}.sel-section .res-item{background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:14px}.sel-section .res-item .k{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}.sel-section .res-item .v{font-size:16px;font-weight:700;color:var(--navy);margin-top:2px}.sel-section .res-head{display:flex;align-items:center;gap:10px;margin:6px 0 14px}.sel-section .sel-badge{background:var(--orange);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px;font-weight:700}.sel-section table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}.sel-section td,.sel-section th{border:1px solid var(--line);padding:8px 10px;text-align:left}.sel-section th{background:var(--bg-soft);font-weight:600;color:var(--navy)}.sel-section tr:nth-child(2n) td{background:var(--bg-soft)}.sel-section .sel-note{font-size:12.5px;color:var(--muted);margin-top:10px;border-left:3px solid var(--orange);padding:8px 12px;background:var(--bg-soft);border-radius:0 8px 8px 0;line-height:1.7}.sel-section .sel-warn-box{background:#fdf1e8;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:8px;margin-top:12px;font-size:13px}.sel-section .sel-warn-box .w{display:block;margin:2px 0}.sel-section details{margin-top:12px}.sel-section details>summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:14px;padding:6px 0}.sel-section details>summary:hover{color:var(--orange)}.sel-section .sel-formula-box{background:#f0f9ff;border:1px solid #dbeafe;border-radius:8px;padding:12px 14px;font-size:13px;color:var(--ink);margin:10px 0 16px;line-height:1.8}.sel-section .sel-cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sel-section .sel-scen{border:1px solid var(--line);border-radius:10px;padding:14px 14px 6px}.sel-section .sel-scen-a{border-color:#bfdbfe;background:#fbfdff}.sel-section .sel-scen-b{border-color:#bbf7d0;background:#fbfefb}.sel-section .sel-scen-head{font-size:14px;font-weight:700;margin:0 0 10px;display:flex;align-items:center;gap:8px;color:var(--navy)}.sel-section .sel-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.sel-section .sel-dot.a{background:var(--navy)}.sel-section .sel-dot.b{background:#176b34}.sel-section .sel-cmp-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.sel-section .sel-cmp-item{flex:1 1 180px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px}.sel-section .sel-cmp-item .k{font-size:11px;color:var(--muted)}.sel-section .sel-cmp-item .v{font-size:15px;font-weight:700;color:var(--navy)}.sel-section .v.win{color:#176b34}.sel-section .v.lose{color:#dc2626}.sel-section .sel-verdict{background:#f0fdf4;border:1px solid #86efac;color:#14532d;padding:12px 16px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.7}.sel-section .sel-verdict.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}.sel-lead-capture{background:var(--bg-deep);color:#eaf0f6;border-radius:var(--radius);padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}.sel-lead-capture h3{color:#fff;font-size:18px;margin-bottom:8px}.sel-lead-capture p{color:#a9bccd;font-size:14px;margin-bottom:16px}.sel-lead-capture .sel-lc-form{display:flex;gap:10px;flex-wrap:wrap}.sel-lead-capture input[type=email]{flex:1 1 280px;padding:12px 14px;font-size:15px;color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);font-family:inherit}.sel-lead-capture input[type=email]::placeholder{color:#7f93a5}.sel-lead-capture input[type=email]:focus{border-color:var(--orange);outline:2px solid rgba(232,99,26,.45)}.sel-lead-capture button{padding:12px 22px;font-size:15px;font-weight:600;background:var(--orange);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .15s}.sel-lead-capture button:hover{background:var(--orange-dark)}.sel-lead-capture .sel-lc-status{margin-top:12px;font-size:14px;color:#9fd3a8;min-height:22px}.sel-lead-capture .sel-lc-status.err{color:#f2b8a0}.hero .wrap{width:100%;max-width:1280px;text-align:center}.hero h1{max-width:none;font-size:clamp(34px,6.1vw,72px);margin-left:auto;margin-right:auto}.hero p.sub{max-width:780px;margin-left:auto;margin-right:auto}.hero .actions{justify-content:center}#contact .sec-head{max-width:none;text-align:center}#contact .sec-head p{max-width:780px;margin-left:auto;margin-right:auto}@media (max-width:640px){.hero h1{font-size:clamp(30px,9vw,40px)}.hero p.sub{max-width:none}}.kn-item:has(details[open]){grid-column:1/-1}.sec-head{max-width:none;text-align:center}.sec-head h2{max-width:none}.sec-head p{max-width:860px;margin-left:auto;margin-right:auto}@media (min-width:961px){.sel-cost-grid .sel-field>label{min-height:44px}}.lead-grid{align-items:stretch}#contact .panel{display:grid;grid-template-rows:auto 1fr;padding:22px 26px}#contact .panel h3{margin:0 0 23px}#contact .panel ol{gap:26px!important}#contact .panel .alt-channels{margin-top:32px;padding-top:20px}#contact .panel .direct .dcard{padding:21px 16px}#contact .est-note{margin-top:25px!important}#lead-form{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:23px;align-content:space-between}#form-status:empty{display:none}#contact .field{display:flex;flex-direction:column;gap:6px}#contact .field label{font-size:13.5px;font-weight:600}#contact .field input,#contact .field textarea{width:100%;padding:10px 12px;font-size:15px;font-family:inherit;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff}#lead-form .field:nth-of-type(5),#lead-form .field:nth-of-type(6){grid-column:1/-1}#lead-form .btn{grid-column:1/-1;margin-top:4px}@media (max-width:700px){#lead-form{grid-template-columns:1fr}#lead-form .field:nth-of-type(5),#lead-form .field:nth-of-type(6){grid-column:auto}}</style>
 </head>
 <body>
 
@@ -484,7 +67,6 @@
 
 <main id="top">
 
-  <!-- ============ HERO ============ -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
       <span class="eyebrow">Independent Abrasive Selection Advisory</span>
@@ -504,7 +86,6 @@
     </div>
   </section>
 
-  <!-- ============ TOOLS ============ -->
   <section class="soft" id="tools" aria-labelledby="tools-title">
     <div class="wrap">
       <div class="sec-head">
@@ -546,7 +127,6 @@
         </article>
       </div>
 
-      <!-- Sa grades table -->
       <div id="sa-grades" class="c2" style="margin-top:34px; display:block;">
         <div class="panel" style="background:var(--bg); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:26px;">
           <h3 style="font-size:17px; color:var(--navy); margin-bottom:16px;">Surface Cleanliness Grades (ISO 8501-1)</h3>
@@ -567,7 +147,6 @@
     </div>
   </section>
 
-  <!-- ============ SELECTOR + COST COMPARISON ============ -->
   <section id="selector" class="sel-section" aria-labelledby="sel-title">
     <div class="wrap">
       <div class="sec-head">
@@ -575,7 +154,6 @@
         <p>Choose your industry and the selector auto-fills typical process parameters, then recommends the right media grade, particle size, hardness and annual consumption. Below it, compare two abrasive scenarios side-by-side on real cost per ton of workpiece.</p>
       </div>
 
-      <!-- ===== Selector card ===== -->
       <div class="sel-card">
         <h3>① Smart Abrasive Media Selector <span class="sel-two-lang">/ 智能选型计算器</span></h3>
         <p class="sel-sub">Select an industry and the form auto-fills typical parameters (fields marked <span style="color:var(--orange)">●</span>). Adjust as needed, then generate a recommendation. Annual consumption = throughput &times; industry rate (kg/ton) &divide; 1000 &times; recovery factor (with recovery = 1, without = 1.6).</p>
@@ -691,7 +269,6 @@
         <p class="sel-note">Tip: selecting an <strong>Industry Type</strong> auto-fills fields ①–⑨ with typical parameters; fine-tune the yellow fields as needed. For ⑩ annual throughput, fill from your production capacity. <br>Annual use formula = throughput &times; industry consumption rate (kg/ton) &divide; 1000 &times; recovery factor (with recovery = 1, without = 1.6). <br>Example: steel structure plant, 100,000 t/yr, rate 0.3–0.6 kg/t, with recovery &rarr; ~30–60 t/yr; steel mill descaling line, 500,000 t/yr, rate 2–3 kg/t &rarr; ~1000–1500 t/yr.</p>
       </div>
 
-      <!-- ===== Selector result ===== -->
       <div class="sel-card sel-result" id="sel-result">
         <div class="res-head">
           <span class="sel-badge">Recommendation / 推荐方案</span>
@@ -708,7 +285,6 @@
         <div class="sel-note" id="sel-res-more"></div>
       </div>
 
-      <!-- ===== Lead capture after selector result (deep blue) ===== -->
       <div class="sel-lead-capture" id="sel-lead-capture">
         <h3>Get the full selection report (PDF) &mdash; free</h3>
         <p>Tell us your machine type and workpiece, and within 24 hours we'll send the recommended media grade, hardness range and estimated cost per ton. / 留邮箱获取完整选型报告 PDF</p>
@@ -719,7 +295,6 @@
         <div class="sel-lc-status" id="sel-lc-status" role="status" aria-live="polite"></div>
       </div>
 
-      <!-- ===== Cost comparison card ===== -->
       <div class="sel-card" id="cost">
         <h3>② Abrasive Cost Comparison (A/B) <span class="sel-two-lang">/ 磨料成本对比公式</span></h3>
         <p class="sel-sub">Compare two abrasive scenarios on <strong>cost per ton of workpiece</strong> for the same period. Fill in your real purchase price and cost items, then click <em>Compare</em> to get the per-ton cost and automatic verdict.</p>
@@ -730,7 +305,7 @@
         </div>
 
         <div class="sel-cost-grid">
-          <!-- Scenario A -->
+
           <div class="sel-scen sel-scen-a">
             <p class="sel-scen-head"><span class="sel-dot a"></span>Scenario A <span class="sel-two-lang" style="font-weight:400;">Current / 当前方案</span></p>
             <div class="sel-grid">
@@ -775,7 +350,7 @@
               </div>
             </div>
           </div>
-          <!-- Scenario B -->
+
           <div class="sel-scen sel-scen-b">
             <p class="sel-scen-head"><span class="sel-dot b"></span>Scenario B <span class="sel-two-lang" style="font-weight:400;">Alternative / 对比方案 (e.g. our recommendation)</span></p>
             <div class="sel-grid">
@@ -849,39 +424,10 @@
         </div>
       </div>
 
-      <!-- ===== Reference lookup tables (hidden, rendered for completeness) ===== -->
-      <div class="sel-card" style="display:none">
-        <h3>Appendix · Embedded Lookup Tables (与 Excel 一致)</h3>
-        <details>
-          <summary>Abrasive Database (A–P) / 磨料数据库</summary>
-          <table id="sel-tbl-abr"><thead><tr><th>Code</th><th>Name / 名称</th><th>Material</th><th>Hardness HRC</th><th>Shape</th><th>Feature / 特点</th><th>Cycles</th><th>Spec / 规格</th></tr></thead><tbody></tbody></table>
-        </details>
-        <details>
-          <summary>Selection Matrix / 选型矩阵 (Equipment → Main/Sub)</summary>
-          <table id="sel-tbl-matrix"><thead><tr><th>Industry</th><th>Wheel Main</th><th>Wheel Sub</th><th>Wheel Mix</th><th>Blast Main</th><th>Blast Sub</th><th>Blast Mix</th></tr></thead><tbody></tbody></table>
-        </details>
-        <details>
-          <summary>Industry Templates / 行业模板 (Consumption rate &amp; default mix)</summary>
-          <table id="sel-tbl-ind"><thead><tr><th>Industry</th><th>consLow kg/t</th><th>consHigh kg/t</th><th>Main</th><th>Sub</th><th>Default Mix</th><th>Entry / 切入点</th></tr></thead><tbody></tbody></table>
-        </details>
-        <details>
-          <summary>Roughness → Particle Size / 粗糙度→粒径</summary>
-          <table><thead><tr><th>Rz</th><th>Spherical (S-code)</th><th>Angular (G-code)</th><th>Other (φ)</th><th>Use</th></tr></thead><tbody>
-            <tr><td>&lt;50 μm</td><td>S170</td><td>G80</td><td>φ0.4</td><td>Thin plate &amp; precision</td></tr>
-            <tr><td>40-80 μm</td><td>S170</td><td>G80</td><td>φ0.4</td><td>Surface conditioning</td></tr>
-            <tr><td>50-80 μm</td><td>S230</td><td>G40</td><td>φ0.6</td><td>General plate pretreatment</td></tr>
-            <tr><td>50-100 μm</td><td>S280</td><td>G25</td><td>φ0.8</td><td>Ship &amp; container panel</td></tr>
-            <tr><td>80-120 μm</td><td>S330/S390</td><td>G16/G18</td><td>φ1.0</td><td>Heavy descaling &amp; casting</td></tr>
-            <tr><td>&gt;120 μm</td><td>S330/S390</td><td>G16/G18</td><td>φ1.2-1.4</td><td>Extra-heavy duty</td></tr>
-          </tbody></table>
-        </details>
-      </div>
-
       <p class="sel-note" style="margin-top:18px;">Note: ① Steel shot (A/B, high/low carbon) is graded by <b>S-code</b> (S170/S230/S280/S330); ② Steel grit (C/D, high-carbon/bearing) is graded by <b>G-code</b> as mesh (G80/G40/G25/G16); ③ Grinding shot (F/G/H/N) is graded first by steel grade then by roundness: F=G45 grinding shot, G=cleaning grinding shot G70 (50-55 HRC), H=peening grinding shot G82B (55-60 HRC) — the number after G is the steel grade (carbon content), particle size uses φ, roundness G1-G3 is a suffix only (N-grade uses G3); ④ Stainless shot / cut wire (J/K/L/M/O/P), copper cut wire (I), recycled cut wire (E) are graded by <b>diameter φ</b>, not S-code; ⑤ Hardness applies only to steel shot (A/B) and steel grit (C/D) as <b>GP (42-52) / GL (52-61) / GH (&gt;61) HRC</b> (default GP; shot peening recommends GL, special requirements GH); stainless / copper / cut wire / grinding shot do not show hardness.</p>
     </div>
   </section>
 
-  <!-- ============ INDUSTRIES ============ -->
   <section id="industries" aria-labelledby="ind-title">
     <div class="wrap">
       <div class="sec-head">
@@ -917,7 +463,6 @@
     </div>
   </section>
 
-  <!-- ============ KNOWLEDGE ============ -->
   <section class="soft" id="knowledge" aria-labelledby="kn-title">
     <div class="wrap">
       <div class="sec-head">
@@ -1088,11 +633,10 @@
           </div>
         </article>
 
-        </div><!-- /.kn-list -->
-      </div><!-- /.wrap -->
-  </section><!-- /#knowledge -->
+        </div>
+      </div>
+  </section>
 
-  <!-- ============ LEAD FORM ============ -->
   <section class="lead" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <div class="sec-head">
@@ -1199,504 +743,6 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  var $ = function (id) { return document.getElementById(id); };
-
-  /* ============ ABRASIVE DATABASE (A–P) ============ */
-  var ABR = {
-    A:{cn:'高碳钢丸',en:'High-carbon Steel Shot',mat:'Ferrous',hard:'GP 42-52 HRC',shape:'Spherical',shapeKey:'spherical',cyc:'1500-2000',surface:'Cleaning/Rust removal',spec:'S110/S130/S170/S230/S280+',feat:'Uniform cleaning; main media for plate pretreatment'},
-    B:{cn:'低碳钢丸',en:'Low-carbon Steel Shot',mat:'Ferrous',hard:'GP 42-52 HRC',shape:'Spherical',shapeKey:'spherical',cyc:'2000-3000',surface:'Thin plate cleaning',spec:'S110/S130/S170/S230/S280+',feat:'Tough, not brittle, suits thin plate'},
-    C:{cn:'高碳钢砂',en:'High-carbon Steel Grit',mat:'Ferrous',hard:'GP 42-52 HRC',shape:'Angular',shapeKey:'angular',cyc:'1500-2000',surface:'Descaling/Roughening',spec:'G14-G18 / G25-G40 / G50-G80',feat:'Strong cutting; main media for staged blasting'},
-    D:{cn:'轴承钢砂',en:'Bearing Steel Grit',mat:'Ferrous',hard:'GP 42-52 HRC',shape:'Forged Angular',shapeKey:'angular',cyc:'2000-3000',surface:'Descaling/Peening',spec:'G14-G18 / G25-G40 / G50-G80',feat:'Premium, long life; CI 7.1ppm far below ISO8502 15ppm'},
-    E:{cn:'再生切丸',en:'Recycled Cut Wire',mat:'Ferrous',hard:'—',shape:'Cut Wire',shapeKey:'other',cyc:'1500-2000',surface:'General',spec:'φ1.0 / φ1.2 / φ1.4 / φ1.8-2.0',feat:'Economical, good value'},
-    F:{cn:'研丸G45',en:'Grinding Steel Shot G45',mat:'Ferrous',hard:'—',shape:'Grinding',shapeKey:'grinding',grade:'G45',cyc:'2500-3500',surface:'General/Long life',spec:'G45 φ0.6/0.8/1.0/1.2-1.4',feat:'Entry level; breakage only 1/3 of normal shot'},
-    G:{cn:'清理研丸G70',en:'Cleaning Grinding Shot G70',mat:'Ferrous',hard:'50-55 HRC',shape:'Grinding',shapeKey:'grinding',grade:'G70',cyc:'3000-4000',surface:'Cleaning/Rust removal',spec:'G70 φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'Priced by 70# steel; main cleaning grinding shot; 50-55 HRC'},
-    H:{cn:'强化研丸G82B',en:'Peening Grinding Shot G82B',mat:'Ferrous',hard:'55-60 HRC',shape:'Grinding',shapeKey:'grinding',grade:'G82B',cyc:'3500-4500',surface:'Top peening',spec:'G82B φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'Priced by 82B high-carbon wire; heavy peening first choice; 55-60 HRC'},
-    I:{cn:'铜切丸',en:'Copper Cut Wire',mat:'Non-ferrous',hard:'—',shape:'Cut Wire',shapeKey:'other',cyc:'1500-2000',surface:'Al/Cu cleaning',spec:'φ1.5-3.0',feat:'No sparks, no iron contamination; suits aluminum/copper'},
-    J:{cn:'不锈钢丸304',en:'Stainless Steel Shot 304',mat:'Stainless',hard:'—',shape:'Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'Stainless cleaning',spec:'φ0.4/0.6/0.8/1.0/1.2-2.0',feat:'No carbon contamination; food/aerospace grade'},
-    K:{cn:'不锈钢丸410',en:'Stainless Steel Shot 410',mat:'Stainless',hard:'—',shape:'Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'Stainless',spec:'φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'Magnetic stainless'},
-    L:{cn:'不锈钢丸430',en:'Stainless Steel Shot 430',mat:'Stainless',hard:'—',shape:'Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'Stainless',spec:'φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'Corrosion-resistant'},
-    M:{cn:'不锈钢丸201',en:'Stainless Steel Shot 201',mat:'Stainless',hard:'—',shape:'Spherical',shapeKey:'sshot',cyc:'2000-3000',surface:'Stainless',spec:'φ0.4/0.6/0.8/1.0/1.2-2.0',feat:'Economical stainless'},
-    N:{cn:'普通研丸(G3)',en:'General Grinding Shot (roundness G3)',mat:'Ferrous',hard:'—',shape:'Grinding',shapeKey:'grinding',grade:'',cyc:'2000-3000',surface:'General/Long life',spec:'φ1.4 / φ1.8-2.0 (roundness G3)',feat:'Economical grinding shot; good value'},
-    O:{cn:'304切丸',en:'304 Cut Wire',mat:'Stainless',hard:'—',shape:'Cut Wire',shapeKey:'other',cyc:'1500-2500',surface:'Stainless cleaning/roughening',spec:'φ0.4/0.6/0.8/1.0/1.2-2.0',feat:'Cheaper and more angular than 304 grinding shot'},
-    P:{cn:'410切丸',en:'410 Cut Wire',mat:'Stainless',hard:'—',shape:'Cut Wire',shapeKey:'other',cyc:'1500-2500',surface:'Stainless cleaning/roughening',spec:'φ0.4/0.6/0.8/1.0/1.2-1.4',feat:'Cheaper and more angular than 410 grinding shot'}
-  };
-
-  /* Hardness recommendation */
-  function recHard(mainCode, subCode, surface){
-    var ferrous = ['A','B','C','D'];
-    var researchHard = {G:'50-55 HRC (G-grade cleaning G70)', H:'55-60 HRC (H-grade peening G82B)'};
-    if(researchHard[mainCode] && !(subCode && ferrous.indexOf(subCode)>=0)) return researchHard[mainCode];
-    if(ferrous.indexOf(mainCode)<0 && !(subCode && ferrous.indexOf(subCode)>=0)) return '— (N.A.)';
-    var grade = (surface==='喷丸强化' || surface==='精密清理/抛光') ? 'GL 52-61 HRC' : 'GP 42-52 HRC';
-    var parts = [];
-    if(ferrous.indexOf(mainCode)>=0) parts.push(grade);
-    if(subCode && ferrous.indexOf(subCode)>=0) parts.push(grade + ' (sub)');
-    return parts.join(' / ');
-  }
-
-  /* ============ INDUSTRY TEMPLATES (12) ============ */
-  var IND = {
-    cast_steel:{zh:'铸钢/铸铁',en:'Cast Steel / Cast Iron',preset:{base:'黑色金属(碳钢/铸铁)',surface:'清理/除锈',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.8,consHigh:1.5,main:'A',sub:'C',mix:'70:30',note:'Annual capacity / casting material / wall thickness (thin-wall uses low-hardness shot)'},
-    shipbuilding:{zh:'船舶与海洋工程',en:'Shipbuilding & Offshore',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'80-120',equip:'抛丸机(叶轮式)',power:'高(>30kW)',life:'3-8年',recover:'有',env:'严格(<5mg/m³)'},consLow:0.3,consHigh:0.6,main:'A',sub:'C',mix:'70:30',note:'Class certification / plate material (carbon/stainless/Al) / coating standard'},
-    automotive:{zh:'汽车零部件',en:'Automotive Parts',preset:{base:'黑色金属(碳钢/铸铁)',surface:'喷丸强化',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.6,consHigh:1.2,main:'B',sub:'C',mix:'60:40',note:'Peening or cleaning / part material / fatigue life'},
-    bearing:{zh:'轴承行业',en:'Bearing Industry',preset:{base:'黑色金属(碳钢/铸铁)',surface:'喷丸强化',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'<3年',recover:'有',env:'一般'},consLow:0.5,consHigh:1.0,main:'A',sub:'-',mix:'100:0',note:'Bearing model / peening coverage rate / current breakage pain point'},
-    steel_struct:{zh:'钢结构与桥梁',en:'Steel Structure & Bridges',preset:{base:'黑色金属(碳钢/铸铁)',surface:'清理/除锈',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.3,consHigh:0.6,main:'A',sub:'-',mix:'100:0',note:'Pre-treatment line capacity / plate thickness / coating standard ISO8501'},
-    container:{zh:'集装箱制造',en:'Container Manufacturing',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'50-80',equip:'抛丸机(叶轮式)',power:'高(>30kW)',life:'3-8年',recover:'有',env:'严格(<5mg/m³)'},consLow:0.4,consHigh:0.8,main:'A',sub:'C',mix:'70:30',note:'Daily output / pre-treatment line config / dust emission'},
-    oil_gas:{zh:'石油管道与压力容器',en:'Oil & Gas Pipe / Pressure Vessel',preset:{base:'黑色金属(碳钢/铸铁)',surface:'清理/除锈',rough:'50-80',equip:'喷砂机(压入式)',power:'中(15-30kW)',life:'3-8年',recover:'无',env:'一般'},consLow:0.5,consHigh:1.0,main:'C',sub:'-',mix:'100:0',note:'Pipe material (carbon/alloy) / pressure rating / internal wall treatment'},
-    wind_nuclear:{zh:'风电与核电设备',en:'Wind & Nuclear Equipment',preset:{base:'黑色金属(碳钢/铸铁)',surface:'喷丸强化',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'<3年',recover:'有',env:'严格(<5mg/m³)'},consLow:0.5,consHigh:1.0,main:'B',sub:'C',mix:'60:40',note:'Equipment certification (nuclear) / special material / cleanliness'},
-    precision_cast:{zh:'精密铸造与熔模铸造',en:'Precision / Investment Casting',preset:{base:'黑色金属(碳钢/铸铁)',surface:'精密清理/抛光',rough:'<50',equip:'抛丸机(叶轮式)',power:'低(<15kW)',life:'3-8年',recover:'有',env:'一般'},consLow:1.0,consHigh:2.0,main:'B',sub:'-',mix:'100:0',note:'Casting material (stainless/superalloy) / roughness requirement'},
-    aluminum:{zh:'铝合金压铸',en:'Aluminum Die Casting',preset:{base:'有色金属(铝/铜/锌)',surface:'清理/除锈',rough:'<50',equip:'抛丸机(叶轮式)',power:'低(<15kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.3,consHigh:0.8,main:'J',sub:'-',mix:'100:0',note:'Export or not (iron residue) / surface quality issues'},
-    railway:{zh:'铁路车辆与轨道',en:'Railway Vehicles & Track',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'50-80',equip:'抛丸机(叶轮式)',power:'中(15-30kW)',life:'3-8年',recover:'有',env:'一般'},consLow:0.4,consHigh:0.8,main:'A',sub:'C',mix:'70:30',note:'Car type (carbon/stainless/Al body)'},
-    steel_mill:{zh:'钢铁企业·除鳞线',en:'Steel Mill · Descaling Line',preset:{base:'黑色金属(碳钢/铸铁)',surface:'除鳞/粗化/打砂',rough:'50-80',equip:'抛丸机(叶轮式)',power:'高(>30kW)',life:'3-8年',recover:'有',env:'严格(<5mg/m³)'},consLow:2.0,consHigh:3.0,main:'A',sub:'C',mix:'60:40',note:'Line type (descaling 2-3kg/t vs rolling 0.02-0.05kg/t) / steel grade'}
-  };
-
-  /* ============ SELECTION MATRIX ============ */
-  var MATRIX = {
-    cast_steel:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
-    shipbuilding:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
-    automotive:{wheel:['B','C','60:40'],blast:['C','-','100:0']},
-    bearing:{wheel:['A','-','100:0'],blast:['C','-','100:0']},
-    steel_struct:{wheel:['A','-','100:0'],blast:['C','-','100:0']},
-    container:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
-    oil_gas:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
-    wind_nuclear:{wheel:['B','C','60:40'],blast:['D','-','100:0']},
-    precision_cast:{wheel:['B','-','100:0'],blast:['C','-','100:0']},
-    aluminum:{wheel:['J','-','100:0'],blast:['I','-','100:0']},
-    railway:{wheel:['A','C','70:30'],blast:['C','-','100:0']},
-    steel_mill:{wheel:['A','C','60:40'],blast:['D','-','100:0']}
-  };
-
-  /* ---- Industry change → auto-fill preset ---- */
-  function fillPreset(){
-    var v = $('sel-industry').value;
-    if(!v || !IND[v]) return;
-    var p = IND[v].preset;
-    $('sel-base').value = p.base;
-    $('sel-surface').value = p.surface;
-    $('sel-rough').value = p.rough;
-    $('sel-equip').value = p.equip;
-    $('sel-power').value = p.power;
-    $('sel-life').value = p.life;
-    $('sel-recover').value = p.recover;
-    $('sel-env').value = p.env;
-  }
-  $('sel-industry').addEventListener('change', fillPreset);
-
-  /* ---- Roughness + shape → particle spec ---- */
-  function specByShape(m, rough){
-    var sk = m.shapeKey;
-    var phi = (rough==='<50' || rough==='40-80') ? 'φ0.4'
-            : (rough==='50-80') ? 'φ0.6'
-            : (rough==='50-100') ? 'φ0.8'
-            : (rough==='80-120') ? 'φ1.0' : 'φ1.2-1.4';
-    if(sk === 'sshot'){ return phi; }
-    if(sk === 'spherical'){
-      if(rough==='<50' || rough==='40-80') return 'S170';
-      if(rough==='50-80') return 'S230';
-      if(rough==='50-100') return 'S280';
-      return 'S330/S390';
-    }
-    if(sk === 'angular'){
-      if(rough==='<50' || rough==='40-80') return 'G80';
-      if(rough==='50-80') return 'G40';
-      if(rough==='50-100') return 'G25';
-      return 'G16/G18';
-    }
-    if(sk === 'grinding'){
-      return m.grade ? (m.grade + ' ' + phi) : (phi + ' (roundness G3)');
-    }
-    return phi;
-  }
-
-  /* ---- Main / sub material selection ---- */
-  function pickMainSub(indKey, equip, surface, rough){
-    var eq = equip || '';
-    var base = $('sel-base').value;
-    if(base === '不锈钢' || base === '有色金属(铝/铜/锌)'){
-      if(surface === '喷丸强化' || surface === '精密清理/抛光'){
-        return {main:'J', sub:'-', mix:'100:0'};
-      }
-      return {main:'O', sub:'-', mix:'100:0'};
-    }
-    if(surface === '喷丸强化'){
-      var heavy = (rough === '80-120' || rough === '>120');
-      if(eq.indexOf('喷砂') >= 0){
-        return {main: heavy ? 'D' : 'C', sub:'-', mix:'100:0'};
-      }
-      return {main: heavy ? 'H' : 'A', sub:'-', mix:'100:0'};
-    }
-    var m = MATRIX[indKey];
-    if(eq.indexOf('抛丸') >= 0) return {main:m.wheel[0], sub:m.wheel[1], mix:m.wheel[2]};
-    if(eq.indexOf('喷砂') >= 0) return {main:m.blast[0], sub:m.blast[1], mix:m.blast[2]};
-    var ind = IND[indKey];
-    return {main:ind.main, sub:ind.sub, mix:ind.mix};
-  }
-
-  /* ---- Generate recommendation ---- */
-  function gen(){
-    var v = $('sel-industry').value;
-    if(!v || !IND[v]){ alert('Please select an industry first. / 请先选择行业类型'); return; }
-    var ind = IND[v];
-    var base = $('sel-base').value;
-    var surface = $('sel-surface').value;
-    var rough = $('sel-rough').value;
-    var equip = $('sel-equip').value;
-    var power = $('sel-power').value;
-    var life = $('sel-life').value;
-    var recover = $('sel-recover').value;
-    var env = $('sel-env').value;
-    var thr = parseFloat($('sel-throughput').value) || 0;
-
-    var sel = pickMainSub(v, equip, surface, rough);
-    var mainCode = sel.main;
-    var subCode = (sel.sub && sel.sub!='-') ? sel.sub : null;
-    var main = ABR[mainCode];
-    var sub = subCode ? ABR[subCode] : null;
-
-    $('sel-res-industry').textContent = 'Industry: ' + ind.en + ' · ' + ind.zh;
-
-    var grid = $('sel-res-grid'); grid.innerHTML='';
-    var code = mainCode + (subCode ? (' + '+subCode) : '');
-    var name = main.en + (sub ? (' + '+sub.en) : '');
-    var mix = (subCode===mainCode || !subCode) ? ('Single media 100% '+mainCode) : (mainCode+':'+subCode+' (fine-tune by test)');
-    var hard = recHard(mainCode, subCode, surface);
-    var cyc = main.cyc + (sub ? (' / '+sub.cyc) : '');
-    var items = [
-      ['Code / 编码', code],
-      ['Abrasive / 推荐磨料', name],
-      ['Spec (particle) / 规格', specByShape(main, rough) + (sub ? (' + sub '+specByShape(sub, rough)) : '')],
-      ['Hardness / 硬度', hard],
-      ['Mix ratio / 混合比', mix],
-      ['Cycles / 循环次数', cyc]
-    ];
-    items.forEach(function(it){
-      var d=document.createElement('div'); d.className='res-item';
-      d.innerHTML='<div class="k">'+it[0]+'</div><div class="v">'+it[1]+'</div>';
-      grid.appendChild(d);
-    });
-
-    var tb = $('sel-res-table').querySelector('tbody'); tb.innerHTML='';
-    var rows = [
-      ['Base material / 基材', base||'—'],
-      ['Surface treatment / 表面处理', surface||'—'],
-      ['Target roughness / 粗糙度', rough? (rough+' μm') : '—'],
-      ['Equipment / 设备', equip||'—'],
-      ['Power / 功率', power||'—'],
-      ['Service life / 年限', life||'—'],
-      ['Recovery system / 回收', recover||'—'],
-      ['Dust requirement / 环保', env||'—'],
-      ['Main feature / 主料特性', main.feat],
-      ['Sub material / 副料', sub ? (sub.cn+' / '+sub.en+' ('+subCode+')') : '— (Single media)'],
-      ['Sub spec / 副料规格', sub ? specByShape(sub, rough) : '— (Single media)'],
-      ['Sub feature / 副料特性', sub ? sub.feat : 'Single media, no sub needed'],
-      ['Entry point / 选购切入点', ind.note]
-    ];
-    rows.forEach(function(r){ var tr=document.createElement('tr'); tr.innerHTML='<td>'+r[0]+'</td><td>'+r[1]+'</td>'; tb.appendChild(tr); });
-
-    var factor = (recover === '有') ? 1 : 1.6;
-    if(thr > 0){
-      var lo = (thr * ind.consLow  / 1000 * factor).toFixed(1);
-      var mid= (thr * (ind.consLow+ind.consHigh)/2 / 1000 * factor).toFixed(1);
-      var hi = (thr * ind.consHigh / 1000 * factor).toFixed(1);
-      var tr=document.createElement('tr');
-      tr.innerHTML='<td>Annual use / 年耗量 (tons)</td><td><b>'+(recover==='有'?'with recovery':'no recovery ×1.6')+' → '+lo+' ~ '+hi+' t (mid '+mid+')</b></td>';
-      tb.appendChild(tr);
-    } else {
-      var tr=document.createElement('tr');
-      tr.innerHTML='<td>Annual use / 年耗量</td><td>No throughput entered → rate '+ind.consLow+'~'+ind.consHigh+' kg/t ('+(recover==='有'?'with recovery':'no recovery ×1.6')+')</td>';
-      tb.appendChild(tr);
-    }
-
-    var warn = $('sel-res-warn'); warn.innerHTML=''; var ws=[];
-    if(life==='>8年') ws.push('⚠ Old equipment: drop particle size one grade and check impeller/blade wear;');
-    if(power==='低(<15kW)') ws.push('⚠ Low power: avoid large particle clogging, recommend ≤S280/G40;');
-    if(env==='严格(<5mg/m³)') ws.push('🌿 Strict dust: prefer GL-grade + sealed system, dust <5mg/m³;');
-    if(recover==='无') ws.push('🔧 No recovery: add magnetic + air separation to cut consumption 30%+;');
-    if(ws.length){ warn.style.display='block'; ws.forEach(function(x){var s=document.createElement('span');s.className='w';s.textContent=x;warn.appendChild(s);}); }
-    else warn.style.display='none';
-
-    var rationale = 'Basis: '+base+' ｜ '+surface+' ｜ Rz '+rough+'μm ｜ '+equip+'；';
-    rationale += (recover==='有') ? 'recovery installed → industry-standard mix/long-life media ('+code+')；' : 'no recovery → standard media + recommend adding recovery；';
-    if(thr>0) rationale += 'throughput ~'+thr+' t.';
-    $('sel-res-note').textContent = 'Rationale: ' + rationale + ( (thr>0 && (thr*(ind.consLow+ind.consHigh)/2/1000*factor)>=300) ? ' ｜ ≥300t → strategic client: on-site visit + custom blending.' : (thr>0 ? ' ｜ <300t → remote video diagnosis + data report.' : ''));
-
-    var more='';
-    if(base === '不锈钢' || base === '有色金属(铝/铜/锌)'){
-      if(mainCode === 'O'){
-        more='Price advantage: 304 cut wire (O) is cheaper and more angular than 304 stainless shot, suits cleaning/roughening; for spherical finish or shot peening use 304 stainless shot (J); for magnetic applications use 410 cut wire (P).';
-      } else {
-        more='Shot peening requires spherical stainless shot (J) to induce residual compressive stress; high-demand springs/gears can also use stainless cut wire (O) — longer life, more uniform size, retains angularity, avoids iron contamination; for magnetic applications use 410 cut wire (P).';
-      }
-    } else if(surface === '喷丸强化'){
-      if(equip.indexOf('喷砂') >= 0){
-        more='Pressure-blasting shot peening must use steel grit/bearing grit (C/D) only — never grinding shot or cut wire; if switching to wheel blasting, cast steel shot (A) or peening grinding shot G82B (H-grade) gives better fatigue life.';
-      } else {
-        more='Shot peening most widely uses cast steel shot (A) — spherical, tough, durable, the mainstream for gears/crankshafts/connecting rods; cut wire (E) lasts longer with uniform size, common for high-demand springs/gears; peening grinding shot G82B (H-grade) is the heaviest-duty peening choice (grinding shot G70 is a cleaning grade, not for peening); for stainless/non-ferrous parts use stainless shot (J) or cut wire (O/P) to avoid iron contamination.';
-      }
-    } else if(['F','N'].indexOf(mainCode)>=0) {
-      more='More options: general grinding shot (N, roundness G3) is an economical alternative — lower cost, suits budget-sensitive scenarios.';
-    } else if(base==='黑色金属(碳钢/铸铁)') {
-      more='Economical alternatives: recycled cut wire (E) / general grinding shot (N, roundness G3); if stronger cutting is needed, the main media is already blended per industry.';
-    } else {
-      more='See the abrasive database for each material\'s spec column.';
-    }
-    $('sel-res-more').textContent = 'More options: ' + more;
-
-    $('sel-result').style.display='block';
-    $('sel-result').scrollIntoView({behavior:'smooth'});
-  }
-  $('sel-gen').addEventListener('click', gen);
-  $('sel-reset').addEventListener('click', function(){
-    $('sel-section') && document.querySelectorAll('.sel-section select, .sel-section input').forEach(function(e){ e.value=''; });
-    $('sel-result').style.display='none';
-  });
-
-  /* ---- Render hidden reference tables ---- */
-  (function renderTables(){
-    var ta=$('sel-tbl-abr').querySelector('tbody');
-    Object.keys(ABR).forEach(function(k){var a=ABR[k];var tr=document.createElement('tr');
-      tr.innerHTML='<td>'+k+'</td><td>'+a.cn+' / '+a.en+'</td><td>'+a.mat+'</td><td>'+a.hard+'</td><td>'+a.shape+'</td><td>'+a.feat+'</td><td>'+a.cyc+'</td><td>'+a.spec+'</td>';
-      ta.appendChild(tr);});
-    var tm=$('sel-tbl-matrix').querySelector('tbody');
-    Object.keys(MATRIX).forEach(function(k){var m=MATRIX[k];var tr=document.createElement('tr');
-      tr.innerHTML='<td>'+IND[k].en+'</td><td>'+m.wheel[0]+'</td><td>'+m.wheel[1]+'</td><td>'+m.wheel[2]+'</td><td>'+m.blast[0]+'</td><td>'+m.blast[1]+'</td><td>'+m.blast[2]+'</td>';
-      tm.appendChild(tr);});
-    var ti=$('sel-tbl-ind').querySelector('tbody');
-    Object.keys(IND).forEach(function(k){var i=IND[k];var tr=document.createElement('tr');
-      tr.innerHTML='<td>'+i.en+' / '+i.zh+'</td><td>'+i.consLow+'</td><td>'+i.consHigh+'</td><td>'+i.main+'</td><td>'+i.sub+'</td><td>'+i.mix+'</td><td>'+i.note+'</td>';
-      ti.appendChild(tr);});
-  })();
-
-  /* ============ COST COMPARISON A/B ============ */
-  var CCY_SYM = {USD:'$',CNY:'¥',EUR:'€'};
-  var CCY_NAME = {USD:'USD',CNY:'CNY',EUR:'EUR'};
-
-  function fillAbrOptions(sel){
-    ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'].forEach(function(c){
-      var a = ABR[c];
-      var opt = document.createElement('option');
-      opt.value = c;
-      opt.textContent = c + ' ' + a.cn + ' / ' + a.en;
-      sel.appendChild(opt);
-    });
-  }
-  document.querySelectorAll('.sel-abr-type').forEach(fillAbrOptions);
-
-  function costNum(sid, k){
-    var el = document.querySelector('.sel-num[data-sid="'+sid+'"][data-k="'+k+'"]');
-    var v = parseFloat(el.value);
-    return (isFinite(v) && v > 0) ? v : 0;
-  }
-  function fmt(n){
-    return n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
-  }
-  function ccyStr(n, ccy){
-    return CCY_SYM[ccy] + fmt(n);
-  }
-  function showV(id, txt, cls){
-    var el = $(id);
-    el.textContent = txt;
-    el.className = 'v' + (cls ? ' '+cls : '');
-  }
-
-  $('sel-cost-gen').addEventListener('click', function(){
-    var ccy = $('sel-ccy').value;
-    var build = function(sid){
-      var price = costNum(sid,'price'), consumed = costNum(sid,'consumed');
-      var power = costNum(sid,'power'), labor = costNum(sid,'labor');
-      var depm  = costNum(sid,'depm'),  dust  = costNum(sid,'dust');
-      var scrap = costNum(sid,'scrap'), work  = costNum(sid,'work');
-      var mat   = price * consumed;
-      var total = mat + power + labor + depm + dust - scrap;
-      return {price:price, consumed:consumed, power:power, labor:labor, depm:depm, dust:dust, scrap:scrap, work:work, mat:mat, total:total,
-              cpt: work > 0 ? total / work : null};
-    };
-    var a = build('a'), b = build('b');
-
-    var warns = [];
-    if(a.price === 0 || a.consumed === 0) warns.push('Scenario A: unit price/consumed missing, fill ② and ③.');
-    if(b.price === 0 || b.consumed === 0) warns.push('Scenario B: unit price/consumed missing, fill ② and ③.');
-    if(a.work === 0) warns.push('Scenario A: no workpiece tons ⑨, cannot compute cost per ton.');
-    if(b.work === 0) warns.push('Scenario B: no workpiece tons ⑨, cannot compute cost per ton.');
-
-    var tbody = $('sel-cost-tbody'); tbody.innerHTML = '';
-    var rows = [
-      {k:'Material Cost = price × consumed', a:a.mat, b:b.mat, t:'money'},
-      {k:'Power Cost', a:a.power, b:b.power, t:'money'},
-      {k:'Labor Cost', a:a.labor, b:b.labor, t:'money'},
-      {k:'Depreciation & Maintenance', a:a.depm, b:b.depm, t:'money'},
-      {k:'Dust Control Cost', a:a.dust, b:b.dust, t:'money'},
-      {k:'Scrap Recovery (−)', a:-a.scrap, b:-b.scrap, t:'money'},
-      {k:'Total Cost', a:a.total, b:b.total, t:'money'},
-      {k:'Workpiece Tons', a:a.work, b:b.work, t:'num'},
-      {k:'Cost per Ton', a:a.cpt, b:b.cpt, t:'money'}
-    ];
-    rows.forEach(function(r){
-      var tr = document.createElement('tr');
-      var thd = document.createElement('td'); thd.textContent = r.k;
-      var mk = function(v, cell){
-        var s = '—';
-        if(v !== null && v !== undefined && isFinite(v)){
-          s = (r.t === 'num') ? fmt(v) : ccyStr(v, ccy);
-        }
-        cell.textContent = s;
-        cell.style.fontWeight = (r.k.indexOf('Total') >= 0 || r.k.indexOf('Cost per Ton') >= 0) ? '700' : '400';
-      };
-      var td1 = document.createElement('td'), td2 = document.createElement('td');
-      mk(r.a, td1); mk(r.b, td2);
-      if(r.k.indexOf('Cost per Ton') >= 0 && a.cpt !== null && b.cpt !== null){
-        if(a.cpt < b.cpt){ td1.innerHTML = '<b style="color:#176b34">' + td1.textContent + ' ✓ better</b>'; }
-        else if(b.cpt < a.cpt){ td2.innerHTML = '<b style="color:#176b34">' + td2.textContent + ' ✓ better</b>'; }
-      }
-      tr.appendChild(thd); tr.appendChild(td1); tr.appendChild(td2);
-      tbody.appendChild(tr);
-    });
-
-    showV('sel-cpt-a', a.cpt !== null ? ccyStr(a.cpt, ccy) + ' / ton' : '—',
-          (a.cpt !== null && b.cpt !== null && a.cpt < b.cpt) ? 'win' : '');
-    showV('sel-cpt-b', b.cpt !== null ? ccyStr(b.cpt, ccy) + ' / ton' : '—',
-          (a.cpt !== null && b.cpt !== null && b.cpt < a.cpt) ? 'win' : '');
-    showV('sel-cpt-diff', '—', '');
-    showV('sel-cpt-total', '—', '');
-
-    var verdict = $('sel-cost-verdict');
-    if(warns.length){
-      verdict.className = 'sel-verdict warn';
-      verdict.style.display = 'block';
-      verdict.innerHTML = '⚠ ' + warns.join('<br>⚠ ');
-    } else {
-      var saving = a.cpt - b.cpt;
-      var msg = '';
-      if(Math.abs(saving) < 0.005){
-        msg = 'Both scenarios have essentially equal cost per ton (' + ccyStr(a.cpt, ccy) + ' / ton).';
-        verdict.className = 'sel-verdict';
-        showV('sel-cpt-diff', '≈ 0.00', '');
-        showV('sel-cpt-total', '≈ 0.00', '');
-      } else if(saving > 0){
-        var totalSave = saving * a.work;
-        msg = 'Scenario B is better ✓: cost per ton is lower by ' + ccyStr(saving, ccy) + ', at Scenario A workpiece ' + fmt(a.work) + ' t, this period saves ~' + ccyStr(totalSave, ccy) + '.';
-        verdict.className = 'sel-verdict';
-        showV('sel-cpt-diff', '-' + ccyStr(saving, ccy) + ' / ton (save)', 'win');
-        showV('sel-cpt-total', ccyStr(totalSave, ccy), 'win');
-      } else {
-        var totalSave2 = (-saving) * a.work;
-        msg = 'Scenario A is better ✓: cost per ton is lower by ' + ccyStr(-saving, ccy) + ', at Scenario A workpiece ' + fmt(a.work) + ' t, this period saves ~' + ccyStr(totalSave2, ccy) + '.';
-        verdict.className = 'sel-verdict';
-        showV('sel-cpt-diff', '+' + ccyStr(-saving, ccy) + ' / ton (extra)', 'lose');
-        showV('sel-cpt-total', ccyStr(totalSave2, ccy), '');
-      }
-      verdict.style.display = 'block';
-      verdict.textContent = msg;
-    }
-    $('sel-cost-summary').textContent = 'Basis: ' + CCY_NAME[ccy] + ' · same-period cost per ton comparison';
-    $('sel-cost-result').style.display = 'block';
-    $('sel-cost-result').scrollIntoView({behavior:'smooth'});
-  });
-
-  $('sel-cost-reset').addEventListener('click', function(){
-    document.querySelectorAll('.sel-abr-type,.sel-num').forEach(function(e){ e.value = ''; });
-    $('sel-cost-result').style.display = 'none';
-  });
-
-  /* ============ SELECTOR LEAD CAPTURE (PDF report) ============ */
-  var selLeadForm = $('sel-lead-form');
-  var selLcStatus = $('sel-lc-status');
-  var selHasAlerted = false;
-  selLeadForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (selHasAlerted) return;
-    selHasAlerted = true;
-    var email = ($('sel-lead-email').value || '').trim();
-    if (!email) {
-      selLcStatus.textContent = 'Please enter your work email.';
-      selLcStatus.className = 'sel-lc-status err';
-      selHasAlerted = false;
-      return;
-    }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      selLcStatus.textContent = 'That email does not look valid — please double-check.';
-      selLcStatus.className = 'sel-lc-status err';
-      selHasAlerted = false;
-      return;
-    }
-    var subject = 'Selection report PDF request — ' + email;
-    var body = 'Email: ' + email + '\n\nI generated an abrasive selection recommendation on your site and would like the full PDF report.\n\nMy selections:\n(Please paste your selector inputs here if you want a tailored report.)';
-    var mailHref = 'mailto:china_k@fengerda.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    var waHref = 'https://wa.me/8618266010172?text=' + encodeURIComponent(subject + '\n\n' + body);
-    var mailLink = document.createElement('a');
-    mailLink.href = mailHref; mailLink.target = '_blank'; mailLink.rel = 'noopener';
-    mailLink.textContent = 'open the pre-filled email';
-    var waLink = document.createElement('a');
-    waLink.href = waHref; waLink.target = '_blank'; waLink.rel = 'noopener';
-    waLink.textContent = 'send via WhatsApp';
-    selLcStatus.textContent = 'Your details are ready: ';
-    selLcStatus.appendChild(mailLink);
-    selLcStatus.appendChild(document.createTextNode(' or '));
-    selLcStatus.appendChild(waLink);
-    selLcStatus.appendChild(document.createTextNode('. Reply within 24 working hours.'));
-    selLcStatus.className = 'sel-lc-status';
-  });
-
-  /* ============ LEAD FORM (main contact) ============ */
-  var leadForm = $('lead-form');
-  var statusEl = $('form-status');
-  var hasAlerted = false;
-  leadForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (hasAlerted) return;
-    hasAlerted = true;
-
-    var name = ($('lf-name').value || '').trim();
-    var company = ($('lf-company').value || '').trim();
-    var country = ($('lf-country').value || '').trim();
-    var email = ($('lf-email').value || '').trim();
-    var whatsapp = ($('lf-whatsapp').value || '').trim();
-    var scene = ($('lf-scene').value || '').trim();
-
-    if (!name || !email) {
-      statusEl.textContent = 'Please enter at least your name and work email.';
-      statusEl.className = 'form-status err';
-      hasAlerted = false;
-      return;
-    }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      statusEl.textContent = 'The email address does not look valid - please double-check it.';
-      statusEl.className = 'form-status err';
-      hasAlerted = false;
-      return;
-    }
-
-    var lines = [];
-    lines.push('Name: ' + name);
-    if (company) lines.push('Company: ' + company);
-    if (country) lines.push('Country / Region: ' + country);
-    lines.push('Email: ' + email);
-    if (whatsapp) lines.push('WhatsApp: ' + whatsapp);
-    if (scene) lines.push('');
-    if (scene) lines.push('Application details:');
-    if (scene) lines.push(scene);
-    var body = lines.join('\n');
-
-    var subject = 'Abrasive recommendation request - ' + name;
-    var mailHref = 'mailto:china_k@fengerda.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    var waHref = 'https://wa.me/8618266010172?text=' + encodeURIComponent(subject + '\n\n' + body);
-
-    var mailLink = document.createElement('a');
-    mailLink.href = mailHref; mailLink.target = '_blank'; mailLink.rel = 'noopener';
-    mailLink.textContent = 'open the pre-filled email draft';
-    var waLink = document.createElement('a');
-    waLink.href = waHref; waLink.target = '_blank'; waLink.rel = 'noopener';
-    waLink.textContent = 'open a WhatsApp message';
-    statusEl.textContent = 'Your details are ready: ';
-    statusEl.appendChild(mailLink);
-    statusEl.appendChild(document.createTextNode(' or '));
-    statusEl.appendChild(waLink);
-    statusEl.appendChild(document.createTextNode('. I reply within 24 working hours.'));
-    statusEl.className = 'form-status';
-  });
-})();
-</script>
+<script>!function(){var e=function(e){return document.getElementById(e)},t={A:{cn:"高碳钢丸",en:"High-carbon Steel Shot",mat:"Ferrous",hard:"GP 42-52 HRC",shape:"Spherical",shapeKey:"spherical",cyc:"1500-2000",surface:"Cleaning/Rust removal",spec:"S110/S130/S170/S230/S280+",feat:"Uniform cleaning; main media for plate pretreatment"},B:{cn:"低碳钢丸",en:"Low-carbon Steel Shot",mat:"Ferrous",hard:"GP 42-52 HRC",shape:"Spherical",shapeKey:"spherical",cyc:"2000-3000",surface:"Thin plate cleaning",spec:"S110/S130/S170/S230/S280+",feat:"Tough, not brittle, suits thin plate"},C:{cn:"高碳钢砂",en:"High-carbon Steel Grit",mat:"Ferrous",hard:"GP 42-52 HRC",shape:"Angular",shapeKey:"angular",cyc:"1500-2000",surface:"Descaling/Roughening",spec:"G14-G18 / G25-G40 / G50-G80",feat:"Strong cutting; main media for staged blasting"},D:{cn:"轴承钢砂",en:"Bearing Steel Grit",mat:"Ferrous",hard:"GP 42-52 HRC",shape:"Forged Angular",shapeKey:"angular",cyc:"2000-3000",surface:"Descaling/Peening",spec:"G14-G18 / G25-G40 / G50-G80",feat:"Premium, long life; CI 7.1ppm far below ISO8502 15ppm"},E:{cn:"再生切丸",en:"Recycled Cut Wire",mat:"Ferrous",hard:"—",shape:"Cut Wire",shapeKey:"other",cyc:"1500-2000",surface:"General",spec:"φ1.0 / φ1.2 / φ1.4 / φ1.8-2.0",feat:"Economical, good value"},F:{cn:"研丸G45",en:"Grinding Steel Shot G45",mat:"Ferrous",hard:"—",shape:"Grinding",shapeKey:"grinding",grade:"G45",cyc:"2500-3500",surface:"General/Long life",spec:"G45 φ0.6/0.8/1.0/1.2-1.4",feat:"Entry level; breakage only 1/3 of normal shot"},G:{cn:"清理研丸G70",en:"Cleaning Grinding Shot G70",mat:"Ferrous",hard:"50-55 HRC",shape:"Grinding",shapeKey:"grinding",grade:"G70",cyc:"3000-4000",surface:"Cleaning/Rust removal",spec:"G70 φ0.4/0.6/0.8/1.0/1.2-1.4",feat:"Priced by 70# steel; main cleaning grinding shot; 50-55 HRC"},H:{cn:"强化研丸G82B",en:"Peening Grinding Shot G82B",mat:"Ferrous",hard:"55-60 HRC",shape:"Grinding",shapeKey:"grinding",grade:"G82B",cyc:"3500-4500",surface:"Top peening",spec:"G82B φ0.4/0.6/0.8/1.0/1.2-1.4",feat:"Priced by 82B high-carbon wire; heavy peening first choice; 55-60 HRC"},I:{cn:"铜切丸",en:"Copper Cut Wire",mat:"Non-ferrous",hard:"—",shape:"Cut Wire",shapeKey:"other",cyc:"1500-2000",surface:"Al/Cu cleaning",spec:"φ1.5-3.0",feat:"No sparks, no iron contamination; suits aluminum/copper"},J:{cn:"不锈钢丸304",en:"Stainless Steel Shot 304",mat:"Stainless",hard:"—",shape:"Spherical",shapeKey:"sshot",cyc:"2000-3000",surface:"Stainless cleaning",spec:"φ0.4/0.6/0.8/1.0/1.2-2.0",feat:"No carbon contamination; food/aerospace grade"},K:{cn:"不锈钢丸410",en:"Stainless Steel Shot 410",mat:"Stainless",hard:"—",shape:"Spherical",shapeKey:"sshot",cyc:"2000-3000",surface:"Stainless",spec:"φ0.4/0.6/0.8/1.0/1.2-1.4",feat:"Magnetic stainless"},L:{cn:"不锈钢丸430",en:"Stainless Steel Shot 430",mat:"Stainless",hard:"—",shape:"Spherical",shapeKey:"sshot",cyc:"2000-3000",surface:"Stainless",spec:"φ0.4/0.6/0.8/1.0/1.2-1.4",feat:"Corrosion-resistant"},M:{cn:"不锈钢丸201",en:"Stainless Steel Shot 201",mat:"Stainless",hard:"—",shape:"Spherical",shapeKey:"sshot",cyc:"2000-3000",surface:"Stainless",spec:"φ0.4/0.6/0.8/1.0/1.2-2.0",feat:"Economical stainless"},N:{cn:"普通研丸(G3)",en:"General Grinding Shot (roundness G3)",mat:"Ferrous",hard:"—",shape:"Grinding",shapeKey:"grinding",grade:"",cyc:"2000-3000",surface:"General/Long life",spec:"φ1.4 / φ1.8-2.0 (roundness G3)",feat:"Economical grinding shot; good value"},O:{cn:"304切丸",en:"304 Cut Wire",mat:"Stainless",hard:"—",shape:"Cut Wire",shapeKey:"other",cyc:"1500-2500",surface:"Stainless cleaning/roughening",spec:"φ0.4/0.6/0.8/1.0/1.2-2.0",feat:"Cheaper and more angular than 304 grinding shot"},P:{cn:"410切丸",en:"410 Cut Wire",mat:"Stainless",hard:"—",shape:"Cut Wire",shapeKey:"other",cyc:"1500-2500",surface:"Stainless cleaning/roughening",spec:"φ0.4/0.6/0.8/1.0/1.2-1.4",feat:"Cheaper and more angular than 410 grinding shot"}};var n={cast_steel:{zh:"铸钢/铸铁",en:"Cast Steel / Cast Iron",preset:{base:"黑色金属(碳钢/铸铁)",surface:"清理/除锈",rough:"50-80",equip:"抛丸机(叶轮式)",power:"中(15-30kW)",life:"3-8年",recover:"有",env:"一般"},consLow:.8,consHigh:1.5,main:"A",sub:"C",mix:"70:30",note:"Annual capacity / casting material / wall thickness (thin-wall uses low-hardness shot)"},shipbuilding:{zh:"船舶与海洋工程",en:"Shipbuilding & Offshore",preset:{base:"黑色金属(碳钢/铸铁)",surface:"除鳞/粗化/打砂",rough:"80-120",equip:"抛丸机(叶轮式)",power:"高(>30kW)",life:"3-8年",recover:"有",env:"严格(<5mg/m³)"},consLow:.3,consHigh:.6,main:"A",sub:"C",mix:"70:30",note:"Class certification / plate material (carbon/stainless/Al) / coating standard"},automotive:{zh:"汽车零部件",en:"Automotive Parts",preset:{base:"黑色金属(碳钢/铸铁)",surface:"喷丸强化",rough:"50-80",equip:"抛丸机(叶轮式)",power:"中(15-30kW)",life:"3-8年",recover:"有",env:"一般"},consLow:.6,consHigh:1.2,main:"B",sub:"C",mix:"60:40",note:"Peening or cleaning / part material / fatigue life"},bearing:{zh:"轴承行业",en:"Bearing Industry",preset:{base:"黑色金属(碳钢/铸铁)",surface:"喷丸强化",rough:"50-80",equip:"抛丸机(叶轮式)",power:"中(15-30kW)",life:"<3年",recover:"有",env:"一般"},consLow:.5,consHigh:1,main:"A",sub:"-",mix:"100:0",note:"Bearing model / peening coverage rate / current breakage pain point"},steel_struct:{zh:"钢结构与桥梁",en:"Steel Structure & Bridges",preset:{base:"黑色金属(碳钢/铸铁)",surface:"清理/除锈",rough:"50-80",equip:"抛丸机(叶轮式)",power:"中(15-30kW)",life:"3-8年",recover:"有",env:"一般"},consLow:.3,consHigh:.6,main:"A",sub:"-",mix:"100:0",note:"Pre-treatment line capacity / plate thickness / coating standard ISO8501"},container:{zh:"集装箱制造",en:"Container Manufacturing",preset:{base:"黑色金属(碳钢/铸铁)",surface:"除鳞/粗化/打砂",rough:"50-80",equip:"抛丸机(叶轮式)",power:"高(>30kW)",life:"3-8年",recover:"有",env:"严格(<5mg/m³)"},consLow:.4,consHigh:.8,main:"A",sub:"C",mix:"70:30",note:"Daily output / pre-treatment line config / dust emission"},oil_gas:{zh:"石油管道与压力容器",en:"Oil & Gas Pipe / Pressure Vessel",preset:{base:"黑色金属(碳钢/铸铁)",surface:"清理/除锈",rough:"50-80",equip:"喷砂机(压入式)",power:"中(15-30kW)",life:"3-8年",recover:"无",env:"一般"},consLow:.5,consHigh:1,main:"C",sub:"-",mix:"100:0",note:"Pipe material (carbon/alloy) / pressure rating / internal wall treatment"},wind_nuclear:{zh:"风电与核电设备",en:"Wind & Nuclear Equipment",preset:{base:"黑色金属(碳钢/铸铁)",surface:"喷丸强化",rough:"50-80",equip:"抛丸机(叶轮式)",power:"中(15-30kW)",life:"<3年",recover:"有",env:"严格(<5mg/m³)"},consLow:.5,consHigh:1,main:"B",sub:"C",mix:"60:40",note:"Equipment certification (nuclear) / special material / cleanliness"},precision_cast:{zh:"精密铸造与熔模铸造",en:"Precision / Investment Casting",preset:{base:"黑色金属(碳钢/铸铁)",surface:"精密清理/抛光",rough:"<50",equip:"抛丸机(叶轮式)",power:"低(<15kW)",life:"3-8年",recover:"有",env:"一般"},consLow:1,consHigh:2,main:"B",sub:"-",mix:"100:0",note:"Casting material (stainless/superalloy) / roughness requirement"},aluminum:{zh:"铝合金压铸",en:"Aluminum Die Casting",preset:{base:"有色金属(铝/铜/锌)",surface:"清理/除锈",rough:"<50",equip:"抛丸机(叶轮式)",power:"低(<15kW)",life:"3-8年",recover:"有",env:"一般"},consLow:.3,consHigh:.8,main:"J",sub:"-",mix:"100:0",note:"Export or not (iron residue) / surface quality issues"},railway:{zh:"铁路车辆与轨道",en:"Railway Vehicles & Track",preset:{base:"黑色金属(碳钢/铸铁)",surface:"除鳞/粗化/打砂",rough:"50-80",equip:"抛丸机(叶轮式)",power:"中(15-30kW)",life:"3-8年",recover:"有",env:"一般"},consLow:.4,consHigh:.8,main:"A",sub:"C",mix:"70:30",note:"Car type (carbon/stainless/Al body)"},steel_mill:{zh:"钢铁企业·除鳞线",en:"Steel Mill · Descaling Line",preset:{base:"黑色金属(碳钢/铸铁)",surface:"除鳞/粗化/打砂",rough:"50-80",equip:"抛丸机(叶轮式)",power:"高(>30kW)",life:"3-8年",recover:"有",env:"严格(<5mg/m³)"},consLow:2,consHigh:3,main:"A",sub:"C",mix:"60:40",note:"Line type (descaling 2-3kg/t vs rolling 0.02-0.05kg/t) / steel grade"}},a={cast_steel:{wheel:["A","C","70:30"],blast:["C","-","100:0"]},shipbuilding:{wheel:["A","C","70:30"],blast:["C","-","100:0"]},automotive:{wheel:["B","C","60:40"],blast:["C","-","100:0"]},bearing:{wheel:["A","-","100:0"],blast:["C","-","100:0"]},steel_struct:{wheel:["A","-","100:0"],blast:["C","-","100:0"]},container:{wheel:["A","C","70:30"],blast:["C","-","100:0"]},oil_gas:{wheel:["A","C","70:30"],blast:["C","-","100:0"]},wind_nuclear:{wheel:["B","C","60:40"],blast:["D","-","100:0"]},precision_cast:{wheel:["B","-","100:0"],blast:["C","-","100:0"]},aluminum:{wheel:["J","-","100:0"],blast:["I","-","100:0"]},railway:{wheel:["A","C","70:30"],blast:["C","-","100:0"]},steel_mill:{wheel:["A","C","60:40"],blast:["D","-","100:0"]}};function s(e,t){var n=e.shapeKey,a="<50"===t||"40-80"===t?"φ0.4":"50-80"===t?"φ0.6":"50-100"===t?"φ0.8":"80-120"===t?"φ1.0":"φ1.2-1.4";return"sshot"===n?a:"spherical"===n?"<50"===t||"40-80"===t?"S170":"50-80"===t?"S230":"50-100"===t?"S280":"S330/S390":"angular"===n?"<50"===t||"40-80"===t?"G80":"50-80"===t?"G40":"50-100"===t?"G25":"G16/G18":"grinding"===n?e.grade?e.grade+" "+a:a+" (roundness G3)":a}e("sel-industry").addEventListener("change",function(){var t=e("sel-industry").value;if(t&&n[t]){var a=n[t].preset;e("sel-base").value=a.base,e("sel-surface").value=a.surface,e("sel-rough").value=a.rough,e("sel-equip").value=a.equip,e("sel-power").value=a.power,e("sel-life").value=a.life,e("sel-recover").value=a.recover,e("sel-env").value=a.env}}),e("sel-gen").addEventListener("click",function(){var r=e("sel-industry").value;if(r&&n[r]){var i=n[r],o=e("sel-base").value,l=e("sel-surface").value,c=e("sel-rough").value,u=e("sel-equip").value,p=e("sel-power").value,d=e("sel-life").value,m=e("sel-recover").value,h=e("sel-env").value,g=parseFloat(e("sel-throughput").value)||0,f=function(t,s,r,i){var o=s||"",l=e("sel-base").value;if("不锈钢"===l||"有色金属(铝/铜/锌)"===l)return"喷丸强化"===r||"精密清理/抛光"===r?{main:"J",sub:"-",mix:"100:0"}:{main:"O",sub:"-",mix:"100:0"};if("喷丸强化"===r){var c="80-120"===i||">120"===i;return o.indexOf("喷砂")>=0?{main:c?"D":"C",sub:"-",mix:"100:0"}:{main:c?"H":"A",sub:"-",mix:"100:0"}}var u=a[t];if(o.indexOf("抛丸")>=0)return{main:u.wheel[0],sub:u.wheel[1],mix:u.wheel[2]};if(o.indexOf("喷砂")>=0)return{main:u.blast[0],sub:u.blast[1],mix:u.blast[2]};var p=n[t];return{main:p.main,sub:p.sub,mix:p.mix}}(r,u,l,c),v=f.main,b=f.sub&&"-"!=f.sub?f.sub:null,y=t[v],C=b?t[b]:null;e("sel-res-industry").textContent="Industry: "+i.en+" · "+i.zh;var w=e("sel-res-grid");w.innerHTML="";var S=v+(b?" + "+b:""),k=y.en+(C?" + "+C.en:""),x=b!==v&&b?v+":"+b+" (fine-tune by test)":"Single media 100% "+v,G=function(e,t,n){var a=["A","B","C","D"],s={G:"50-55 HRC (G-grade cleaning G70)",H:"55-60 HRC (H-grade peening G82B)"};if(s[e]&&!(t&&a.indexOf(t)>=0))return s[e];if(a.indexOf(e)<0&&!(t&&a.indexOf(t)>=0))return"— (N.A.)";var r="喷丸强化"===n||"精密清理/抛光"===n?"GL 52-61 HRC":"GP 42-52 HRC",i=[];return a.indexOf(e)>=0&&i.push(r),t&&a.indexOf(t)>=0&&i.push(r+" (sub)"),i.join(" / ")}(v,b,l),E=y.cyc+(C?" / "+C.cyc:"");[["Code / 编码",S],["Abrasive / 推荐磨料",k],["Spec (particle) / 规格",s(y,c)+(C?" + sub "+s(C,c):"")],["Hardness / 硬度",G],["Mix ratio / 混合比",x],["Cycles / 循环次数",E]].forEach(function(e){var t=document.createElement("div");t.className="res-item",t.innerHTML='<div class="k">'+e[0]+'</div><div class="v">'+e[1]+"</div>",w.appendChild(t)});var H=e("sel-res-table").querySelector("tbody");H.innerHTML="",[["Base material / 基材",o||"—"],["Surface treatment / 表面处理",l||"—"],["Target roughness / 粗糙度",c?c+" μm":"—"],["Equipment / 设备",u||"—"],["Power / 功率",p||"—"],["Service life / 年限",d||"—"],["Recovery system / 回收",m||"—"],["Dust requirement / 环保",h||"—"],["Main feature / 主料特性",y.feat],["Sub material / 副料",C?C.cn+" / "+C.en+" ("+b+")":"— (Single media)"],["Sub spec / 副料规格",C?s(C,c):"— (Single media)"],["Sub feature / 副料特性",C?C.feat:"Single media, no sub needed"],["Entry point / 选购切入点",i.note]].forEach(function(e){var t=document.createElement("tr");t.innerHTML="<td>"+e[0]+"</td><td>"+e[1]+"</td>",H.appendChild(t)});var A="有"===m?1:1.6;if(g>0){var L=(g*i.consLow/1e3*A).toFixed(1),N=(g*(i.consLow+i.consHigh)/2/1e3*A).toFixed(1),P=(g*i.consHigh/1e3*A).toFixed(1);(R=document.createElement("tr")).innerHTML="<td>Annual use / 年耗量 (tons)</td><td><b>"+("有"===m?"with recovery":"no recovery ×1.6")+" → "+L+" ~ "+P+" t (mid "+N+")</b></td>",H.appendChild(R)}else{var R;(R=document.createElement("tr")).innerHTML="<td>Annual use / 年耗量</td><td>No throughput entered → rate "+i.consLow+"~"+i.consHigh+" kg/t ("+("有"===m?"with recovery":"no recovery ×1.6")+")</td>",H.appendChild(R)}var q=e("sel-res-warn");q.innerHTML="";var B=[];">8年"===d&&B.push("⚠ Old equipment: drop particle size one grade and check impeller/blade wear;"),"低(<15kW)"===p&&B.push("⚠ Low power: avoid large particle clogging, recommend ≤S280/G40;"),"严格(<5mg/m³)"===h&&B.push("🌿 Strict dust: prefer GL-grade + sealed system, dust <5mg/m³;"),"无"===m&&B.push("🔧 No recovery: add magnetic + air separation to cut consumption 30%+;"),B.length?(q.style.display="block",B.forEach(function(e){var t=document.createElement("span");t.className="w",t.textContent=e,q.appendChild(t)})):q.style.display="none";var T="Basis: "+o+" ｜ "+l+" ｜ Rz "+c+"μm ｜ "+u+"；";T+="有"===m?"recovery installed → industry-standard mix/long-life media ("+S+")；":"no recovery → standard media + recommend adding recovery；",g>0&&(T+="throughput ~"+g+" t."),e("sel-res-note").textContent="Rationale: "+T+(g>0&&g*(i.consLow+i.consHigh)/2/1e3*A>=300?" ｜ ≥300t → strategic client: on-site visit + custom blending.":g>0?" ｜ <300t → remote video diagnosis + data report.":"");var W="";W="不锈钢"===o||"有色金属(铝/铜/锌)"===o?"O"===v?"Price advantage: 304 cut wire (O) is cheaper and more angular than 304 stainless shot, suits cleaning/roughening; for spherical finish or shot peening use 304 stainless shot (J); for magnetic applications use 410 cut wire (P).":"Shot peening requires spherical stainless shot (J) to induce residual compressive stress; high-demand springs/gears can also use stainless cut wire (O) — longer life, more uniform size, retains angularity, avoids iron contamination; for magnetic applications use 410 cut wire (P).":"喷丸强化"===l?u.indexOf("喷砂")>=0?"Pressure-blasting shot peening must use steel grit/bearing grit (C/D) only — never grinding shot or cut wire; if switching to wheel blasting, cast steel shot (A) or peening grinding shot G82B (H-grade) gives better fatigue life.":"Shot peening most widely uses cast steel shot (A) — spherical, tough, durable, the mainstream for gears/crankshafts/connecting rods; cut wire (E) lasts longer with uniform size, common for high-demand springs/gears; peening grinding shot G82B (H-grade) is the heaviest-duty peening choice (grinding shot G70 is a cleaning grade, not for peening); for stainless/non-ferrous parts use stainless shot (J) or cut wire (O/P) to avoid iron contamination.":["F","N"].indexOf(v)>=0?"More options: general grinding shot (N, roundness G3) is an economical alternative — lower cost, suits budget-sensitive scenarios.":"黑色金属(碳钢/铸铁)"===o?"Economical alternatives: recycled cut wire (E) / general grinding shot (N, roundness G3); if stronger cutting is needed, the main media is already blended per industry.":"See the abrasive database for each material's spec column.",e("sel-res-more").textContent="More options: "+W,e("sel-result").style.display="block",e("sel-result").scrollIntoView({behavior:"smooth"})}else alert("Please select an industry first. / 请先选择行业类型")}),e("sel-reset").addEventListener("click",function(){e("sel-section")&&document.querySelectorAll(".sel-section select, .sel-section input").forEach(function(e){e.value=""}),e("sel-result").style.display="none"});var r={USD:"$",CNY:"¥",EUR:"€"},i={USD:"USD",CNY:"CNY",EUR:"EUR"};function o(e,t){var n=document.querySelector('.sel-num[data-sid="'+e+'"][data-k="'+t+'"]'),a=parseFloat(n.value);return isFinite(a)&&a>0?a:0}function l(e){return e.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})}function c(e,t){return r[t]+l(e)}function u(t,n,a){var s=e(t);s.textContent=n,s.className="v"+(a?" "+a:"")}document.querySelectorAll(".sel-abr-type").forEach(function(e){["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"].forEach(function(n){var a=t[n],s=document.createElement("option");s.value=n,s.textContent=n+" "+a.cn+" / "+a.en,e.appendChild(s)})}),e("sel-cost-gen").addEventListener("click",function(){var t=e("sel-ccy").value,n=function(e){var t=o(e,"price"),n=o(e,"consumed"),a=o(e,"power"),s=o(e,"labor"),r=o(e,"depm"),i=o(e,"dust"),l=o(e,"scrap"),c=o(e,"work"),u=t*n,p=u+a+s+r+i-l;return{price:t,consumed:n,power:a,labor:s,depm:r,dust:i,scrap:l,work:c,mat:u,total:p,cpt:c>0?p/c:null}},a=n("a"),s=n("b"),r=[];0!==a.price&&0!==a.consumed||r.push("Scenario A: unit price/consumed missing, fill ② and ③."),0!==s.price&&0!==s.consumed||r.push("Scenario B: unit price/consumed missing, fill ② and ③."),0===a.work&&r.push("Scenario A: no workpiece tons ⑨, cannot compute cost per ton."),0===s.work&&r.push("Scenario B: no workpiece tons ⑨, cannot compute cost per ton.");var p=e("sel-cost-tbody");p.innerHTML="",[{k:"Material Cost = price × consumed",a:a.mat,b:s.mat,t:"money"},{k:"Power Cost",a:a.power,b:s.power,t:"money"},{k:"Labor Cost",a:a.labor,b:s.labor,t:"money"},{k:"Depreciation & Maintenance",a:a.depm,b:s.depm,t:"money"},{k:"Dust Control Cost",a:a.dust,b:s.dust,t:"money"},{k:"Scrap Recovery (−)",a:-a.scrap,b:-s.scrap,t:"money"},{k:"Total Cost",a:a.total,b:s.total,t:"money"},{k:"Workpiece Tons",a:a.work,b:s.work,t:"num"},{k:"Cost per Ton",a:a.cpt,b:s.cpt,t:"money"}].forEach(function(e){var n=document.createElement("tr"),r=document.createElement("td");r.textContent=e.k;var i=function(n,a){var s="—";null!=n&&isFinite(n)&&(s="num"===e.t?l(n):c(n,t)),a.textContent=s,a.style.fontWeight=e.k.indexOf("Total")>=0||e.k.indexOf("Cost per Ton")>=0?"700":"400"},o=document.createElement("td"),u=document.createElement("td");i(e.a,o),i(e.b,u),e.k.indexOf("Cost per Ton")>=0&&null!==a.cpt&&null!==s.cpt&&(a.cpt<s.cpt?o.innerHTML='<b style="color:#176b34">'+o.textContent+" ✓ better</b>":s.cpt<a.cpt&&(u.innerHTML='<b style="color:#176b34">'+u.textContent+" ✓ better</b>")),n.appendChild(r),n.appendChild(o),n.appendChild(u),p.appendChild(n)}),u("sel-cpt-a",null!==a.cpt?c(a.cpt,t)+" / ton":"—",null!==a.cpt&&null!==s.cpt&&a.cpt<s.cpt?"win":""),u("sel-cpt-b",null!==s.cpt?c(s.cpt,t)+" / ton":"—",null!==a.cpt&&null!==s.cpt&&s.cpt<a.cpt?"win":""),u("sel-cpt-diff","—",""),u("sel-cpt-total","—","");var d=e("sel-cost-verdict");if(r.length)d.className="sel-verdict warn",d.style.display="block",d.innerHTML="⚠ "+r.join("<br>⚠ ");else{var m=a.cpt-s.cpt,h="";if(Math.abs(m)<.005)h="Both scenarios have essentially equal cost per ton ("+c(a.cpt,t)+" / ton).",d.className="sel-verdict",u("sel-cpt-diff","≈ 0.00",""),u("sel-cpt-total","≈ 0.00","");else if(m>0){var g=m*a.work;h="Scenario B is better ✓: cost per ton is lower by "+c(m,t)+", at Scenario A workpiece "+l(a.work)+" t, this period saves ~"+c(g,t)+".",d.className="sel-verdict",u("sel-cpt-diff","-"+c(m,t)+" / ton (save)","win"),u("sel-cpt-total",c(g,t),"win")}else{var f=-m*a.work;h="Scenario A is better ✓: cost per ton is lower by "+c(-m,t)+", at Scenario A workpiece "+l(a.work)+" t, this period saves ~"+c(f,t)+".",d.className="sel-verdict",u("sel-cpt-diff","+"+c(-m,t)+" / ton (extra)","lose"),u("sel-cpt-total",c(f,t),"")}d.style.display="block",d.textContent=h}e("sel-cost-summary").textContent="Basis: "+i[t]+" · same-period cost per ton comparison",e("sel-cost-result").style.display="block",e("sel-cost-result").scrollIntoView({behavior:"smooth"})}),e("sel-cost-reset").addEventListener("click",function(){document.querySelectorAll(".sel-abr-type,.sel-num").forEach(function(e){e.value=""}),e("sel-cost-result").style.display="none"});var p=e("sel-lead-form"),d=e("sel-lc-status"),m=!1;p.addEventListener("submit",function(t){if(t.preventDefault(),!m){m=!0;var n=(e("sel-lead-email").value||"").trim();if(!n)return d.textContent="Please enter your work email.",d.className="sel-lc-status err",void(m=!1);if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(n))return d.textContent="That email does not look valid — please double-check.",d.className="sel-lc-status err",void(m=!1);var a="Selection report PDF request — "+n,s="Email: "+n+"\n\nI generated an abrasive selection recommendation on your site and would like the full PDF report.\n\nMy selections:\n(Please paste your selector inputs here if you want a tailored report.)",r="mailto:china_k@fengerda.com?subject="+encodeURIComponent(a)+"&body="+encodeURIComponent(s),i="https://wa.me/8618266010172?text="+encodeURIComponent(a+"\n\n"+s),o=document.createElement("a");o.href=r,o.target="_blank",o.rel="noopener",o.textContent="open the pre-filled email";var l=document.createElement("a");l.href=i,l.target="_blank",l.rel="noopener",l.textContent="send via WhatsApp",d.textContent="Your details are ready: ",d.appendChild(o),d.appendChild(document.createTextNode(" or ")),d.appendChild(l),d.appendChild(document.createTextNode(". Reply within 24 working hours.")),d.className="sel-lc-status"}});var h=e("lead-form"),g=e("form-status"),f=!1;h.addEventListener("submit",function(t){if(t.preventDefault(),!f){f=!0;var n=(e("lf-name").value||"").trim(),a=(e("lf-company").value||"").trim(),s=(e("lf-country").value||"").trim(),r=(e("lf-email").value||"").trim(),i=(e("lf-whatsapp").value||"").trim(),o=(e("lf-scene").value||"").trim();if(!n||!r)return g.textContent="Please enter at least your name and work email.",g.className="form-status err",void(f=!1);if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(r))return g.textContent="The email address does not look valid - please double-check it.",g.className="form-status err",void(f=!1);var l=[];l.push("Name: "+n),a&&l.push("Company: "+a),s&&l.push("Country / Region: "+s),l.push("Email: "+r),i&&l.push("WhatsApp: "+i),o&&l.push(""),o&&l.push("Application details:"),o&&l.push(o);var c=l.join("\n"),u="Abrasive recommendation request - "+n,p="mailto:china_k@fengerda.com?subject="+encodeURIComponent(u)+"&body="+encodeURIComponent(c),d="https://wa.me/8618266010172?text="+encodeURIComponent(u+"\n\n"+c),m=document.createElement("a");m.href=p,m.target="_blank",m.rel="noopener",m.textContent="open the pre-filled email draft";var h=document.createElement("a");h.href=d,h.target="_blank",h.rel="noopener",h.textContent="open a WhatsApp message",g.textContent="Your details are ready: ",g.appendChild(m),g.appendChild(document.createTextNode(" or ")),g.appendChild(h),g.appendChild(document.createTextNode(". I reply within 24 working hours.")),g.className="form-status"}})}();</script>
 </body>
 </html>

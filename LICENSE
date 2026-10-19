@@ -1,0 +1,51 @@
+Proprietary Software License
+Copyright (c) 2026 Hannibal Zhang / FENGERDA. All rights reserved.
+
+1. OWNERSHIP
+   This software, including but not limited to its source code, object code,
+   HTML/CSS/JavaScript, embedded data tables, selection algorithms, scoring
+   logic, industry consumption-rate parameters, and documentation
+   (collectively, the "Software"), is the proprietary and confidential
+   property of Hannibal Zhang / FENGERDA and is protected by copyright law
+   and international treaty provisions.
+
+2. NO LICENSE GRANTED
+   No license, right, or interest in the Software is granted to you by
+   making it publicly viewable. Viewing the Software for evaluation purposes
+   does not transfer any ownership or usage rights.
+
+3. PERMITTED USE
+   You may view the Software solely to evaluate it. Any other use requires
+   prior written permission from the copyright holder.
+
+4. PROHIBITED ACTS
+   Without prior written permission, you may NOT:
+   (a) copy, reproduce, or republish the Software, in whole or in part;
+   (b) modify, adapt, translate, or create derivative works;
+   (c) distribute, sublicense, sell, rent, lease, or lend the Software;
+   (d) use the Software, or any portion of it, for any commercial purpose,
+       including as part of a competing product or service;
+   (e) remove or alter any copyright, trademark, or proprietary notice;
+   (f) reverse engineer, decompile, or disassemble any obfuscated portion.
+
+5. DATA TABLES AND ALGORITHMS
+   The embedded abrasive database, industry templates, consumption-rate
+   parameters, and selection matrix constitute trade-secret information of
+   the copyright holder. Extracting, reconstructing, or reusing this data
+   by any means - including automated querying of any public interface -
+   is expressly prohibited.
+
+6. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+7. LIMITATION OF LIABILITY
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES,
+   OR OTHER LIABILITY ARISING FROM OR IN CONNECTION WITH THE SOFTWARE.
+
+8. TERMINATION
+   Any breach of this license terminates your rights immediately and
+   without notice.
+
+For licensing inquiries, contact the copyright holder.
