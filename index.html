@@ -1057,5 +1057,229 @@
 })();
 </script>
 
+
+<!-- 询盘落库：POST 到服务器，网络失败自动回落 mailto -->
+<script>
+/**
+ * lead-client.js — 前端接入片段
+ *
+ * 装到 index.html，把两处表单从 mailto: 改为 POST，落库 + 邮件通知。
+ *
+ * 三条硬规则（都是为了不让询盘悄悄消失）：
+ *  1. 先 POST，成功才显示"已收到"。顺序反了会出现"显示成功但其实没存"。
+ *  2. POST 失败/超时/被限流 → 自动降级回 mailto，把内容塞进邮件正文。
+ *     访客永远不会因为服务器挂了而丢表单。
+ *  3. 不读本地存储里的选型结果，只在提交瞬间现取。选型器
+ *     表单只要求邮箱，值可能为空——不能因此拦住人。
+ *
+ * 部署：改 API 常量 → 整段贴进 <script> → 删掉原来那两段 submit 处理
+ */
+
+/* ============ 部署时改这一行 ============ */
+var LEAD_API = 'https://lead.47.250.114.151.sslip.io/api/lead';
+/* ======================================= */
+
+(function () {
+  'use strict';
+
+  var TIMEOUT_MS = 8000;
+
+  /** 提交锁：{表单标识: true}。防重复提交，键按表单区分。 */
+  var BUSY = {};
+
+  function $(id) { return document.getElementById(id); }
+
+  /** 把值安全放进 URL（data 里的值含换行，必须 encode） */
+  function enc(v) {
+    return encodeURIComponent(String(v == null ? '' : v).trim());
+  }
+
+  /** 组装 mailto，失败时的救命通道 */
+  function buildMailto(subject, body) {
+    return 'mailto:china_k@fengerda.com?subject=' + enc(subject)
+      + '&body=' + enc(body);
+  }
+
+  /** 当前页面能拿到的来源信息 */
+  function context(extra) {
+    var g = (typeof window.__gdGuide === 'object' && window.__gdGuide) || {};
+    var geo = (typeof window.__geoLead === 'object' && window.__geoLead) || {};
+    return {
+      source: (geo.detectSource && geo.detectSource()) || g.source || '',
+      guide: g.slug || '',
+      page: location.href,
+      selector: (geo.collectSelector && geo.collectSelector()) || ''
+    };
+  }
+
+  /** POST 到服务器 */
+  function post(payload) {
+    var ctrl = typeof AbortController !== 'undefined'
+      ? new AbortController() : null;
+    var timer = setTimeout(function () {
+      if (ctrl) ctrl.abort();
+    }, TIMEOUT_MS);
+
+    return fetch(LEAD_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function (r) {
+      clearTimeout(timer);
+      return r.json().catch(function () { return {}; }).then(function (d) {
+        if (!r.ok) {
+          var err = new Error(d.error || ('HTTP ' + r.status));
+          err.payload = d;
+          throw err;
+        }
+        return d;
+      });
+    }).catch(function (e) {
+      clearTimeout(timer);
+      throw e;
+    });
+  }
+
+  /**
+   * 统一的提交处理
+   * @param formEl    表单元素（用于成功后重置）
+   * @param statusEl  状态显示元素（注意：它通常在 </form> 之后，
+   *                  不能靠 closest('form') 找表单，必须显式传）
+   * @param subject   邮件主题
+   * @param lines     [[字段key, 元素id], ...] 既是邮件正文也是落库字段
+   * @param required  [[元素id, 是否必填, 错误提示], ...]
+   * @param btn       提交按钮
+   */
+  function handleSubmit(formEl, formKey, statusEl, subject, lines, required, btn) {
+    // 1) 前端校验
+    for (var i = 0; i < required.length; i++) {
+      var rid = required[i][0], mandatory = required[i][1], tip = required[i][2];
+      var v = ($(rid).value || '').trim();
+      if (mandatory && !v) {
+        statusEl.textContent = tip || 'Please fill in the required fields.';
+        statusEl.className = 'form-status err';
+        $(rid).focus();
+        return;
+      }
+    }
+    // 字段值全部从 lines 派生。硬编码 $('lf-email') 会在选型器表单上
+    // 取到 null —— 那个表单只有 sel-lead-email，没有 lf-email。
+    var payload = {};
+    var bodyLines = [];
+    var email = '';
+    for (var j = 0; j < lines.length; j++) {
+      var key = lines[j][0];
+      var field = $(lines[j][1]);
+      var val = (field && field.value || '').trim();
+      payload[key] = val;
+      if (key === 'email') email = val;
+      if (val) bodyLines.push(key.charAt(0).toUpperCase() + key.slice(1) + ': ' + val);
+    }
+    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      statusEl.textContent =
+        'The email address does not look valid - please double-check it.';
+      statusEl.className = 'form-status err';
+      var ef = $('lf-email') || $('sel-lead-email');
+      if (ef) ef.focus();
+      return;
+    }
+
+    var ctx = context();
+    payload.source = ctx.source;
+    payload.guide = ctx.guide;
+    payload.page = ctx.page;
+    payload.selector = ctx.selector;
+    // honeypot：真实访客看不到这个字段，脚本填了就丢弃
+    payload.website = '';
+
+    var mailto = buildMailto(subject, bodyLines.join('\n'));
+
+    // 2) 提交期间上锁。
+    //    按钮 disabled 只能挡鼠标点击，挡不住回车键和程序化
+    //    form.submit()，所以必须有个真正的锁。
+    if (BUSY[formKey]) return;
+    BUSY[formKey] = true;
+    var oldText = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    statusEl.textContent = 'Sending your request...';
+    statusEl.className = 'form-status';
+
+    var unlock = function () {
+      delete BUSY[formKey];
+      if (btn) { btn.disabled = false; btn.textContent = oldText; }
+    };
+
+    // 3) 先 POST
+    post(payload).then(function () {
+      unlock();
+      statusEl.textContent =
+        'Request received. I reply within 24 working hours — usually sooner.';
+      statusEl.className = 'form-status';
+      if (formEl && formEl.reset) formEl.reset();
+    }).catch(function (err) {
+      unlock();
+      // 4) 降级：给出 mailto 链接，绝不让访客白填
+      var reason = err && err.payload && err.payload.error === 'rate_limited'
+        ? ' (too many submissions from this connection)'
+        : '';
+      statusEl.textContent =
+        'Direct submission is unavailable' + reason +
+        '. Your details are ready — use this link and I will still reply within 24 working hours: ';
+      var a = document.createElement('a');
+      a.href = mailto;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = 'open the pre-filled email draft';
+      statusEl.appendChild(a);
+      statusEl.className = 'form-status';
+    });
+  }
+
+  // ---------- 接线：技术咨询表单 ----------
+  var tech = $('lead-form');
+  if (tech) {
+    tech.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // 必须阻断同一元素上后续注册的 submit handler（页面里旧版 mailto handler
+      // 在 DOMContentLoaded 后绑定）。只preventDefault 挡不住它，
+      // 会导致用户同时收到「服务器落库」和「弹出邮件客户端」两份。
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      handleSubmit(
+        tech,
+        'lead-form',
+        $('form-status'),
+        'Abrasive recommendation request',
+        [['name', 'lf-name'], ['company', 'lf-company'], ['country', 'lf-country'],
+         ['email', 'lf-email'], ['whatsapp', 'lf-whatsapp'], ['scene', 'lf-scene']],
+        [['lf-name', true, 'Please enter your name.'],
+         ['lf-email', true, 'Please enter your work email.']],
+        tech.querySelector('button[type=submit]')
+      );
+    });
+  }
+
+  // ---------- 接线：选型器 PDF 表单 ----------
+  var sel = $('sel-lead-form');
+  if (sel) {
+    sel.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // 必须阻断同一元素上后续注册的 submit handler（页面里旧版 mailto handler
+      // 在 DOMContentLoaded 后绑定）。只preventDefault 挡不住它，
+      // 会导致用户同时收到「服务器落库」和「弹出邮件客户端」两份。
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      handleSubmit(
+        sel,
+        'sel-lead-form',
+        $('sel-lc-status'),
+        'Selection report PDF request',
+        [['email', 'sel-lead-email']],
+        [['sel-lead-email', true, 'Please enter your work email.']],
+        sel.querySelector('button[type=submit]')
+      );
+    });
+  }
+})();
+</script>
 </body>
 </html>
