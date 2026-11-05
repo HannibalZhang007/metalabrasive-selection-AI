@@ -1,5 +1,7 @@
 # metalabrasive-selection-AI
 
+🌐 **Live site:** [https://hannibalzhang007.github.io/metalabrasive-selection-AI/](https://hannibalzhang007.github.io/metalabrasive-selection-AI/)
+
 金属磨料智能选型计算器 — 公开站点：https://hannibalzhang007.github.io/metalabrasive-selection-AI/
 
 **Proprietary — © 2026 Hannibal Zhang / FENGERDA. All rights reserved.** See [LICENSE](./LICENSE).
