@@ -24,27 +24,33 @@
 
 ---
 
-## 日常改代码的正确流程
+## 日常改代码的正确流程（2026-11-09 更新）
 
+> ⚠️ **实际惯例已变更**：仓库自 2026-10-19 起，所有迭代（FAQ、深度 guides、双轨询盘板块、GEO 改造等）都是**直接 patch 发布版 `index.html`** 完成的（仓库内 `patch_*.py` 即为此用）。`_protection_review/build_minify.py` 是早期压缩构建脚本，**直接跑会丢 10-19 之后新增的 FAQ / guides / 双轨板块**，请勿盲目执行。
+
+### 当前推荐流程（直接编辑发布版）
 ```bash
-# 1. 改开发版（未压缩，可读，有注释）
-编辑 _protection_review/index_protected.html
+# 1. 改前备份发布版
+cp index.html index.html.bak
 
-# 2. 构建发布版（压缩 + 去注释 + 清附录数据渲染）
-cd _protection_review
-python build_minify.py            # 默认仅压缩，安全
-python build_minify.py --obfuscate  # 可选混淆，⚠️ 需构建后复检 HTML
+# 2. 直接编辑发布版（脚本 patch 或精确定位编辑；已压缩，注意 CRLF）
+编辑 index.html
 
-# 3. 用构建产物覆盖发布版
-copy ..\dist\index.html ..\index.html
+# 3. 本地自检：JSON-LD 可解析 / 标签配平 / 无占位符 / 锚点齐全
+#    （校验思路见历史 patch_*.py）
 
-# 4. 提交推送
-git add index.html LICENSE
+# 4. 仅推送公开文件（勿推送 _protection_review/ 与内部运营文档 *.md）
+git add index.html llms.txt sitemap.xml README.md
 git commit -m "Update"
 git push
 ```
 
-**永远不要直接编辑 `index.html`**——那是压缩产物，改起来痛苦且下次构建会被覆盖。
+### 如需重新走压缩构建（谨慎，仅当 _protection_review/ 已含全部新增内容）
+```bash
+cd _protection_review && python build_minify.py
+cp ..\dist\index.html ..\index.html
+```
+否则请沿用上面的「直接编辑发布版」流程。
 
 ---
 
